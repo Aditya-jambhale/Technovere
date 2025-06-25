@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sora': ['Sora', 'sans-serif'],
-				'inter': ['Inter', 'sans-serif'],
+				'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
+				'poppins': ['Poppins', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,10 +67,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Technovere brand colors
-				'techno-blue': '#00AEEF',
-				'techno-yellow': '#FCE600',
-				'techno-red': '#FF4444',
+				// New modern agency color scheme
+				'electric': '#6366F1',
+				'electric-light': '#8B5CF6',
+				'cyber': '#10B981',
+				'neon': '#F59E0B',
+				'dark': '#0F172A',
+				'dark-light': '#1E293B',
+				'accent-purple': '#8B5CF6',
+				'accent-teal': '#14B8A6',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -141,6 +146,22 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'glow': {
+					'0%, 100%': {
+						opacity: '0.5'
+					},
+					'50%': {
+						opacity: '1'
+					}
+				},
+				'pulse-slow': {
+					'0%, 100%': {
+						opacity: '0.3'
+					},
+					'50%': {
+						opacity: '0.8'
+					}
 				}
 			},
 			animation: {
@@ -151,6 +172,8 @@ export default {
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'float': 'float 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 			}
 		}
 	},
