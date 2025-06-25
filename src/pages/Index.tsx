@@ -2,7 +2,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
-import Solution from '@/components/Solution';
+// import Solution from '@/components/Solution';
 import Benefits from '@/components/Benefits';
 import About from '@/components/About';
 import Founder from '@/components/Founder';
@@ -17,7 +17,7 @@ const Index = () => {
       <Header />
       <Hero />
       <Problem />
-      <Solution />
+      {/* <Solution /> */}
       <Benefits />
       <About />
       <Founder />

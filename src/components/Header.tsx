@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -9,7 +8,11 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (window.innerWidth >= 768) {
+        setIsScrolled(window.scrollY > 50);
+      } else {
+        setIsScrolled(false); // Disable scroll animation on mobile
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -25,87 +28,70 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-100' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <img 
-            src="/lovable-uploads/7737980a-d540-439e-aeb0-baa810486434.png" 
-            alt="Technovere" 
-            className="h-8 w-auto"
-          />
-        </div>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <button 
-            onClick={() => scrollToSection('about')}
-            className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium"
-          >
-            About
-          </button>
-          <button 
-            onClick={() => scrollToSection('services')}
-            className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium"
-          >
-            Services
-          </button>
-          <button 
-            onClick={() => scrollToSection('process')}
-            className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium"
-          >
-            Process
-          </button>
-          <Button 
-            onClick={() => scrollToSection('contact')}
-            className="bg-gradient-to-r from-electric to-electric-light text-white font-poppins font-semibold px-8 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            Get Started
-          </Button>
-        </nav>
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-transparent">
+      <div className={`transition-all duration-700 ease-out ${
+        isScrolled 
+          ? 'w-[94%] max-w-6xl mt-4  backdrop-blur-xl shadow-2xl border border-gray-200 rounded-2xl' 
+          : 'w-full bg-white/80 backdrop-blur-md shadow-sm'
+      }`}>
+        <div className="px-4 sm:px-6 py-4 flex items-center justify-between">
+          {/* Logo Text */}
+          <div className="text-2xl font-extrabold tracking-wider font-poppins flex">
+            <span className="text-[#00ADEF]">TECHNO</span>
+            <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6 text-gray-700" />
-          ) : (
-            <Menu className="w-6 h-6 text-gray-700" />
-          )}
-        </button>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-5">
+            {['about', 'work', 'services', 'feedbacks', 'contact'].map((item) => (
+              <button 
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="text-gray-700 hover:text-[#00ADEF] transition-all duration-300 font-poppins font-medium hover:scale-105 relative group"
+              >
+                {item === 'work' ? 'Our Work' : item === 'contact' ? 'Contact Us' : item.charAt(0).toUpperCase() + item.slice(1)}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ADEF] transition-all duration-300 group-hover:w-full"></span>
+              </button>
+            ))}
+            <Button 
+              onClick={() => scrollToSection('call')}
+              className="bg-[#00ADEF] text-white font-poppins font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 ml-1"
+            >
+              BOOK A CALL
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-gray-700" />
+            ) : (
+              <Menu className="w-6 h-6 text-gray-700" />
+            )}
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-lg border-t border-gray-100 md:hidden">
-            <nav className="flex flex-col p-4 space-y-4">
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium py-2 text-left"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium py-2 text-left"
-              >
-                Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('process')}
-                className="text-gray-700 hover:text-electric transition-colors font-poppins font-medium py-2 text-left"
-              >
-                Process
-              </button>
+          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl rounded-b-2xl">
+            <nav className="flex flex-col p-3 space-y-3">
+              {['about', 'work', 'services', 'feedbacks', 'contact'].map((item) => (
+                <button 
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-gray-700 hover:text-[#00ADEF] transition-colors font-poppins font-medium py-3 text-left hover:bg-gray-50 px-2 rounded-lg"
+                >
+                  {item === 'work' ? 'Our Work' : item === 'contact' ? 'Contact Us' : item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
               <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-electric to-electric-light text-white font-poppins font-semibold px-8 py-2.5 rounded-full w-full mt-4"
+                onClick={() => scrollToSection('call')}
+                className="bg-[#00ADEF] text-white font-poppins font-semibold px-6 py-3 rounded-full w-full mt-4 hover:shadow-xl transition-all duration-300"
               >
-                Get Started
+                BOOK A CALL
               </Button>
             </nav>
           </div>
