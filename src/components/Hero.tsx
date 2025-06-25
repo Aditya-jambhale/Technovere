@@ -48,18 +48,23 @@ const EnhancedHero = () => {
   };
 
   return (
-    <section
-      id="hero-section"
-      className="relative min-h-screen bg-gray-50 overflow-hidden"
-    >
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,173,239,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(0,173,239,0.15)_1px,transparent_1px)] bg-[size:50px_50px] z-0" />
+ 
+     
+
+<section
+  id="hero-section"
+  className="relative min-h-screen overflow-hidden bg-[url('https://cdn.pixabay.com/photo/2022/08/21/03/41/grid-7400375_1280.jpg')] bg-cover bg-center bg-no-repeat"
+>
+
+
+
+
 
       {/* Colorful Blurs */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute top-20 right-20 w-60 h-60 bg-gradient-to-br from-[#00ADEF]/10 to-[#FFE500]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-40 left-20 w-72 h-72 bg-gradient-to-tr from-[#FFE500]/10 to-[#FF6A00]/10 rounded-full blur-3xl" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
@@ -69,9 +74,9 @@ const EnhancedHero = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full border border-blue-200 shadow-sm mb-6">
-              <Sparkles className="w-5 h-5 text-[#00ADEF]" />
-              <span className="text-[#00ADEF] font-semibold text-sm">Premium Digital Agency</span>
+            <div className="inline-flex items-center gap-2 bg-yellow-300 px-5 py-2 rounded-full border border-black shadow-sm mb-6">
+              <Sparkles className="w-5 h-5 text-black" />
+              <span className="text-black  font-semibold text-sm">Premium Digital Agency</span>
             </div>
           </div>
 
@@ -83,7 +88,7 @@ const EnhancedHero = () => {
           >
             More Than Just Design —
             <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-[#00ADEF] to-[#FFE500] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r bg-clip-text text-[#25AAE2]">
               It's Your Digital Identity
             </span>
           </h1>
@@ -105,7 +110,7 @@ const EnhancedHero = () => {
           >
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 mb-8">
               <div className="bg-white border border-gray-200 shadow-md px-6 py-4 rounded-2xl flex items-center gap-4">
-                <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-[#00ADEF] to-[#FFE500] rounded-xl">
+                <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r  to-[#FFE500] rounded-xl">
                   {stats[currentStat].icon}
                 </div>
                 <div className="text-left">
@@ -127,7 +132,7 @@ const EnhancedHero = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-gradient-to-r from-[#00ADEF] to-[#0077b6] text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="bg-yellow-400 text-black font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <span className="flex items-center gap-2">
                 Book a Free Call <ArrowRight className="w-5 h-5" />

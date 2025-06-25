@@ -32,7 +32,7 @@ const Header = () => {
       <div className={`transition-all duration-700 ease-out ${
         isScrolled 
           ? 'w-[94%] max-w-6xl mt-4  backdrop-blur-xl shadow-2xl border border-gray-200 rounded-2xl' 
-          : 'w-full bg-white/80 backdrop-blur-md shadow-sm'
+          : 'w-full   '
       }`}>
         <div className="px-4 sm:px-6 py-4 flex items-center justify-between">
           {/* Logo Text */}
@@ -47,7 +47,7 @@ const Header = () => {
               <button 
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-gray-700 hover:text-[#00ADEF] transition-all duration-300 font-poppins font-medium hover:scale-105 relative group"
+                className="text-white hover:text-[#00ADEF] transition-all duration-300 font-poppins font-medium hover:scale-105 relative group"
               >
                 {item === 'work' ? 'Our Work' : item === 'contact' ? 'Contact Us' : item.charAt(0).toUpperCase() + item.slice(1)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ADEF] transition-all duration-300 group-hover:w-full"></span>

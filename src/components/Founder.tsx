@@ -83,7 +83,7 @@ const Founder = () => {
                 <div className="text-center mb-8">
                   <div className="relative inline-block">
                     <img 
-                      src="/lovable-uploads/d86fc6a9-47c0-4f3c-add1-74cc6f9e7d23.png" 
+                      src="/images/photo.png" 
                       alt="Mohd Yusuf - Founder of Technovere" 
                       className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl mx-auto shadow-xl"
                     />
