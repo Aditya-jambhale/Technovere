@@ -5,8 +5,10 @@ import Problem from '@/components/Problem';
 // import Solution from '@/components/Solution';
 import Benefits from '@/components/Benefits';
 import About from '@/components/About';
-import Founder from '@/components/Founder';
+// import Founder from '@/components/Founder';
 import Services from '@/components/Services';
+import Testimonials from '@/components/testimonials';
+import OurWork from '@/components/Work';
 import Process from '@/components/Process';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -20,8 +22,13 @@ const Index = () => {
       {/* <Solution /> */}
       <Benefits />
       <About />
-      <Founder />
+      {/* <Founder /> */}
       <Services />
+      <OurWork />
+      <Testimonials />
+      {/* <Testimonials /> */}
+      {/* <Feedbacks /> */}
+      {/* <Blog /> */}
       <Process />
       <CTA />
       <Footer />

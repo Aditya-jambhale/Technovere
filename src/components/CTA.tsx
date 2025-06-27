@@ -1,97 +1,235 @@
-
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Calendar, ArrowRight, Star, Users, Trophy } from 'lucide-react';
 
-const CTA = () => {
+// Typing component (loop + subheading animation)
+const TypingText = ({
+  text,
+  delay = 50,
+  loop = true,
+  highlight = '',
+  className = '',
+}: {
+  text: string;
+  delay?: number;
+  loop?: boolean;
+  highlight?: string;
+  className?: string;
+}) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [cycle, setCycle] = useState(0);
+
+  useEffect(() => {
+    if (index <= text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(text.slice(0, index));
+        setIndex((prev) => prev + 1);
+      }, delay);
+      return () => clearTimeout(timeout);
+    } else if (loop) {
+      const restartTimeout = setTimeout(() => {
+        setIndex(0);
+        setDisplayedText('');
+        setCycle((prev) => prev + 1);
+      }, 2500);
+      return () => clearTimeout(restartTimeout);
+    }
+  }, [index, text, delay, loop, cycle]);
+
+  const highlightStart = text.indexOf(highlight);
+  const highlightEnd = highlightStart + highlight.length;
+  const before = displayedText.slice(0, highlightStart);
+  const highlighted = displayedText.slice(highlightStart, highlightEnd);
+  const after = displayedText.slice(highlightEnd);
+
+  return (
+    <h2 className={className}>
+      {highlight ? (
+        <>
+          {before}
+          <span className="bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200 text-transparent">
+            {highlighted}
+          </span>
+          {after}
+        </>
+      ) : (
+        displayedText
+      )}
+      <span className="text-yellow-500 animate-pulse">|</span>
+    </h2>
+  );
+};
+
+const PremiumCTAFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
+      { threshold: 0.2 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const scrollToCalendar = () => {
+    const calendarElement = document.getElementById('calendar-embed');
+    if (calendarElement) {
+      calendarElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-gradient-to-br from-techno-blue to-techno-yellow relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
+    <section ref={sectionRef} className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-0 w-px h-32 bg-gradient-to-b from-transparent via-purple-400/50 to-transparent"></div>
+        <div className="absolute top-1/2 right-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className={`transition-all duration-800 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-sora font-bold text-white mb-6 leading-tight">
-              Let's Build a Website That{' '}
-              <span className="text-techno-yellow">
-                Reflects Your Worth
-              </span>
-            </h2>
-          </div>
-
-          <div className={`transition-all duration-800 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 font-inter leading-relaxed">
-              Ready to create a website that's more than just pretty — one that works as hard as you do?
-            </p>
-          </div>
-
-          <div className={`transition-all duration-800 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <Button 
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-white text-techno-blue font-inter font-bold text-lg px-12 py-6 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-gray-50"
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* Left Column */}
+          <div className="order-2 lg:order-1">
+            <div
+              className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             >
-              Book Your Discovery Call
-            </Button>
+              {/* Trust */}
+              <div className="flex items-center gap-6 mb-8">
+                <div className="flex items-center gap-2 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-current" />
+                  ))}
+                  <span className="text-black ml-2 text-sm">5.0 • 200+ Reviews</span>
+                </div>
+              </div>
+
+              {/* Animated Heading */}
+              <TypingText
+                text="Let's Build Something That Reflects Your True Worth"
+                highlight="Reflects Your True Worth"
+                delay={50}
+                loop
+                className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-6 leading-tight"
+              />
+
+              {/* Animated Subheading */}
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black mb-8 leading-relaxed max-w-2xl">
+  Book a free discovery call and let's map out how your website can start converting like your brand deserves.
+</p>
+
+
+              {/* CTA Button */}
+              <button
+                onClick={scrollToCalendar}
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 hover:ring-2 hover:ring-purple-300/50"
+              >
+                Schedule My Call
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+
+              {/* Stats */}
+              <div className="mt-12 grid grid-cols-3 gap-6 text-white">
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+                    <Trophy className="w-5 h-5 text-yellow-400" />
+                    <span className="text-2xl font-bold text-black">500+</span>
+                  </div>
+                  <p className="text-black/60 text-sm">Projects Delivered</p>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+                    <Users className="w-5 h-5 text-green-400" />
+                    <span className="text-2xl font-bold text-black">Global</span>
+                  </div>
+                  <p className="text-black/60 text-sm">Client Network</p>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+                    <Star className="w-5 h-5 text-gray-400" />
+                    <span className="text-2xl font-bold text-black">Premium</span>
+                  </div>
+                  <p className="text-black/60 text-sm">Quality Assured</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className={`mt-12 transition-all duration-800 delay-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="grid md:grid-cols-3 gap-8 text-white">
-              <div>
-                <div className="text-3xl font-sora font-bold mb-2">500+</div>
-                <div className="font-inter">Websites Delivered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-sora font-bold mb-2">Global</div>
-                <div className="font-inter">Client Base</div>
-              </div>
-              <div>
-                <div className="text-3xl font-sora font-bold mb-2">Premium</div>
-                <div className="font-inter">Quality Guaranteed</div>
+          {/* Right Column - Calendar Embed */}
+          <div className="order-1 lg:order-2">
+            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}>
+              <div className="relative">
+                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl"></div>
+
+                  {/* Header */}
+                  <div className="relative z-10 mb-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg">
+                        <Calendar className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-black font-semibold text-lg">Book Your Discovery Call</h3>
+                        <p className="text-black/60 text-sm">Choose your preferred time slot</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Embedded Calendar */}
+                  <div id="calendar-embed" className="relative z-10">
+                    <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
+                      <iframe
+                        src="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+                        width="100%"
+                        height="500"
+                        style={{
+                          border: 'none',
+                          borderRadius: '12px',
+                          minHeight: '400px',
+                        }}
+                        loading="lazy"
+                        allowTransparency={true}
+                        title="Schedule Discovery Call"
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Badge */}
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">
+                    Free Consultation
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 blur-3xl -z-10 animate-pulse"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Responsive Styling */}
+      <style>{`
+        @media (max-width: 768px) {
+          .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+          iframe {
+            min-height: 450px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          iframe {
+            min-height: 400px;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default CTA;
+export default PremiumCTAFooter;

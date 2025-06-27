@@ -1,14 +1,17 @@
-// Merged Problem + Solution Section with consistent theme and animation
-
 import { useEffect, useRef, useState } from 'react';
 import {
   AlertTriangle,
-  TrendingDown,
+  X,
+  Check,
+  ArrowRight,
   Eye,
-  Lightbulb,
+  MessageSquare,
   Target,
+  Zap,
   Users,
   TrendingUp,
+  Globe,
+  Smartphone
 } from 'lucide-react';
 
 const Problem = () => {
@@ -22,7 +25,7 @@ const Problem = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -34,122 +37,216 @@ const Problem = () => {
 
   const problems = [
     {
-      icon: <Eye className="w-8 h-8" />, title: 'Outdated Design',
-      description: 'Their website looks templated and unprofessional'
+      icon: <Eye className="w-6 h-6" />,
+      title: "Your website looks outdated or templated",
+      description: "Generic designs that blend into the background"
     },
     {
-      icon: <TrendingDown className="w-8 h-8" />, title: 'Poor Messaging',
-      description: "Their story isn't clearly told or compelling"
+      icon: <MessageSquare className="w-6 h-6" />,
+      title: "Your story isn't clearly told",
+      description: "Visitors leave confused about what you actually do"
     },
     {
-      icon: <AlertTriangle className="w-8 h-8" />, title: 'Wrong Positioning',
-      description: "Their expertise isn't positioned to convert visitors"
+      icon: <Target className="w-6 h-6" />,
+      title: "Your expertise isn't positioned right",
+      description: "You're underselling your value and experience"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "You're selling yourself, not just a service",
+      description: "But your website doesn't reflect your personal brand"
     }
   ];
 
-  const features = [
-    { icon: <Target className="w-6 h-6" />, text: 'Stand out from competition' },
-    { icon: <Users className="w-6 h-6" />, text: 'Build instant credibility' },
-    { icon: <TrendingUp className="w-6 h-6" />, text: 'Convert visitors to clients' },
+  const solutions = [
+    {
+      icon: <Check className="w-6 h-6" />,
+      title: "Custom website aligned with your personal brand",
+      description: "Unique design that reflects your personality and expertise"
+    },
+    {
+      icon: <Check className="w-6 h-6" />,
+      title: "Clear messaging that connects with your ideal audience",
+      description: "Story-driven content that builds emotional authority"
+    },
+    {
+      icon: <Check className="w-6 h-6" />,
+      title: "Trust-building design with conversion psychology",
+      description: "Strategic positioning that showcases your credibility"
+    },
+    {
+      icon: <Check className="w-6 h-6" />,
+      title: "Everything from tech to content — done for you",
+      description: "Complete solution so you can focus on what you do best"
+    }
+  ];
+
+  const benefits = [
+    { icon: <Target className="w-5 h-5" />, text: "Custom website design built on personal brand positioning" },
+    { icon: <Users className="w-5 h-5" />, text: "Clear messaging that connects with your ideal audience" },
+    { icon: <TrendingUp className="w-5 h-5" />, text: "Design psychology for high-trust service providers" },
+    { icon: <Smartphone className="w-5 h-5" />, text: "Mobile-first, SEO-optimized, blazing fast" },
+    { icon: <Globe className="w-5 h-5" />, text: "Story-driven layout that builds emotional authority" },
+    { icon: <Zap className="w-5 h-5" />, text: "Tech + strategy + content all handled in one place" }
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background Grid and Blurs */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-[#00ADEF] to-[#FFC700] rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-tr from-[#9B51E0] to-[#00D1A1] rounded-full blur-3xl" />
-      </div>
-
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-blue-50/30" />
+      
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Problem Section */}
-          <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 bg-red-50 px-6 py-3 rounded-full border border-red-200 mb-6">
-              <AlertTriangle className="w-5 h-5 text-red-500" />
-              <span className="text-red-600 font-poppins font-semibold">The Problem</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-dark mb-6">
-              You've built credibility offline — but your <span className="text-red-500">online presence doesn't show it</span>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              You've built credibility offline — but your{' '}
+              <span className="text-red-500">online presence doesn't show it</span>
             </h2>
-            <p className="text-lg text-gray-600 font-poppins max-w-2xl mx-auto">
-              Most personal brands lose potential clients because of these critical issues:
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Most personal brands lose clients because their digital presence doesn't match their real-world expertise
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-28">
-            {problems.map((problem, index) => (
-              <div key={index} className={`transition-all duration-700 delay-${(index + 1) * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <div className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-red-200 group h-full">
-                  <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-6">
-                    <div className="text-red-500">{problem.icon}</div>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-dark mb-3">{problem.title}</h3>
-                  <p className="text-gray-600 font-poppins leading-relaxed">{problem.description}</p>
+          {/* Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20">
+            {/* Problem Side */}
+            <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="bg-gradient-to-br from-gray-100 to-gray-200/50 p-8 lg:p-10 rounded-3xl border border-gray-200 relative">
+                {/* Curved Divider */}
+                <div className="hidden lg:block absolute -right-6 top-0 bottom-0 w-12">
+                  <svg className="w-full h-full" viewBox="0 0 48 400" fill="none">
+                    <path d="M0 0 Q24 200 0 400" stroke="url(#problemGradient)" strokeWidth="2" fill="none" opacity="0.3"/>
+                    <defs>
+                      <linearGradient id="problemGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#ef4444" />
+                        <stop offset="100%" stopColor="#10b981" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 </div>
-              </div>
-            ))}
-          </div>
 
-          {/* Solution Section */}
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00ADEF]/10 to-[#9B51E0]/10 px-6 py-3 rounded-full border border-[#00ADEF]/20 mb-6">
-              <Lightbulb className="w-5 h-5 text-[#00ADEF]" />
-              <span className="text-[#00ADEF] font-poppins font-semibold">The Solution</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-dark mb-10">
-              We blend <span className="bg-gradient-to-r from-[#00ADEF] via-[#FFC700] to-[#9B51E0] bg-clip-text text-transparent">premium web design</span> with strategic brand positioning
-            </h2>
-          </div>
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="flex items-center justify-center w-12 h-12 bg-red-100 rounded-xl">
+                    <AlertTriangle className="w-6 h-6 text-red-500" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900">What's Holding You Back?</h3>
+                </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="space-y-8">
-                {features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-4 group">
-                    <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-[#00ADEF] to-[#9B51E0] rounded-2xl text-white group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
+                <div className="space-y-6">
+                  {problems.map((problem, index) => (
+                    <div 
+                      key={index} 
+                      className={`flex items-start gap-4 group transition-all duration-500 delay-${(index + 3) * 100} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                    >
+                      <div className="flex items-center justify-center w-10 h-10 bg-red-100 rounded-lg flex-shrink-0 group-hover:bg-red-200 transition-colors duration-300">
+                        <X className="w-5 h-5 text-red-500" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">{problem.title}</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{problem.description}</p>
+                      </div>
                     </div>
-                    <span className="text-lg font-semibold text-dark">{feature.text}</span>
+                  ))}
+                </div>
+
+                {/* Problem Visual Element */}
+                <div className="mt-8 pt-6 border-t border-gray-300">
+                  <div className="flex items-center justify-center">
+                    <div className="bg-white p-4 rounded-lg shadow-md border-2 border-red-200">
+                      <div className="flex items-center gap-2 text-red-500 text-sm font-medium">
+                        <AlertTriangle className="w-4 h-4" />
+                        <span>Lost opportunities every day</span>
+                      </div>
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
 
-            <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="bg-gradient-to-br from-[#00ADEF]/5 to-[#9B51E0]/5 p-10 rounded-3xl border border-[#00ADEF]/10">
-                <h3 className="text-3xl font-bold text-dark mb-6">
-                  Your website becomes your best sales tool
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  Designed to build trust, authority, and connection with your ideal audience through strategic positioning and conversion-focused design.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-4 rounded-2xl shadow-md">
-                    <div className="text-2xl font-bold text-[#00ADEF] mb-1">500+</div>
-                    <div className="text-sm text-gray-600">Projects Delivered</div>
+            {/* Solution Side */}
+            <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 lg:p-10 rounded-3xl border border-green-200 relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl">
+                    <Check className="w-6 h-6 text-white" />
                   </div>
-                  <div className="bg-white p-4 rounded-2xl shadow-md">
-                    <div className="text-2xl font-bold text-[#9B51E0] mb-1">Global</div>
-                    <div className="text-sm text-gray-600">Client Reach</div>
+                  <h3 className="text-3xl font-bold text-gray-900">The Technovere Solution</h3>
+                </div>
+
+                <div className="space-y-6">
+                  {solutions.map((solution, index) => (
+                    <div 
+                      key={index} 
+                      className={`flex items-start gap-4 group transition-all duration-500 delay-${(index + 6) * 100} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                    >
+                      <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-100 to-blue-100 rounded-lg flex-shrink-0 group-hover:from-green-200 group-hover:to-blue-200 transition-all duration-300">
+                        <Check className="w-5 h-5 text-green-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">{solution.title}</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{solution.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Solution Visual Element */}
+                <div className="mt-8 pt-6 border-t border-green-200">
+                  <div className="flex items-center justify-center">
+                    <div className="bg-white p-4 rounded-lg shadow-md border-2 border-green-200">
+                      <div className="flex items-center gap-2 text-green-600 text-sm font-medium">
+                        <TrendingUp className="w-4 h-4" />
+                        <span>Your best sales tool</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="text-center bg-gradient-to-r from-gray-50 to-blue-50/30 p-12 rounded-3xl">
-              <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Whether you're a <span className="font-semibold text-[#00ADEF]">coach scaling offers</span>,
-                a <span className="font-semibold text-[#9B51E0]">doctor entering private practice</span>,
-                a <span className="font-semibold text-[#FFC700]">founder raising your profile</span>, or
-                <span className="font-semibold text-[#00D1A1]"> brands building their online presence</span> —
-                we'll bring your vision to life.
+          {/* Arrow Connection (Desktop Only) */}
+          <div className="hidden lg:flex justify-center mb-16 -mt-12">
+            <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+              <div className="flex items-center gap-4 bg-white px-6 py-3 rounded-full shadow-lg border-2 border-blue-200">
+                <span className="text-red-500 font-semibold">❌ Problems</span>
+                <ArrowRight className="w-5 h-5 text-blue-500" />
+                <span className="text-green-600 font-semibold">✅ Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                We blend <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">premium web design</span> with personal brand strategy
+              </h3>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Whether you're a <span className="font-semibold text-blue-600">coach scaling offers</span>, 
+                a <span className="font-semibold text-purple-600">doctor entering private practice</span>, 
+                a <span className="font-semibold text-green-600">founder raising your profile</span>, or 
+                <span className="font-semibold text-orange-600"> brands building their online presence</span> — 
+                we'll bring your brand to life.
               </p>
             </div>
-          </div>
 
+            {/* Benefits Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index} 
+                  className={`flex items-center gap-3 bg-white p-4 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 delay-${(index + 10) * 50} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                >
+                  <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white flex-shrink-0">
+                    {benefit.icon}
+                  </div>
+                  <span className="text-sm font-medium text-gray-800">{benefit.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
