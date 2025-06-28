@@ -123,7 +123,7 @@ const Testimonials: React.FC = () => {
     }, [isHovered]);
 
     return (
-        <section className="py-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <section className="py-16 bg-blue-100">
             <style>{`
         .line-clamp-3 {
           display: -webkit-box;

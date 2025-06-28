@@ -1,18 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowRight, Star, Users, Trophy } from 'lucide-react';
 
-// Typing component (loop + subheading animation)
+// Typing component for the main heading
 const TypingText = ({
   text,
   delay = 50,
   loop = true,
-  highlight = '',
   className = '',
 }: {
   text: string;
   delay?: number;
   loop?: boolean;
-  highlight?: string;
   className?: string;
 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -36,25 +34,9 @@ const TypingText = ({
     }
   }, [index, text, delay, loop, cycle]);
 
-  const highlightStart = text.indexOf(highlight);
-  const highlightEnd = highlightStart + highlight.length;
-  const before = displayedText.slice(0, highlightStart);
-  const highlighted = displayedText.slice(highlightStart, highlightEnd);
-  const after = displayedText.slice(highlightEnd);
-
   return (
     <h2 className={className}>
-      {highlight ? (
-        <>
-          {before}
-          <span className="bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200 text-transparent">
-            {highlighted}
-          </span>
-          {after}
-        </>
-      ) : (
-        displayedText
-      )}
+      {displayedText}
       <span className="text-yellow-500 animate-pulse">|</span>
     </h2>
   );
@@ -81,7 +63,7 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 lg:py-24 bg-blue-100 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -91,6 +73,16 @@ const PremiumCTAFooter = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Contact Us Heading */}
+        <div className="text-center mb-16">
+          <TypingText
+            text="Contact us"
+            delay={100}
+            loop={true}
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 leading-tight"
+          />
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Column */}
           <div className="order-2 lg:order-1">
@@ -107,20 +99,15 @@ const PremiumCTAFooter = () => {
                 </div>
               </div>
 
-              {/* Animated Heading */}
-              <TypingText
-                text="Let's Build Something That Reflects Your True Worth"
-                highlight="Reflects Your True Worth"
-                delay={50}
-                loop
-                className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-6 leading-tight"
-              />
+              {/* Main Heading */}
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6 leading-tight">
+                Let's Build Something That Reflects Your True Worth
+              </h2>
 
-              {/* Animated Subheading */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black mb-8 leading-relaxed max-w-2xl">
-  Book a free discovery call and let's map out how your website can start converting like your brand deserves.
-</p>
-
+              {/* Subheading */}
+              <p className="text-2xl md:text-3xl lg:text-4xl text-black mb-8 leading-relaxed max-w-2xl">
+                Book a free discovery call and let's map out how your website can start converting like your brand deserves.
+              </p>
 
               {/* CTA Button */}
               <button

@@ -38,10 +38,20 @@ const Header = () => {
           isScrolled ? 'px-4 sm:px-6 py-4' : 'px-8 sm:px-12 py-4'
         }`}>
           {/* Logo Text */}
-          <div className="text-2xl font-extrabold tracking-wider font-poppins flex">
-            <span className="text-[#00ADEF]">TECHNO</span>
-            <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
-          </div>
+         {/* Logo & Brand */}
+<div className="flex items-center gap-3">
+  <img
+    src="/images/logomain.png"
+    alt="Technovere Logo"
+    className="w-10 h-10 object-contain"
+  />
+  <div className="text-2xl font-extrabold tracking-wide font-poppins leading-none">
+    <span className="text-[#00ADEF]">TECHNO</span>
+    <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
+  </div>
+</div>
+
+
 
           {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex items-center justify-center flex-1 mx-8">
@@ -52,7 +62,7 @@ const Header = () => {
                   onClick={() => scrollToSection(item)}
                   className={`transition-all duration-300 font-poppins font-medium hover:scale-105 relative group ${
                     isScrolled 
-                      ? 'text-black hover:text-[#00ADEF]' 
+                      ? 'text-gray-800 hover:text-[#00ADEF]' 
                       : 'text-white hover:text-[#00ADEF]'
                   }`}
                 >
@@ -67,7 +77,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection('call')}
-              className="bg-[#00ADEF] text-white font-poppins font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="	text-black bg-[#FFEB3B] hover:bg-[#FDD835] font-poppins font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               BOOK A CALL
             </Button>
@@ -96,7 +106,7 @@ const Header = () => {
                   onClick={() => scrollToSection(item)}
                   className="text-gray-700 hover:text-[#00ADEF] transition-colors font-poppins font-medium py-3 text-left hover:bg-gray-50 px-2 rounded-lg"
                 >
-                  {item === 'work' ? 'Our Work' : item === 'contact' ? 'Contact Us' : item.charAt(0).toUpperCase() + item.slice(1)}
+                  {item === 'Our work' ? 'Our Work' : item === 'contact' ? 'Contact Us' : item.charAt(0).toUpperCase() + item.slice(1)}
                 </button>
               ))}
               <Button 

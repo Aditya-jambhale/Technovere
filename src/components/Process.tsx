@@ -128,7 +128,7 @@ const Process = () => {
     <section 
       id="process" 
       ref={sectionRef} 
-      className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 relative overflow-hidden"
+      className="py-20 bg-blue-300 relative overflow-hidden"
     >
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-5">
@@ -253,15 +253,15 @@ const Process = () => {
           <div className={`text-center mt-16 transition-all duration-800 delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="bg-gradient-to-r from-blue-600 to-violet-600 p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="bg-gradient-to-r bg-blue-100 p-8 rounded-2xl shadow-2xl">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 Ready to Transform Your Brand?
               </h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-blue-500 mb-6 max-w-2xl mx-auto">
                 Let's start with a discovery call to understand your vision and explore how we can bring it to life.
               </p>
               <button className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-lg">
-                Start Your Journey
+                Book a call with us 
               </button>
             </div>
           </div>

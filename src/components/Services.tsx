@@ -1,17 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code, Smartphone, ShoppingCart, Wrench, Palette, Server, X, Check } from 'lucide-react';
+import { Code, Smartphone, ShoppingCart, Wrench, Palette, Server, X, Check, User } from 'lucide-react';
+import { Meteors } from '@/components/magicui/meteors';
+
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [typedText, setTypedText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const sectionRef = useRef(null);
+
+  const fullText = "Our Services";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          setIsTyping(true);
         }
       },
       { threshold: 0.3 }
@@ -23,6 +30,30 @@ const Services = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Typing effect
+ useEffect(() => {
+  if (isTyping) {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setTypedText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+        setIsTyping(false);
+        // Restart typing after a short delay
+        setTimeout(() => {
+          setTypedText('');
+          setIsTyping(true);
+        }, 2000); // Adjust delay as needed
+      }
+    }, 150);
+
+    return () => clearInterval(timer);
+  }
+}, [isTyping, fullText]);
+
 
   const openModal = (service) => {
     setSelectedService(service);
@@ -58,6 +89,7 @@ const Services = () => {
       description: "Blazing-fast, SEO-optimized websites built to convert across all devices",
       icon: Code,
       color: "from-blue-400 to-purple-500",
+      iconBg: "from-slate-700 to-slate-800",
       details: [
         "PHP Laravel High-Quality Coding Website with Fully Responsive",
         "WordPress Responsive and SEO Friendly Website", 
@@ -71,6 +103,7 @@ const Services = () => {
       description: "Clean, intuitive apps for Android & iOS – tailored for product-market fit",
       icon: Smartphone,
       color: "from-purple-400 to-pink-500",
+      iconBg: "from-indigo-700 to-purple-800",
       details: [
         "Custom Application Development with UI/UX Design expertise",
         "API Integration & Firebase Integration",
@@ -88,6 +121,7 @@ const Services = () => {
       description: "Conversion-focused eCom storefronts with optimized checkout flows",
       icon: ShoppingCart,
       color: "from-green-400 to-blue-500",
+      iconBg: "from-emerald-700 to-teal-800",
       details: [
         "Custom Shopify theme development",
         "Conversion-optimized checkout processes",
@@ -104,6 +138,7 @@ const Services = () => {
       description: "Secure, scalable platforms to solve business challenges or power products",
       icon: Server,
       color: "from-yellow-400 to-orange-500",
+      iconBg: "from-amber-700 to-orange-800",
       details: [
         "Custom software architecture and development",
         "Cloud-based SaaS solutions",
@@ -120,6 +155,7 @@ const Services = () => {
       description: "Make your current site faster, clearer, and more visually aligned with your brand",
       icon: Palette,
       color: "from-pink-400 to-red-500",
+      iconBg: "from-rose-700 to-pink-800",
       details: [
         "Complete visual redesign with modern aesthetics",
         "User experience (UX) optimization",
@@ -136,6 +172,7 @@ const Services = () => {
       description: "Continuous updates, backups, blog uploads, tech fixes & growth strategy",
       icon: Wrench,
       color: "from-indigo-400 to-purple-500",
+      iconBg: "from-violet-700 to-indigo-800",
       details: [
         "Security updates & regular backups",
         "Speed optimization and performance monitoring",
@@ -144,21 +181,42 @@ const Services = () => {
         "Strategic consultations for growth",
         "We keep your site running smoothly, so you can focus on what matters most"
       ]
+    },
+    {
+      title: "Personal Branding",
+      description: "Build a powerful personal brand that attracts opportunities and amplifies your influence",
+      icon: User,
+      color: "from-cyan-400 to-blue-500",
+      iconBg: "from-cyan-700 to-blue-800",
+      details: [
+        "Professional portfolio website development",
+        "Personal brand strategy and positioning",
+        "Social media presence optimization",
+        "Content strategy and blog setup",
+        "Professional photography guidance",
+        "LinkedIn and professional network optimization",
+        "Personal logo and visual identity design",
+        "Thought leadership content creation",
+        "Speaking and networking opportunity strategies",
+        "Online reputation management"
+      ]
     }
   ];
 
   return (
-    <section 
-      id="services" 
-      ref={sectionRef} 
-      className="py-20 overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 relative"
-    >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
+   <section 
+  id="services" 
+  ref={sectionRef} 
+  className="py-20 overflow-hidden bg-blue-300 relative"
+>
+  {/* Background decorative elements */}
+  <div className="absolute inset-0 overflow-hidden z-0">
+   
+    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+  </div>
+
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -166,13 +224,20 @@ const Services = () => {
           <div className={`text-center mb-16 transition-all duration-800 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Our{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-yellow-400 bg-clip-text text-transparent">
-                Services
-              </span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+              {typedText}
+              {isTyping && (
+                <span className="animate-pulse bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-600 bg-clip-text text-transparent">
+                  |
+                </span>
+              )}
+              {!isTyping && typedText && (
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-600 bg-clip-text text-transparent ml-2">
+                  ✨
+                </span>
+              )}
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Comprehensive digital solutions to elevate your brand and drive measurable growth
             </p>
           </div>
@@ -191,28 +256,26 @@ const Services = () => {
                 >
                   <div className="relative h-full">
                     {/* Glassmorphism card */}
-                    <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 h-full transition-all duration-500 group-hover:bg-white/15 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-white/30">
+                    <div className="relative bg-white/20 backdrop-blur-lg p-8 rounded-2xl border border-white/30 h-full transition-all duration-500 group-hover:bg-white/25 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-white/40">
                       
                       {/* Gradient glow effect on hover */}
                       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`}></div>
                       
                       {/* Icon */}
                       <div className="relative mb-6">
-                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} p-0.5 group-hover:scale-110 transition-transform duration-300`}>
-                          <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
-                            <IconComponent 
-                              className="w-8 h-8 text-white group-hover:animate-pulse" 
-                            />
-                          </div>
+                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.iconBg} p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                          <IconComponent 
+                            className="w-full h-full text-white group-hover:animate-pulse" 
+                          />
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className="relative">
-                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-200 group-hover:bg-clip-text transition-all duration-300">
+                        <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-600 group-hover:bg-clip-text transition-all duration-300">
                           {service.title}
                         </h3>
-                        <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                        <p className="text-gray-700 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
                           {service.description}
                         </p>
                       </div>
@@ -229,8 +292,8 @@ const Services = () => {
 
                       {/* Floating animation */}
                       <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                        <div className="absolute -top-1 -left-1 w-4 h-4 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-purple-400/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-100"></div>
+                        <div className="absolute -top-1 -left-1 w-4 h-4 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-purple-400/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-100"></div>
                       </div>
                     </div>
                   </div>
@@ -240,13 +303,13 @@ const Services = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className={`text-center mt-16 transition-all duration-800 delay-1000 ${
+          {/* <div className={`text-center mt-16 transition-all duration-800 delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button className="bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
               Get Started Today
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -271,10 +334,8 @@ const Services = () => {
             
             {/* Modal Header */}
             <div className="mb-6">
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${selectedService.color} p-0.5 mb-4`}>
-                <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
-                  <selectedService.icon className="w-8 h-8 text-white" />
-                </div>
+              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${selectedService.iconBg} p-3 mb-4 shadow-lg`}>
+                <selectedService.icon className="w-full h-full text-white" />
               </div>
               <h3 className="text-3xl font-bold text-white mb-3">
                 {selectedService.title}
@@ -304,11 +365,6 @@ const Services = () => {
             {/* Modal Footer */}
             <div className="mt-8 pt-4 border-t border-white/20">
               <div className="flex gap-4">
-                {/* <button 
-                  className={`flex-1 bg-gradient-to-r ${selectedService.color} text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-200`}
-                >
-                  Get Quote
-                </button> */}
                 <button 
                   onClick={closeModal}
                   className="flex-1 bg-white/10 backdrop-blur-lg text-white font-semibold py-2 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
@@ -321,7 +377,7 @@ const Services = () => {
         </div>
       )}
 
-      <style >{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
