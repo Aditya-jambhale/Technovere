@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import Typical from 'react-typical';
+
 import { Search, Map, Palette, Rocket, Zap } from 'lucide-react';
 
 const steps = [
@@ -45,6 +45,27 @@ const steps = [
     color: "red"
   }
 ];
+const TypingHeading = ({ text = 'How We Deliver Success', speed = 100 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text.charAt(index));
+        setIndex((prev) => prev + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    }
+    }, [index, text, speed]);
+  
+    return (
+      <h1>
+        {displayedText}
+        <span className="animate-pulse">|</span>
+      </h1>
+    );
+  }
 
 const colorClasses = {
   blue: "border-blue-500 bg-blue-50",
@@ -196,15 +217,14 @@ const ProcessSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-blue-400 mb-4 min-h-[3rem]">
-            {showTyping && (
-              <Typical
-                steps={['How We Deliver Success', 3000]}
-                loop={1}
-                wrapper="span"
-              />
-            )}
-          </h1>
+    <motion.div
+      className="text-4xl font-bold text-blue-400 mb-4 min-h-[3rem]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {showTyping && <TypingHeading text="How We Deliver Success" speed={100} />}
+    </motion.div>
           <motion.p
             initial={{ opacity: 0 }}
             animate={isHeaderInView ? { opacity: 1 } : { opacity: 0 }}
