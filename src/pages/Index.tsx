@@ -19,16 +19,14 @@ const Index = () => {
       <Header />
       <Hero />
       <Problem />
-      {/* <Solution /> */}
+     
       <Benefits />
       <About />
-      {/* <Founder /> */}
+         <OurWork />
       <Services />
-      <OurWork />
+
       <Testimonials />
-      {/* <Testimonials /> */}
-      {/* <Feedbacks /> */}
-      {/* <Blog /> */}
+    
       <Process />
       <CTA />
       <Footer />

@@ -98,9 +98,43 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = (
     </motion.div>
 );
 
+const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed = 100 }) => {
+    const [displayedText, setDisplayedText] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTyping, setIsTyping] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (isTyping) {
+                if (currentIndex < text.length) {
+                    setDisplayedText(prev => prev + text[currentIndex]);
+                    setCurrentIndex(prev => prev + 1);
+                } else {
+                    // Pause for 2 seconds, then restart
+                    setTimeout(() => {
+                        setDisplayedText('');
+                        setCurrentIndex(0);
+                    }, 2000);
+                }
+            }
+        }, speed);
+
+        return () => clearTimeout(timer);
+    }, [currentIndex, text, speed, isTyping]);
+
+    return (
+        <span>
+            {displayedText}
+            <span className="animate-pulse text-blue-700">|</span>
+        </span>
+    );
+};
+
 const Testimonials: React.FC = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const scrollContainer = scrollRef.current;
@@ -122,8 +156,29 @@ const Testimonials: React.FC = () => {
         return () => clearInterval(interval);
     }, [isHovered]);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !isVisible) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [isVisible]);
+
     return (
-        <section className="py-16 bg-blue-100">
+        <section
+            id="testimonials"
+            ref={sectionRef}
+            className="py-16 bg-blue-200"
+        >
             <style>{`
         .line-clamp-3 {
           display: -webkit-box;
@@ -142,19 +197,24 @@ const Testimonials: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold text-gray-900">
-                        What Our{' '}
-                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            Clients Say
-                        </span>
+                    <h2 className="text-4xl font-bold text-blue-700 min-h-[3rem] flex items-center justify-center">
+                        {isVisible ? <TypingEffect text="What Our Clients Say ?" speed={80} /> : ''}
                     </h2>
-                    <p className="text-lg text-gray-600 mt-2">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.6, delay: 1.5 }}
+                        className="text-lg text-blue-600 mt-2"
+                    >
                         Don't just take our word for it – here's what our amazing clients say.
-                    </p>
+                    </motion.p>
                 </div>
 
                 {/* Infinite scroll area */}
-                <div
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                    transition={{ duration: 0.8, delay: 1.8 }}
                     ref={scrollRef}
                     className="flex overflow-x-auto space-x-6 scrollbar-hide px-16 py-4"
                     onMouseEnter={() => setIsHovered(true)}
@@ -169,7 +229,7 @@ const Testimonials: React.FC = () => {
                             <TestimonialCard testimonial={testimonial} index={index % testimonials.length} />
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

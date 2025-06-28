@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowRight, Star, Users, Trophy } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 // Typing component for the main heading
 const TypingText = ({
@@ -63,7 +64,7 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-16 lg:py-24 bg-blue-100 overflow-hidden">
+    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-blue-100 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -74,12 +75,12 @@ const PremiumCTAFooter = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Us Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center text-blue-600 mb-16">
           <TypingText
             text="Contact us"
             delay={100}
             loop={true}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 leading-tight"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-800 mb-4 leading-tight"
           />
         </div>
 
@@ -105,18 +106,21 @@ const PremiumCTAFooter = () => {
               </h2>
 
               {/* Subheading */}
-              <p className="text-2xl md:text-3xl lg:text-4xl text-black mb-8 leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-xl lg:text-xl text-black mb-8 leading-relaxed max-w-2xl">
                 Book a free discovery call and let's map out how your website can start converting like your brand deserves.
               </p>
 
               {/* CTA Button */}
-              <button
-                onClick={scrollToCalendar}
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 hover:ring-2 hover:ring-purple-300/50"
-              >
-                Schedule My Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+            <a
+  href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-3 bg-yellow-300 hover:bg-yellow-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 hover:ring-2 hover:ring-purple-300/50"
+>
+  <Phone className="w-5 h-5 text-purple-700" />
+  Schedule My Call
+  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+</a>
 
               {/* Stats */}
               <div className="mt-12 grid grid-cols-3 gap-6 text-white">

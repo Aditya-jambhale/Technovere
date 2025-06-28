@@ -207,7 +207,7 @@ const Services = () => {
    <section 
   id="services" 
   ref={sectionRef} 
-  className="py-20 overflow-hidden bg-blue-300 relative"
+  className="py-20 overflow-hidden bg-blue-100 relative"
 >
   {/* Background decorative elements */}
   <div className="absolute inset-0 overflow-hidden z-0">
