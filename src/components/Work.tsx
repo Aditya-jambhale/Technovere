@@ -82,34 +82,55 @@ const projects: Project[] = [
         url: "https://renewalsymposium.com",
         image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
         description: "Professional development conference"
-    },
-    // {
-    //     id: 10,
-    //     name: "Tech Startup SaaS",
-    //     category: "SaaS",
-    //     url: "#",
-    //     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
-    //     description: "Cloud-based business solution"
-    // },
-    // {
-    //     id: 11,
-    //     name: "Executive Coach Pro",
-    //     category: "Coach",
-    //     url: "#",
-    //     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
-    //     description: "Executive leadership development"
-    // },
-    // {
-    //     id: 12,
-    //     name: "Medical Practice Suite",
-    //     category: "Doctor",
-    //     url: "#",
-    //     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
-    //     description: "Healthcare management system"
-    // }
+    }
 ];
 
-const categories = ["All", "Business", "Doctor", "Coach",  "Healthcare", "Education", "Religious", "Personal", "Event"];
+const categories = ["All", "Business", "Doctor", "Coach", "Healthcare", "Education", "Religious", "Personal", "Event"];
+
+// Typing Effect Component for Main Heading
+const TypingEffect: React.FC = () => {
+    const words = [
+        "Our Portfolio - classic and clear"
+    ];
+    
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [currentText, setCurrentText] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [typingSpeed, setTypingSpeed] = useState(150);
+
+    useEffect(() => {
+        const type = () => {
+            const currentWord = words[currentWordIndex];
+            
+            if (isDeleting) {
+                setCurrentText(currentWord.substring(0, currentText.length - 1));
+                setTypingSpeed(75);
+            } else {
+                setCurrentText(currentWord.substring(0, currentText.length + 1));
+                setTypingSpeed(150);
+            }
+
+            if (!isDeleting && currentText === currentWord) {
+                setTimeout(() => setIsDeleting(true), 2500);
+            } else if (isDeleting && currentText === '') {
+                setIsDeleting(false);
+                setCurrentWordIndex((prev) => (prev + 1) % words.length);
+            }
+        };
+
+        const timer = setTimeout(type, typingSpeed);
+        return () => clearTimeout(timer);
+    }, [currentText, isDeleting, currentWordIndex, typingSpeed, words]);
+
+    return (
+        <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-800 leading-tight">
+            <span className="relative">
+                {currentText}
+                <span className="animate-pulse text-blue-800">|</span>
+            </span>
+        </span>
+    );
+};
 
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -155,10 +176,6 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                                 <ExternalLink size={16} />
                                 Visit Site
                             </a>
-                            {/* <button className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-                                <Eye size={16} />
-                                Preview
-                            </button> */}
                         </div>
                     </div>
                 </div>
@@ -211,7 +228,6 @@ const OurWork: React.FC = () => {
         setTimeout(() => {
             setCurrentPage(page);
             setIsAnimating(false);
-            // Scroll to top of section
             document.getElementById('our-work')?.scrollIntoView({ behavior: 'smooth' });
         }, 300);
     };
@@ -275,20 +291,36 @@ const OurWork: React.FC = () => {
     };
 
     return (
-        <section id="our-work" className="py-20 bg-blue-300 min-h-screen">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
+        <section id="our-work" className="py-20 bg-blue-300 min-h-screen relative overflow-hidden">
+            {/* Background Decorative Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-yellow-300/10 rounded-full blur-2xl"></div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Header with Typing Effect */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Our Work
-                        <span className="block text-2xl md:text-3xl text-blue-600 font-normal mt-2">
-                            Crafting Digital Excellence
-                        </span>
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Explore our portfolio of premium digital solutions. From corporate platforms to personal brands,
-                        we create experiences that drive results and inspire engagement.
-                    </p>
+                    <div className="mb-6 text-blue-800">
+                        <div className="min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] flex items-center text-blue-800 justify-center mb-4">
+                            <TypingEffect/>
+                        </div>
+                        {/* <div className="block mt-4">
+                            <span className="text-2xl md:text-3xl text-blue-600 font-normal">
+                                Crafting Digital Excellence
+                            </span>
+                        </div> */}
+                    </div>
+                    <div className="mt-8 max-w-4xl mx-auto">
+                        <p className="text-sm md:text-xl text-gray-700 leading-relaxed font-medium">
+                            Explore our portfolio of{' '}
+                            <span className="text-blue-600 font-semibold">premium digital solutions</span>. 
+                            From corporate platforms to personal brands, we create experiences that{' '}
+                            <span className="text-purple-600 font-semibold">drive results</span> and{' '}
+                            <span className="text-blue-600 font-semibold">inspire engagement</span>.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Category Filter */}
@@ -298,8 +330,8 @@ const OurWork: React.FC = () => {
                             key={category}
                             onClick={() => handleCategoryChange(category)}
                             className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${selectedCategory === category
-                                    ? 'bg-blue-600 text-white shadow-lg scale-105'
-                                    : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-md'
+                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105'
+                                    : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white hover:text-blue-600 shadow-md border border-white/50'
                                 }`}
                         >
                             {category}
@@ -330,7 +362,7 @@ const OurWork: React.FC = () => {
                         <button
                             onClick={() => handlePageChange(currentPage - 1)}
                             disabled={currentPage === 1}
-                            className="p-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:text-blue-600 hover:bg-blue-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="p-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:text-blue-600 hover:bg-white/50 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                         >
                             <ChevronLeft size={20} />
                         </button>
@@ -340,7 +372,7 @@ const OurWork: React.FC = () => {
                         <button
                             onClick={() => handlePageChange(currentPage + 1)}
                             disabled={currentPage === totalPages}
-                            className="p-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:text-blue-600 hover:bg-blue-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="p-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:text-blue-600 hover:bg-white/50 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm"
                         >
                             <ChevronRight size={20} />
                         </button>
@@ -348,18 +380,28 @@ const OurWork: React.FC = () => {
                 )}
             </div>
 
-            <style >{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+            <style>{`
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes gradientShift {
+                    0%, 100% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                }
+                
+                .animate-gradient {
+                    background-size: 200% 200%;
+                    animation: gradientShift 3s ease infinite;
+                }
+            `}</style>
         </section>
     );
 };

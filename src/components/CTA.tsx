@@ -64,18 +64,18 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-blue-100 overflow-hidden">
+    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-blue-300 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
+      {/* <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-0 w-px h-32 bg-gradient-to-b from-transparent via-purple-400/50 to-transparent"></div>
         <div className="absolute top-1/2 right-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Us Heading */}
-        <div className="text-center text-blue-600 mb-16">
+        <div className="text-center text-2xl md:text-3xl lg:text-4xl text-blue-600 mb-16">
           <TypingText
             text="Contact us"
             delay={100}
@@ -127,21 +127,21 @@ const PremiumCTAFooter = () => {
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
                     <Trophy className="w-5 h-5 text-yellow-400" />
-                    <span className="text-2xl font-bold text-black">500+</span>
+                    <span className="text-xl font-bold text-black">500+</span>
                   </div>
                   <p className="text-black/60 text-sm">Projects Delivered</p>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
                     <Users className="w-5 h-5 text-green-400" />
-                    <span className="text-2xl font-bold text-black">Global</span>
+                    <span className="text-xl font-bold text-black">Global</span>
                   </div>
                   <p className="text-black/60 text-sm">Client Network</p>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
                     <Star className="w-5 h-5 text-gray-400" />
-                    <span className="text-2xl font-bold text-black">Premium</span>
+                    <span className="text-xl font-bold text-black">Premium</span>
                   </div>
                   <p className="text-black/60 text-sm">Quality Assured</p>
                 </div>

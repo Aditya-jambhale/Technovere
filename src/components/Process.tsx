@@ -184,7 +184,7 @@ const ProcessSection = () => {
   }, [isHeaderInView]);
 
   return (
-    <div className="min-h-screen bg-blue-300 py-16 px-4 relative">
+    <div className="min-h-screen bg-blue-100 py-16 px-4 relative">
       <ScrollIndicator />
 
       <div className="max-w-4xl mx-auto">
@@ -196,10 +196,10 @@ const ProcessSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-700 mb-4 min-h-[3rem]">
+          <h1 className="text-4xl font-bold text-blue-400 mb-4 min-h-[3rem]">
             {showTyping && (
               <Typical
-                steps={['Our Process', 3000]}
+                steps={['How We Deliver Success', 3000]}
                 loop={1}
                 wrapper="span"
               />

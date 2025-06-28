@@ -21,7 +21,8 @@ import {
   BarChart3,
   Lightbulb,
   Cpu,
-  Bot
+  Bot,
+  Phone
 } from 'lucide-react';
 
 const EnhancedHero = () => {
@@ -272,15 +273,22 @@ const EnhancedHero = () => {
                   </div>
                 </div>
 
-                <Button
-                  onClick={scrollToContact}
-                  size="default"
-                  className="bg-yellow-400 text-black font-bold px-5 lg:px-6 py-2.5 lg:py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm shadow-lg"
-                >
-                  <span className="flex items-center gap-2">
-                    Book a Free Call <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Button>
+               <a
+  href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button
+    size="default"
+    className="bg-yellow-400 text-black font-bold px-5 lg:px-6 py-2.5 lg:py-3 rounded-full hover:bg-yellow-500 hover:scale-105 transition-all duration-300 text-sm shadow-lg"
+  >
+    <span className="flex items-center gap-2">
+      <Phone className="w-4 h-4 text-purple-700" />
+      Book a Free Call
+      <ArrowRight className="w-4 h-4" />
+    </span>
+  </Button>
+</a>
 
                 <div className="mt-6 lg:mt-8">
                   <button

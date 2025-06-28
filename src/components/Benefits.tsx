@@ -13,7 +13,7 @@ import {
 
 const typingPhrases = [
   'Why Professionals Choose Technovere ?',
-  
+
 ];
 
 const Benefits = () => {
@@ -109,9 +109,8 @@ const Benefits = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Heading */}
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 leading-snug min-h-[3rem]">
               {typedText}<span className="blinking-cursor">|</span>
             </h2>
@@ -123,11 +122,10 @@ const Benefits = () => {
           {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {benefits.map((benefit, index) => (
-              <div 
+              <div
                 key={index}
-                className={`group transition-all duration-700 delay-${index * 150} ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                className={`group transition-all duration-700 delay-${index * 150} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
               >
                 <div className="relative bg-white/30 backdrop-blur-lg border border-white/30 rounded-2xl p-6 h-full hover:scale-105 transition-all duration-300">
                   <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-blue-500 via-indigo-400 to-cyan-300
@@ -148,9 +146,8 @@ const Benefits = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full px-6 py-3">
               <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
               <span className="text-blue-900 font-semibold">Ready to transform your online presence?</span>

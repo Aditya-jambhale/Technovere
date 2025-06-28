@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,16 +105,24 @@ const Header = () => {
           </nav>
 
           {/* CTA Button - Desktop */}
-          <div className="hidden lg:block">
-            <Button 
-              onClick={handleBookCall}
-              className={`text-black bg-[#FFEB3B] hover:bg-[#FDD835] font-poppins font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 ${
-                !isScrolled ? 'shadow-lg' : ''
-              }`}
-            >
-              BOOK A CALL
-            </Button>
-          </div>
+        <div className="hidden lg:block">
+  <a
+    href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      className={`text-black bg-[#FFEB3B] hover:bg-[#FDD835] font-poppins font-semibold px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 ${
+        !isScrolled ? 'shadow-lg' : ''
+      }`}
+    >
+      <span className="flex items-center gap-2">
+        <Phone className="w-4 h-4 text-purple-700" />
+        BOOK A CALL
+      </span>
+    </Button>
+  </a>
+</div>
 
           {/* Mobile Menu Toggle */}
           <button

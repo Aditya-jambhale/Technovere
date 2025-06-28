@@ -11,7 +11,7 @@ const Services = () => {
   const [isTyping, setIsTyping] = useState(false);
   const sectionRef = useRef(null);
 
-  const fullText = "Our Services";
+  const fullText = "What We Offer - simple and client-focused";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -224,18 +224,18 @@ const Services = () => {
           <div className={`text-center mb-16 transition-all duration-800 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400 mb-6">
               {typedText}
               {isTyping && (
-                <span className="animate-pulse bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-600 bg-clip-text text-transparent">
+                <span className="animate-pulse text-blue-400">
                   |
                 </span>
               )}
-              {!isTyping && typedText && (
+              {/* {!isTyping && typedText && (
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-600 bg-clip-text text-transparent ml-2">
                   ✨
                 </span>
-              )}
+              )} */}
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Comprehensive digital solutions to elevate your brand and drive measurable growth

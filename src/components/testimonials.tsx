@@ -177,7 +177,7 @@ const Testimonials: React.FC = () => {
         <section
             id="testimonials"
             ref={sectionRef}
-            className="py-16 bg-blue-200"
+            className="py-16 bg-blue-300"
         >
             <style>{`
         .line-clamp-3 {
@@ -197,7 +197,7 @@ const Testimonials: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold text-blue-700 min-h-[3rem] flex items-center justify-center">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 min-h-[3rem] flex items-center justify-center">
                         {isVisible ? <TypingEffect text="What Our Clients Say ?" speed={80} /> : ''}
                     </h2>
                     <motion.p
