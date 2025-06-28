@@ -4,7 +4,7 @@ import { Meteors } from '@/components/magicui/meteors';
 
 
 const Services = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -21,7 +21,7 @@ const Services = () => {
           setIsTyping(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
