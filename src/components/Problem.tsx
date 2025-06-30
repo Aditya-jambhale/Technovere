@@ -1,30 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   AlertTriangle,
-  X,
   Check,
   ArrowRight,
+  ChevronRight,
   Eye,
   MessageSquare,
   Target,
-  Zap,
   Users,
-  TrendingUp,
+  Lightbulb,
+  Zap,
   Globe,
-  Smartphone
+  Smartphone,
+  Heart,
+  TrendingUp,
+  Sparkles,
+  Cpu
 } from 'lucide-react';
-
-const typingPhrases = [
-
-  "But your digital presence doesn't show it"
-];
 
 const Problem = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   const sectionRef = useRef(null);
-  const [typedText, setTypedText] = useState('');
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,154 +41,242 @@ const Problem = () => {
   }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const currentPhrase = typingPhrases[phraseIndex];
-      if (charIndex < currentPhrase.length) {
-        setTypedText((prev) => prev + currentPhrase[charIndex]);
-        setCharIndex(charIndex + 1);
-      } else {
-        setTimeout(() => {
-          setTypedText('');
-          setCharIndex(0);
-          setPhraseIndex((phraseIndex + 1) % typingPhrases.length);
-        }, 2000);
-      }
-    }, 80);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, phraseIndex, typedText]);
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const problems = [
     {
-      icon: <Eye className="w-6 h-6" />, title: "Your website looks outdated or templated", description: "Generic designs that blend into the background"
+      icon: <Eye className="w-8 h-8" />,
+      title: "Outdated & Generic Design",
+      description: "Your website looks like everyone else's",
+      detail: "Template designs that scream 'amateur' instead of 'authority'",
+      impact: "87% of visitors leave within 15 seconds"
     },
     {
-      icon: <MessageSquare className="w-6 h-6" />, title: "Your story isn't clearly told", description: "Visitors leave confused about what you actually do"
+      icon: <MessageSquare className="w-8 h-8" />,
+      title: "Unclear Messaging",
+      description: "Visitors can't understand what you do",
+      detail: "Confusing copy that doesn't connect with your ideal audience",
+      impact: "64% higher bounce rate than clear messaging"
     },
     {
-      icon: <Target className="w-6 h-6" />, title: "Your expertise isn't positioned right", description: "You're underselling your value and experience"
+      icon: <Target className="w-8 h-8" />,
+      title: "Poor Brand Positioning",
+      description: "You're underselling your expertise",
+      detail: "Missing the strategic positioning that builds trust and authority",
+      impact: "Lose 73% of potential high-value clients"
     },
     {
-      icon: <Users className="w-6 h-6" />, title: "You're selling yourself, not just a service", description: "But your website doesn't reflect your personal brand"
-    }
-  ];
-
-  const solutions = [
-    {
-      icon: <Check className="w-6 h-6" />, title: "Custom website aligned with your personal brand", description: "Unique design that reflects your personality and expertise"
-    },
-    {
-      icon: <Check className="w-6 h-6" />, title: "Clear messaging that connects with your ideal audience", description: "Story-driven content that builds emotional authority"
-    },
-    {
-      icon: <Check className="w-6 h-6" />, title: "Trust-building design with conversion psychology", description: "Strategic positioning that showcases your credibility"
-    },
-    {
-      icon: <Check className="w-6 h-6" />, title: "Everything from tech to content — done for you", description: "Complete solution so you can focus on what you do best"
+      icon: <Users className="w-8 h-8" />,
+      title: "No Personal Connection",
+      description: "Your personality doesn't shine through",
+      detail: "Cold, corporate feel instead of authentic personal branding",
+      impact: "People buy from people, not websites"
     }
   ];
 
   const benefits = [
-    { icon: <Target className="w-5 h-5" />, text: "Custom website design built on personal brand positioning" },
-    { icon: <Users className="w-5 h-5" />, text: "Clear messaging that connects with your ideal audience" },
-    { icon: <TrendingUp className="w-5 h-5" />, text: "Design psychology for high-trust service providers" },
-    { icon: <Smartphone className="w-5 h-5" />, text: "Mobile-first, SEO-optimized, blazing fast" },
-    { icon: <Globe className="w-5 h-5" />, text: "Story-driven layout that builds emotional authority" },
-    { icon: <Zap className="w-5 h-5" />, text: "Tech + strategy + content all handled in one place" }
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: "Custom Website, Built on Brand Strategy",
+      description: "Every site is strategically designed around your personal brand positioning and unique value proposition.",
+      gradient: "from-blue-500 to-cyan-500",
+      bgGradient: "from-blue-50 to-cyan-50"
+    },
+    {
+      icon: <Smartphone className="w-6 h-6" />,
+      title: "SEO-Optimized & Mobile-First Design",
+      description: "Blazing fast, mobile-responsive websites that rank higher and convert better across all devices.",
+      gradient: "from-emerald-500 to-teal-500",
+      bgGradient: "from-emerald-50 to-teal-50"
+    },
+    {
+      icon: <Heart className="w-6 h-6" />,
+      title: "Clear Messaging That Connects Emotionally",
+      description: "Story-driven content and messaging that builds emotional authority with your ideal audience.",
+      gradient: "from-pink-500 to-rose-500",
+      bgGradient: "from-pink-50 to-rose-50"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Blazing Fast Performance",
+      description: "Optimized for speed and performance to keep visitors engaged and search engines happy.",
+      gradient: "from-yellow-500 to-orange-500",
+      bgGradient: "from-yellow-50 to-orange-50"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Done-for-You: Tech, Content, and Strategy",
+      description: "Complete solution handling everything from technical setup to content creation and strategy.",
+      gradient: "from-purple-500 to-violet-500",
+      bgGradient: "from-purple-50 to-violet-50"
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Conversion-Focused UX",
+      description: "Built using design psychology that builds credibility and drives action from your visitors.",
+      gradient: "from-indigo-500 to-blue-500",
+      bgGradient: "from-indigo-50 to-blue-50"
+    }
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-blue-100 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div
-  className={`flex flex-col items-center justify-center text-center gap-6 mb-12 transition-all duration-1000 ${
-    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-  }`}
->
-  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-snug tracking-tight max-w-3xl">
-    <span className="text-blue-400">You've built credibility offline — </span>
-    <br />
-    <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
-      {typedText}
-    </span>
-    <span className="blinking-cursor text-yellow-300">|</span>
-  </h2>
-
-  <p className="text-sm sm:text-base md:text-lg text-blue-700 max-w-xl mx-auto">
-    Most personal brands lose clients because their online identity doesn’t reflect their real-world expertise and trust.
-  </p>
-</div>
-
-<style>{`
-  .blinking-cursor {
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-`}</style>
-
-          {/* Problems and Solutions Section */}
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-blue-900 flex items-center gap-2">
-                <AlertTriangle className="text-red-500" /> What's holding you back?
-              </h3>
-              {problems.map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="bg-red-100 p-2 rounded-xl">{item.icon}</div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-900">{item.title}</h4>
-                    <p className="text-blue-700 text-sm">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-green-700 flex items-center gap-2">
-                <Check className="text-green-500" /> The Technovere Solution
-              </h3>
-              {solutions.map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="bg-green-100 p-2 rounded-xl">{item.icon}</div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-900">{item.title}</h4>
-                    <p className="text-blue-700 text-sm">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+    <section ref={sectionRef} className="py-20 bg-white text-[#1C2238]">
+      <div className="container mx-auto px-4">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="inline-flex items-center gap-2 bg-[#00AEEF1A] px-4 py-2 rounded-full mb-6 border border-[#00AEEF33]">
+            <AlertTriangle className="w-4 h-4 text-[#00AEEF]" />
+            <span className="text-[#00AEEF] font-medium text-sm">The Hidden Problem</span>
           </div>
 
-          {/* Benefits Section */}
-          <div className="mt-20">
-            <h3 className="text-center text-3xl font-bold text-blue-900 mb-8">Why Clients Choose Technovere</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, i) => (
-                <div key={i} className="flex items-center gap-3 bg-white shadow-md p-4 rounded-xl border border-blue-100">
-                  <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-2 rounded-lg">
-                    {benefit.icon}
-                  </div>
-                  <p className="text-blue-800 font-medium text-sm">{benefit.text}</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            You've Built Credibility Offline —
+            <br />
+            <span className="text-[#00AEEF]">
+              But Your Online Presence Doesn't Show It
+            </span>
+          </h2>
+
+          <p className="text-[#333333] text-lg max-w-3xl mx-auto">
+            Most personal brands lose high-value clients because their digital identity doesn't reflect their real-world expertise and authority.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10 mb-16">
+          {problems.map((problem, index) => (
+            <div
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`cursor-pointer border rounded-xl p-6 shadow-sm transition-all duration-300 ${
+                activeTab === index
+                  ? 'border-[#00AEEF] bg-[#F8FBFF] animate-fade-in'
+                  : 'border-gray-200 hover:bg-[#FAFAFA]'
+              }`}
+            >
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 flex items-center justify-center bg-[#00AEEF] text-white rounded-md">
+                  {problem.icon}
                 </div>
-              ))}
+                <div>
+                  <h4 className="text-lg font-semibold">{problem.title}</h4>
+                  <p className="text-sm text-[#6C7887]">{problem.description}</p>
+                  {activeTab === index && (
+                    <>
+                      <p className="text-sm text-[#333333] mt-2 animate-fade-in-scale">{problem.detail}</p>
+                      <div className="mt-2 p-2 border border-red-300 bg-red-50 text-sm text-red-500 rounded animate-fade-in">
+                        ⚠ {problem.impact}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-br from-slate-50 to-blue-50 border border-[#00AEEF33] rounded-3xl p-8 lg:p-12 transition-all duration-1000 relative overflow-hidden">
+          {/* Background Decorative Elements */}
+          <div className="absolute top-10 right-10 w-32 h-32 opacity-5">
+            <Sparkles className="w-full h-full text-[#00AEEF] animate-pulse" />
+          </div>
+          <div className="absolute bottom-10 left-10 w-28 h-28 opacity-5">
+            <Cpu className="w-full h-full text-purple-500 animate-spin" style={{ animationDuration: '20s' }} />
+          </div>
+
+          {/* Header Badge */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-[#00AEEF1A] px-4 py-2 rounded-full mb-6 border border-[#00AEEF33]">
+              <Check className="w-4 h-4 text-[#00AEEF]" />
+              <span className="text-[#00AEEF] font-medium text-sm">The Technovere Solution</span>
+            </div>
+
+            {/* Headline */}
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-[#1C2238]">
+              We blend premium web design with personal brand strategy
+              <span className="text-[#00AEEF]"> to help you stand out and convert.</span>
+            </h3>
+
+            {/* Description */}
+            <p className="text-base text-[#333333] max-w-2xl mx-auto mb-4 leading-relaxed">
+              Your website becomes your best sales tool — designed to build trust and connection with your audience.
+            </p>
+            <p className="text-base text-[#333333] max-w-2xl mx-auto mb-12 leading-relaxed">
+              Whether you're a coach scaling offers, a doctor entering private practice, a founder raising your profile, or a brand building its online presence — we'll bring your brand to life.
+            </p>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className={`group transition-all duration-700 delay-${index * 100} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              >
+                <div className={`relative bg-gradient-to-br ${benefit.bgGradient} border border-white/60 rounded-2xl p-6 h-full hover:scale-105 hover:shadow-lg transition-all duration-300 overflow-hidden`}>
+                  {/* Card Background Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Icon */}
+                  <div className={`relative flex items-center justify-center w-12 h-12 bg-gradient-to-r ${benefit.gradient} rounded-xl mb-4 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="text-white">
+                      {benefit.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative">
+                    <h4 className="text-lg font-bold text-[#1C2238] mb-3 group-hover:text-[#00AEEF] transition-colors duration-300">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-[#333333] text-sm leading-relaxed group-hover:text-[#1C2238] transition-colors duration-300">
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${benefit.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <a
+              href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-[#FFEB3B] hover:bg-[#FDD835] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="flex items-center gap-2">
+                  Let's Transform Your Brand Together
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </button>
+            </a>
           </div>
         </div>
       </div>
 
       <style>{`
-        .blinking-cursor {
-          animation: blink 1s step-end infinite;
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes blink {
-          from, to { opacity: 0; }
-          50% { opacity: 1; }
+        @keyframes fade-in-scale {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
+        }
+        .animate-fade-in-scale {
+          animation: fade-in-scale 0.3s ease-out;
         }
       `}</style>
     </section>
