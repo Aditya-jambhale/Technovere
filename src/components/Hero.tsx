@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { DotPattern } from "@/components/magicui/dot-pattern";
-
+// TODO: Replace the following import path with the correct one if needed
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import { InteractiveGridPattern } from './magicui/interactive-grid-pattern';
 import {
   Check,
   Sparkles,
@@ -108,46 +110,29 @@ const EnhancedHero = () => {
   ];
 
   return (
-    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-      
-      {/* 🔹 Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src="/images/bg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* 🔹 Overlay */}
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
-
-      {/* 🔹 Dot Pattern */}
-      {/* <DotPattern
+  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+  
+  {/* 🔹 Grid Background */}
+ * <DotPattern
         width={30}
         height={30}
         cx={1}
         cy={1}
         className="absolute inset-0 z-10 fill-blue-200/20 text-blue-300/20"
-      /> */}
+      /> 
 
-      {/* 🔹 Content */}
-      <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-4xl">
-          <div className="text-center space-y-6 lg:space-y-8">
-            
-            {/* Badge */}
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full shadow-lg mb-4">
-                <Sparkles className="w-4 h-4 text-black" />
-                <span className="text-black font-semibold text-sm">Web Development Agency</span>
-              </div>
-            </div>
-
-            {/* Headline */}
+  {/* 🔹 Content */}
+  <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
+    <div className="w-full max-w-4xl">
+      <div className="text-center space-y-6 lg:space-y-8">
+        
+        {/* Badge */}
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full shadow-lg mb-4">
+            <Sparkles className="w-4 h-4 text-black" />
+            <span className="text-black font-semibold text-sm">Web Development Agency</span>
+          </div>
+        </div>
             <h1 className={`text-center font-bold leading-snug md:leading-tight mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <span className="block text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">
                 Your Website Is More Than Design
