@@ -54,7 +54,7 @@ const Footer = () => {
                   <Phone className="w-4 h-4 text-white" />
                 </div>
                 <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  +1 (234) 567-890
+                  +91  9792347498
                 </a>
               </div>
               
@@ -72,7 +72,7 @@ const Footer = () => {
                   <MessageCircle className="w-4 h-4 text-white" />
                 </div>
                 <a 
-                  href="https://wa.me/1234567890" 
+                  href="https://wa.me/+919792347498" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"

@@ -1,235 +1,118 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React from 'react';
 
-interface Testimonial {
-    name: string;
-    title?: string;
-    quote: string;
-    image?: string;
-}
-
-const testimonials: Testimonial[] = [
+const testimonials = [
     {
         name: 'Fiverr Client',
-        quote:
-            'Yusuf was very pleasant to deal with and did a great job in clarifying and following my instructions. Would definitely use his services again and recommend him.',
-        // image: '/avatars/fiverr.png',
+        quote: 'Yusuf was very pleasant to deal with and did a great job in clarifying and following my instructions. Would definitely use his services again and recommend him.',
     },
     {
         name: 'Vinnum Shawti',
         title: 'Founder of itsvinnumshawti',
-        quote:
-            'He listened to everything I asked!! Had me laughing at my own video! Skills are excellent! I Will work with him on future videos!',
-        // image: '/avatars/vinnum.png',
+        quote: 'He listened to everything I asked!! Had me laughing at my own video! Skills are excellent! I Will work with him on future videos!',
     },
     {
         name: 'Angie Deborja',
-        quote:
-            'Yusuf was fast and skilled in his video editing delivery of a zoom interview. He saved me a ton of time. Highly recommend.',
-        // image: '/avatars/angie.png',
+        quote: 'Yusuf was fast and skilled in his video editing delivery of a zoom interview. He saved me a ton of time. Highly recommend.',
     },
     {
         name: 'Nicole Rhone',
         title: 'Podcast Host',
-        quote:
-            'He was amazing to work with! He provided the best audio clips ahead of schedule. Excellent communication.',
-        // image: '/avatars/nicole.png',
+        quote: 'He was amazing to work with! He provided the best audio clips ahead of schedule. Excellent communication.',
     },
     {
         name: 'Brenda Denbesten',
         title: 'Speaker & Coach',
-        quote:
-            'Finding Technovere has been a life saver! He took the time to understand my vision and over-delivered.',
-        // image: '/avatars/brenda.png',
+        quote: 'Finding Technovere has been a life saver! He took the time to understand my vision and over-delivered.',
     },
     {
         name: 'Marc',
         title: 'Entrepreneur',
-        quote:
-            'Working with Yusuf was great. He had a sincere willingness to meet expectations and learn. Highly recommend.',
-        // image: '/avatars/marc.png',
+        quote: 'Working with Yusuf was great. He had a sincere willingness to meet expectations and learn. Highly recommend.',
     },
     {
         name: 'Sonya L. Thompson',
         title: 'Founder of ARISE Apostolic Network',
-        quote:
-            'Excellent job! I do mean excellent. He pays great attention to detail. We will use his services from now on!',
-        // image: '/avatars/sonya.png',
+        quote: 'Excellent job! I do mean excellent. He pays great attention to detail. We will use his services from now on!',
     },
 ];
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = ({
-    testimonial,
-    index,
-}) => (
-    <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="min-w-[320px] max-w-xs p-4 bg-white/10 backdrop-blur-lg rounded-2xl shadow hover:scale-105 transition-transform duration-300"
-    >
-        <div className="flex space-x-4">
-            <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-600 p-0.5">
-                <div className="w-full h-full rounded-full bg-gray-200 overflow-hidden flex items-center justify-center">
-                    {testimonial.image ? (
-                        <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => ((e.target as HTMLImageElement).src = '/avatars/fallback.png')}
-                        />
-                    ) : (
-                        <span className="text-white font-bold text-sm">{testimonial.name.charAt(0)}</span>
-                    )}
-                </div>
-            </div>
-            <div className="flex-1">
-                <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                </div>
-                <p className="text-gray-700 text-sm mb-2 line-clamp-3">"{testimonial.quote}"</p>
-                <h4 className="text-sm font-semibold text-gray-900">{testimonial.name}</h4>
-                {testimonial.title && <p className="text-xs text-gray-500">{testimonial.title}</p>}
-            </div>
-        </div>
-    </motion.div>
-);
-
-const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed = 100 }) => {
-    const [displayedText, setDisplayedText] = useState('');
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isTyping, setIsTyping] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (isTyping) {
-                if (currentIndex < text.length) {
-                    setDisplayedText(prev => prev + text[currentIndex]);
-                    setCurrentIndex(prev => prev + 1);
-                } else {
-                    // Pause for 2 seconds, then restart
-                    setTimeout(() => {
-                        setDisplayedText('');
-                        setCurrentIndex(0);
-                    }, 2000);
-                }
-            }
-        }, speed);
-
-        return () => clearTimeout(timer);
-    }, [currentIndex, text, speed, isTyping]);
-
+// Custom Marquee Component
+const Marquee = ({ children, reverse = false, pauseOnHover = false, speed = 50 }) => {
     return (
-        <span>
-            {displayedText}
-            <span className="animate-pulse text-blue-700">|</span>
-        </span>
+        <div className="overflow-hidden whitespace-nowrap w-full">
+            <div
+                className={`inline-flex gap-6 ${pauseOnHover ? 'hover:pause' : ''}`}
+                style={{
+                    animation: `scroll ${speed}s linear infinite ${reverse ? 'reverse' : ''}`,
+                }}
+            >
+                {children}
+                {children}
+            </div>
+            <style>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .hover\\:pause:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+        </div>
     );
 };
 
-const Testimonials: React.FC = () => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [isHovered, setIsHovered] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
+type ReviewCardProps = {
+    name: string;
+    title?: string;
+    quote: string;
+};
 
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
+const ReviewCard = ({ name, title, quote }: ReviewCardProps) => (
+    <div className="w-[340px] sm:w-[380px] md:w-[450px] lg:w-[480px] flex-shrink-0 bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-all min-h-[200px] flex flex-col justify-start">
+        <div className="flex items-center gap-3 mb-4">
+            <div className="rounded-full bg-gradient-to-br from-blue-500 to-purple-600 w-10 h-10 flex items-center justify-center text-white font-bold text-lg">
+                {name.charAt(0)}
+            </div>
+            <div className="flex flex-col">
+                <div className="text-sm font-semibold text-gray-800">{name}</div>
+                {title && <p className="text-xs text-gray-500">{title}</p>}
+            </div>
+        </div>
+        <blockquote className="text-sm text-gray-700 leading-relaxed whitespace-normal break-words">
+            {quote}
+        </blockquote>
+    </div>
+);
 
-        const scrollSpeed = 1;
-        const totalScrollWidth = scrollContainer.scrollWidth / 2;
 
-        const autoScroll = () => {
-            if (!scrollContainer || isHovered) return;
-            scrollContainer.scrollLeft += scrollSpeed;
-
-            if (scrollContainer.scrollLeft >= totalScrollWidth) {
-                scrollContainer.scrollLeft = 0;
-            }
-        };
-
-        const interval = setInterval(autoScroll, 20);
-        return () => clearInterval(interval);
-    }, [isHovered]);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && !isVisible) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, [isVisible]);
+const Testimonials = () => {
+    const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+    const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
     return (
-        <section
-            id="testimonials"
-            ref={sectionRef}
-            className="py-16 bg-blue-300"
-        >
-            <style>{`
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+        <section id="testimonials" className="w-full py-16 px-4 bg-white">
+            <div className="max-w-7xl mx-auto text-center mb-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-black">What Our Clients Say?</h2>
+                <p className="text-base md:text-lg text-[#00AEEF] font-bold mt-2">
+                    Don't just take our word for it – here’s what our amazing clients say.
+                </p>
+            </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-10">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 min-h-[3rem] flex items-center justify-center">
-                        {isVisible ? <TypingEffect text="What Our Clients Say ?" speed={80} /> : ''}
-                    </h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        transition={{ duration: 0.6, delay: 1.5 }}
-                        className="text-lg text-blue-600 mt-2"
-                    >
-                        Don't just take our word for it – here's what our amazing clients say.
-                    </motion.p>
-                </div>
-
-                {/* Infinite scroll area */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ duration: 0.8, delay: 1.8 }}
-                    ref={scrollRef}
-                    className="flex overflow-x-auto space-x-6 scrollbar-hide px-16 py-4"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    style={{
-                        scrollSnapType: 'x mandatory',
-                        WebkitOverflowScrolling: 'touch',
-                    }}
-                >
-                    {[...testimonials, ...testimonials].map((testimonial, index) => (
-                        <div key={index} className="scroll-snap-start">
-                            <TestimonialCard testimonial={testimonial} index={index % testimonials.length} />
-                        </div>
+            <div className="space-y-10">
+                {/* Row 1 - Normal Scroll */}
+                <Marquee pauseOnHover={true} speed={40}>
+                    {firstRow.map((review, i) => (
+                        <ReviewCard key={`r1-${i}`} {...review} />
                     ))}
-                </motion.div>
+                </Marquee>
+
+                {/* Row 2 - Reverse Scroll */}
+                <Marquee reverse={true} pauseOnHover={true} speed={45}>
+                    {secondRow.map((review, i) => (
+                        <ReviewCard key={`r2-${i}`} {...review} />
+                    ))}
+                </Marquee>
             </div>
         </section>
     );

@@ -1,24 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code, Smartphone, ShoppingCart, Wrench, Palette, Server, X, Check, User } from 'lucide-react';
-import { Meteors } from '@/components/magicui/meteors';
-
+import { Code, Smartphone, ShoppingCart, Wrench, Server, X, Check, User } from 'lucide-react';
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [typedText, setTypedText] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
   const sectionRef = useRef(null);
-
-  const fullText = "What We Offer - simple and client-focused";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          setIsTyping(true);
         }
       },
       { threshold: 0.1 }
@@ -30,30 +23,6 @@ const Services = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  // Typing effect
- useEffect(() => {
-  if (isTyping) {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-        setIsTyping(false);
-        // Restart typing after a short delay
-        setTimeout(() => {
-          setTypedText('');
-          setIsTyping(true);
-        }, 2000); // Adjust delay as needed
-      }
-    }, 150);
-
-    return () => clearInterval(timer);
-  }
-}, [isTyping, fullText]);
-
 
   const openModal = (service) => {
     setSelectedService(service);
@@ -92,14 +61,14 @@ const Services = () => {
       iconBg: "from-slate-700 to-slate-800",
       details: [
         "PHP Laravel High-Quality Coding Website with Fully Responsive",
-        "WordPress Responsive and SEO Friendly Website", 
+        "WordPress Responsive and SEO Friendly Website",
         "We do Unlimited Revision till 100% Satisfaction",
         "Easy to use Admin Panel",
         "Uploading and Configuring your final Website to your Hosting"
       ]
     },
     {
-      title: "Mobile App Development", 
+      title: "Mobile App Development",
       description: "Clean, intuitive apps for Android & iOS – tailored for product-market fit",
       icon: Smartphone,
       color: "from-purple-400 to-pink-500",
@@ -151,9 +120,9 @@ const Services = () => {
       ]
     },
     {
-      title: "Website Redesign & Optimization",
-      description: "Make your current site faster, clearer, and more visually aligned with your brand",
-      icon: Palette,
+      title: "Website Redesign & Maintenance",
+      description: "Complete redesign, optimization, and ongoing support to keep your site performing at its best",
+      icon: Wrench,
       color: "from-pink-400 to-red-500",
       iconBg: "from-rose-700 to-pink-800",
       details: [
@@ -164,22 +133,13 @@ const Services = () => {
         "SEO optimization and best practices",
         "Content restructuring and optimization",
         "Brand alignment and consistency",
-        "Conversion rate optimization"
-      ]
-    },
-    {
-      title: "Website Maintenance & Support",
-      description: "Continuous updates, backups, blog uploads, tech fixes & growth strategy",
-      icon: Wrench,
-      color: "from-indigo-400 to-purple-500",
-      iconBg: "from-violet-700 to-indigo-800",
-      details: [
+        "Conversion rate optimization",
         "Security updates & regular backups",
         "Speed optimization and performance monitoring",
         "Blog uploads & content updates",
         "Technical troubleshooting and bug fixes",
         "Strategic consultations for growth",
-        "We keep your site running smoothly, so you can focus on what matters most"
+        "Continuous support to keep your site running smoothly"
       ]
     },
     {
@@ -204,41 +164,28 @@ const Services = () => {
   ];
 
   return (
-   <section 
-  id="services" 
-  ref={sectionRef} 
-  className="py-20 overflow-hidden bg-blue-100 relative"
->
-  {/* Background decorative elements */}
-  <div className="absolute inset-0 overflow-hidden z-0">
-   
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-  </div>
-
+    <section
+      id="services"
+      ref={sectionRef}
+      className="py-20 overflow-hidden bg-white relative"
+    >
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className={`text-center mb-16 transition-all duration-800 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-400 mb-6">
-              {typedText}
-              {isTyping && (
-                <span className="animate-pulse text-blue-400">
-                  |
-                </span>
-              )}
-              {/* {!isTyping && typedText && (
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-600 bg-clip-text text-transparent ml-2">
-                  ✨
-                </span>
-              )} */}
+          <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6">
+              Our Services 
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Comprehensive digital solutions to elevate your brand and drive measurable growth
+            <p className="text-lg text-[#00AEEF]  font-bold max-w-3xl mx-auto">
+             Tailored web solutions that bring your brand to life and drive meaningful results.
             </p>
           </div>
 
@@ -249,23 +196,22 @@ const Services = () => {
               return (
                 <div
                   key={index}
-                  className={`group transition-all duration-800 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  }`}
+                  className={`group transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   <div className="relative h-full">
-                    {/* Glassmorphism card */}
-                    <div className="relative bg-white/20 backdrop-blur-lg p-8 rounded-2xl border border-white/30 h-full transition-all duration-500 group-hover:bg-white/25 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-white/40">
-                      
+                    {/* Glassmorphism card with border */}
+                    <div className="relative bg-white/20 backdrop-blur-lg p-8 rounded-2xl border-2 border-gray-200/50 h-full transition-all duration-500 group-hover:bg-white/25 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-purple-300/50">
+
                       {/* Gradient glow effect on hover */}
                       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`}></div>
-                      
+
                       {/* Icon */}
                       <div className="relative mb-6">
                         <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.iconBg} p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                          <IconComponent 
-                            className="w-full h-full text-white group-hover:animate-pulse" 
+                          <IconComponent
+                            className="w-full h-full text-white group-hover:animate-pulse"
                           />
                         </div>
                       </div>
@@ -282,7 +228,7 @@ const Services = () => {
 
                       {/* Optional CTA button */}
                       <div className="relative mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <button 
+                        <button
                           onClick={() => openModal(service)}
                           className={`text-sm font-semibold bg-gradient-to-r ${service.color} text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200`}
                         >
@@ -301,15 +247,6 @@ const Services = () => {
               );
             })}
           </div>
-
-          {/* Bottom CTA */}
-          {/* <div className={`text-center mt-16 transition-all duration-800 delay-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <button className="bg-gradient-to-r from-blue-500 via-purple-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-full hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
-              Get Started Today
-            </button>
-          </div> */}
         </div>
       </div>
 
@@ -317,11 +254,11 @@ const Services = () => {
       {isModalOpen && selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
-          
+
           {/* Modal Content */}
           <div className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
             {/* Close button */}
@@ -331,7 +268,7 @@ const Services = () => {
             >
               <X className="w-6 h-6" />
             </button>
-            
+
             {/* Modal Header */}
             <div className="mb-6">
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${selectedService.iconBg} p-3 mb-4 shadow-lg`}>
@@ -344,7 +281,7 @@ const Services = () => {
                 {selectedService.description}
               </p>
             </div>
-            
+
             {/* Service Details */}
             <div className="space-y-4">
               <h4 className="text-xl font-semibold text-white mb-4">What we provide:</h4>
@@ -361,11 +298,11 @@ const Services = () => {
                 ))}
               </div>
             </div>
-            
+
             {/* Modal Footer */}
             <div className="mt-8 pt-4 border-t border-white/20">
               <div className="flex gap-4">
-                <button 
+                <button
                   onClick={closeModal}
                   className="flex-1 bg-white/10 backdrop-blur-lg text-white font-semibold py-2 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
                 >

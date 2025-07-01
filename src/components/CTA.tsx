@@ -64,7 +64,7 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-blue-300 overflow-hidden">
+    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-white overflow-hidden">
       {/* Background Elements */}
       {/* <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -75,13 +75,8 @@ const PremiumCTAFooter = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Us Heading */}
-        <div className="text-center text-2xl md:text-3xl lg:text-4xl text-blue-600 mb-16">
-          <TypingText
-            text="Contact us"
-            delay={100}
-            loop={true}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-800 mb-4 leading-tight"
-          />
+        <div className="text-center text-2xl md:text-3xl lg:text-4xl text-black font-bold  mb-16">
+         <p>Contact Us </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
@@ -102,12 +97,12 @@ const PremiumCTAFooter = () => {
 
               {/* Main Heading */}
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6 leading-tight">
-                Let's Build Something That Reflects Your True Worth
+              Let’s Build a Website That Reflects Your Worth.
               </h2>
 
               {/* Subheading */}
               <p className="text-xl md:text-xl lg:text-xl text-black mb-8 leading-relaxed max-w-2xl">
-                Book a free discovery call and let's map out how your website can start converting like your brand deserves.
+               Book a free discovery call to explore your brand, vision, and how we can bring it to life.
               </p>
 
               {/* CTA Button */}

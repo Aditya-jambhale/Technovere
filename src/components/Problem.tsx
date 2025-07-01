@@ -124,7 +124,8 @@ const Problem = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white text-[#1C2238]">
+   <section ref={sectionRef} className="py-20 bg-white text-[#1C2238] overflow-x-hidden overflow-y-hidden">
+
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -179,7 +180,7 @@ const Problem = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 border border-[#00AEEF33] rounded-3xl p-8 lg:p-12 transition-all duration-1000 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-slate-50 to-blue-50 border border-[#00000033] rounded-3xl p-8 lg:p-12 transition-all duration-1000 relative overflow-hidden">
           {/* Background Decorative Elements */}
           <div className="absolute top-10 right-10 w-32 h-32 opacity-5">
             <Sparkles className="w-full h-full text-[#00AEEF] animate-pulse" />

@@ -26,8 +26,9 @@ const Index = () => {
       <About />
       <AboutFounder/>
       <FounderBrandPitch/>
-      <OurWork />
       <Services />
+      <OurWork />
+      
 
       <Testimonials />
 
