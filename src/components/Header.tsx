@@ -26,6 +26,19 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Prevent scroll jump on mobile on first load
+    if (typeof window !== 'undefined' && window.innerWidth < 1280 && isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    }
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -63,8 +76,6 @@ const Header = () => {
           }`}
       >
         <div className={`flex items-center justify-between w-full min-w-0 transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
-          
-          {/* 🔷 Logo */}
           <div className="flex items-center gap-2 flex-shrink-0 overflow-hidden">
             <img
               src="/images/logomain.png"
@@ -77,7 +88,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* 🔷 Desktop Nav */}
           <nav className="hidden xl:flex items-center justify-center flex-1 mx-4 xl:mx-8 overflow-hidden">
             <div className="flex items-center space-x-4 xl:space-x-6">
               {navigationItems.map((item) => (
@@ -95,7 +105,6 @@ const Header = () => {
             </div>
           </nav>
 
-          {/* 🔷 CTA Button */}
           <div className="hidden xl:block flex-shrink-0">
             <a
               href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
@@ -115,7 +124,6 @@ const Header = () => {
             </a>
           </div>
 
-          {/* 🔷 Mobile Menu Toggle */}
           <div className="xl:hidden flex-shrink-0">
             <button
               className="p-2 hover:bg-white/10 rounded-lg transition-all duration-200 backdrop-blur-sm"
@@ -138,27 +146,25 @@ const Header = () => {
           </div>
         </div>
 
-        {/* 🔷 Mobile Nav */}
-        <div
-          className={`xl:hidden transition-all duration-500 ease-out overflow-hidden ${
-            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="border-t border-gray-200/30 bg-white/95 backdrop-blur-xl rounded-b-xl sm:rounded-b-2xl shadow-xl">
-            <nav className="flex flex-col p-4 space-y-1">
-              {navigationItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-800 hover:text-[#00ADEF] transition-all duration-300 font-poppins font-medium py-3 text-left hover:bg-gray-50/80 px-3 rounded-xl transform hover:translate-x-1"
-                  style={{
-                    transitionDelay: `${index * 50}ms`,
-                  }}
-                >
-                  {item.label}
-                </button>
-              ))}
-              <div className="pt-3">
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl shadow-xl xl:hidden">
+            <div className="flex flex-col justify-between h-full py-6 px-4">
+              <nav className="space-y-2">
+                {navigationItems.map((item, index) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-800 hover:text-[#00ADEF] transition-all duration-300 font-poppins font-medium py-3 text-left hover:bg-gray-100 px-3 rounded-xl transform hover:translate-x-1 w-full text-lg"
+                    style={{
+                      transitionDelay: `${index * 50}ms`,
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              <div className="pt-4">
                 <Button
                   onClick={handleBookCall}
                   className="bg-[#00ADEF] hover:bg-[#0099CC] text-white font-poppins font-semibold px-6 py-3 rounded-full w-full hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
@@ -169,9 +175,9 @@ const Header = () => {
                   </span>
                 </Button>
               </div>
-            </nav>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
