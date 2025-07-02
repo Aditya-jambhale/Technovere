@@ -110,16 +110,17 @@ const EnhancedHero = () => {
   ];
 
   return (
-  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 ">
   
   {/* 🔹 Grid Background */}
  * <DotPattern
-        width={30}
-        height={30}
-        cx={1}
-        cy={1}
-        className="absolute inset-0 z-10 fill-blue-200/20 text-blue-300/20"
-      /> 
+  width={30}
+  height={30}
+  cx={1}
+  cy={1}
+  className="absolute inset-0 z-10 fill-white/40"
+/>
+
 
   {/* 🔹 Content */}
   <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">

@@ -69,13 +69,14 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden">
       <div
-        className={`transition-all duration-700 ease-out mx-auto
+        className={`transition-all duration-700 ease-out  rounded-xl mx-auto
           ${isScrolled
             ? 'w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] lg:max-w-6xl mt-2 sm:mt-3 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white/95 shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
             : 'w-full max-w-7xl px-3 sm:px-4 lg:px-6'
           }`}
       >
-        <div className={`flex items-center justify-between w-full min-w-0 transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
+      <div className={`flex items-center rounded justify-between w-full min-w-0 transition-all duration-700 ease-out ${isScrolled ? 'py-3 shadow-md' : 'py-4'}`}>
+
           <div className="flex items-center gap-2 flex-shrink-0 overflow-hidden">
             <img
               src="/images/logomain.png"
@@ -83,8 +84,10 @@ const Header = () => {
               className={`object-contain transition-all duration-300 ${isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-10 sm:h-10'}`}
             />
             <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap ${isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'}`}>
-              <span className="text-[#00ADEF]">TECHNO</span>
-              <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
+           <span className="text-[#00AEEF]  font-semibold">TECHNO</span>
+<span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-semibold">VERE</span>
+
+
             </div>
           </div>
 
