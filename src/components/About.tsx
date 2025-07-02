@@ -53,7 +53,7 @@ const AboutTechnovere = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 px-4 lg:px-20 relative overflow-hidden"
+      className="bg-[#00AEEF] py-20 px-4 lg:px-20 relative overflow-hidden"
     >
       {/* Floating Elements for Visual Interest */}
       <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
