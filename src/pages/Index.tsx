@@ -5,6 +5,7 @@ import Problem from '@/components/Problem';
 // import Solution from '@/components/Solution';
 // import Benefits from '@/components/Benefits';
 import About from '@/components/About';
+import TestimonialSection from '@/components/testimonialsvideo';
 // import Founder from '@/components/Founder';
 import Services from '@/components/Services';
 import Testimonials from '@/components/testimonials';
@@ -31,7 +32,7 @@ const Index = () => {
       
 
       <Testimonials />
-
+  <TestimonialSection />
       <Process />
       <CTA />
       <Footer />

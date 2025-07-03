@@ -223,10 +223,10 @@ const WorkSection: React.FC = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 text-yellow-400 mb-4">
                         Our Work
                     </h2>
-                    <p className="text-lg text-yellow-400  font-bold max-w-3xl mx-auto">
+                    <p className="text-lg text-white/80  font-bold max-w-3xl mx-auto">
                         Explore our portfolio of custom-built websites that drive results across industries.
                     </p>
                 </div>

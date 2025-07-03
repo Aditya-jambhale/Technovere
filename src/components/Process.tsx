@@ -205,7 +205,7 @@ const ProcessSection = () => {
   }, [isHeaderInView]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-16 px-4 relative">
+    <div className="min-h-screen bg-white py-16 px-4 relative">
       <ScrollIndicator />
 
       <div className="max-w-4xl mx-auto">
@@ -218,7 +218,7 @@ const ProcessSection = () => {
           className="text-center mb-16"
         >
     <motion.div
-      className="text-4xl font-bold text-blue-400 mb-4 min-h-[3rem]"
+      className="text-4xl font-bold text-black mb-4 min-h-[3rem]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -229,7 +229,7 @@ const ProcessSection = () => {
             initial={{ opacity: 0 }}
             animate={isHeaderInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 2 }}
-            className="text-lg text-yellow-400 font-bold  max-w-3xl mx-auto"
+            className="text-lg text-[#00AEEF] font-bold  max-w-3xl mx-auto"
           >
             Follow our proven methodology that transforms your vision into exceptional results
           </motion.p>

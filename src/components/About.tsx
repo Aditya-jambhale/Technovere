@@ -78,12 +78,12 @@ const AboutTechnovere = () => {
         >
           <div className="flex items-center gap-3 mb-6">
             <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl  font-bold text-yellow-400">
               About Technovere
             </h2>
           </div>
 
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-yellow-400 mb-6 max-w-3xl">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white/80 mb-6 max-w-3xl">
             More Than a Web Design Agency — We Build Authority Online.
           </h3>
         </div>

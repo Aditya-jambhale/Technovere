@@ -64,7 +64,7 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-white overflow-hidden">
+    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
       {/* Background Elements */}
       {/* <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -75,7 +75,7 @@ const PremiumCTAFooter = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Us Heading */}
-        <div className="text-center text-2xl md:text-3xl lg:text-4xl text-black font-bold  mb-16">
+        <div className="text-center text-2xl md:text-3xl lg:text-4xl text-yellow-400 font-bold  mb-16">
          <p>Contact Us </p>
         </div>
 
@@ -91,17 +91,17 @@ const PremiumCTAFooter = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-current" />
                   ))}
-                  <span className="text-black ml-2 text-sm">5.0 • 200+ Reviews</span>
+                  <span className="text-white ml-2 text-sm">5.0 • 200+ Reviews</span>
                 </div>
               </div>
 
               {/* Main Heading */}
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6 leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
               Let’s Build a Website That Reflects Your Worth.
               </h2>
 
               {/* Subheading */}
-              <p className="text-xl md:text-xl lg:text-xl text-black mb-8 leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-xl lg:text-xl text-white/60 mb-8 leading-relaxed max-w-2xl">
                Book a free discovery call to explore your brand, vision, and how we can bring it to life.
               </p>
 
@@ -122,23 +122,23 @@ const PremiumCTAFooter = () => {
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
                     <Trophy className="w-5 h-5 text-yellow-400" />
-                    <span className="text-xl font-bold text-black">500+</span>
+                    <span className="text-xl font-bold text-white">500+</span>
                   </div>
-                  <p className="text-black/60 text-sm">Projects Delivered</p>
+                  <p className="text-white/60 text-sm">Projects Delivered</p>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
                     <Users className="w-5 h-5 text-green-400" />
-                    <span className="text-xl font-bold text-black">Global</span>
+                    <span className="text-xl font-bold text-white">Global</span>
                   </div>
-                  <p className="text-black/60 text-sm">Client Network</p>
+                  <p className="text-white/60 text-sm">Client Network</p>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                    <Star className="w-5 h-5 text-gray-400" />
-                    <span className="text-xl font-bold text-black">Premium</span>
+                    <Star className="w-5 h-5 text-yellow-400" />
+                    <span className="text-xl font-bold text-white">Premium</span>
                   </div>
-                  <p className="text-black/60 text-sm">Quality Assured</p>
+                  <p className="text-white/60 text-sm">Quality Assured</p>
                 </div>
               </div>
             </div>

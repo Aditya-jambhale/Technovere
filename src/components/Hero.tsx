@@ -1,30 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { DotPattern } from "@/components/magicui/dot-pattern";
-// TODO: Replace the following import path with the correct one if needed
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
-import { InteractiveGridPattern } from './magicui/interactive-grid-pattern';
-import {
-  Check,
-  Sparkles,
-  ArrowRight,
-  Star,
-  Users,
-  Globe,
-  TrendingUp,
-  ChevronDown,
-  Code,
-  Zap,
-  Shield,
-  Brain,
-  Rocket,
-  Target,
-  MessageCircle,
-  BarChart3,
-  Lightbulb,
-  Cpu,
-  Bot,
-  Phone
+import { 
+  Check, Sparkles, ArrowRight, Star, Users, Globe, TrendingUp, ChevronDown, Code, 
+  Zap, Shield, Brain, Rocket, Target, MessageCircle, BarChart3, Lightbulb, Cpu, Bot, Phone 
 } from 'lucide-react';
 
 const EnhancedHero = () => {
@@ -32,6 +10,7 @@ const EnhancedHero = () => {
   const [messageIndex, setMessageIndex] = useState(0);
   const [typedText, setTypedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+  const [isTyping, setIsTyping] = useState(true);
 
   const fullText = "It's Your Digital Reputation.";
 
@@ -51,7 +30,9 @@ const EnhancedHero = () => {
         if (index <= fullText.length) {
           setTypedText(fullText.slice(0, index));
           index++;
+          setIsTyping(true);
         } else {
+          setIsTyping(false);
           setTimeout(() => {
             direction = -1;
           }, 2000);
@@ -60,7 +41,9 @@ const EnhancedHero = () => {
         if (index >= 0) {
           setTypedText(fullText.slice(0, index));
           index--;
+          setIsTyping(true);
         } else {
+          setIsTyping(false);
           setTimeout(() => {
             direction = 1;
             index = 0;
@@ -76,7 +59,7 @@ const EnhancedHero = () => {
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev);
-    }, 730);
+    }, 530);
     return () => clearInterval(cursorInterval);
   }, []);
 
@@ -110,50 +93,50 @@ const EnhancedHero = () => {
   ];
 
   return (
-  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
 
-  {/* Video Background */}
-  <div className="absolute inset-0 z-0">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="w-full h-full object-cover"
-    poster="" // Optional fallback image if you have one
-  >
-    <source src="/images/compressed.mp4" type="video/webm" />
-    {/* Fallback gradient if video doesn't load */}
-    Your browser does not support the video tag.
-  </video>
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          poster="" // Optional fallback image if you have one
+        >
+          <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1751551804/bg_elh2rs.mp4" type="video/mp4" />
+          {/* Fallback gradient if video doesn't load */}
+          Your browser does not support the video tag.
+        </video>
 
-  {/* Gradient Fallback if video fails or for extra contrast */}
-  <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
+        {/* Gradient Fallback if video fails or for extra contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
 
-  {/* Dark Overlay for Better Readability */}
-  <div className="absolute inset-0 bg-black/50 z-20"></div>
-</div>
+        {/* Dark Overlay for Better Readability */}
+        <div className="absolute inset-0 bg-black/50 z-20"></div>
+      </div>
 
+      {/* Content */}
+      <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
+        <div className="w-full max-w-4xl">
+          <div className="text-center space-y-6 lg:space-y-8">
+            
+            {/* Badge */}
+            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="inline-flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full shadow-lg mb-4">
+                <Sparkles className="w-4 h-4 text-black" />
+                <span className="text-black font-semibold text-sm">Web Development Agency</span>
+              </div>
+            </div>
 
-
-  {/* 🔹 Content */}
-  <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
-    <div className="w-full max-w-4xl">
-      <div className="text-center space-y-6 lg:space-y-8">
-        
-        {/* Badge */}
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full shadow-lg mb-4">
-            <Sparkles className="w-4 h-4 text-black" />
-            <span className="text-black font-semibold text-sm">Web Development Agency</span>
-          </div>
-        </div>
             <h1 className={`text-center font-bold leading-snug md:leading-tight mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <span className="block text-[1.75rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">
                 Your Website Is More Than Design
               </span>
-              <span className="block text-[1.5rem] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-yellow-400 mt-2">
-                It's Your Digital Reputation.
+              <span className="block text-[1.5rem] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-yellow-400 mt-2 min-h-[1.2em]">
+                {typedText}
+                <span className={`inline-block w-0.5 h-[0.9em] bg-yellow-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
               </span>
             </h1>
 
