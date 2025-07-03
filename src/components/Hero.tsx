@@ -110,16 +110,30 @@ const EnhancedHero = () => {
   ];
 
   return (
-  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 ">
-  
-  {/* 🔹 Grid Background */}
- * <DotPattern
-  width={30}
-  height={30}
-  cx={1}
-  cy={1}
-  className="absolute inset-0 z-10 fill-white/40"
-/>
+  <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+
+  {/* Video Background */}
+  <div className="absolute inset-0 z-0">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover"
+    poster="" // Optional fallback image if you have one
+  >
+    <source src="/images/compressed.mp4" type="video/webm" />
+    {/* Fallback gradient if video doesn't load */}
+    Your browser does not support the video tag.
+  </video>
+
+  {/* Gradient Fallback if video fails or for extra contrast */}
+  <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
+
+  {/* Dark Overlay for Better Readability */}
+  <div className="absolute inset-0 bg-black/50 z-20"></div>
+</div>
+
 
 
   {/* 🔹 Content */}
