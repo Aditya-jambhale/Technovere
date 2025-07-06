@@ -91,7 +91,7 @@ const Testimonials = () => {
     const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
     return (
-        <section id="testimonials" className="w-full py-16 px-4 bg-white">
+        <section id="testimonials" className="w-full py-16 px-4 bg-white relative">
             <div className="max-w-7xl mx-auto text-center mb-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-black">What Our Clients Say?</h2>
                 <p className="text-base md:text-lg text-[#00AEEF] font-bold mt-2">
@@ -114,6 +114,23 @@ const Testimonials = () => {
                     ))}
                 </Marquee>
             </div>
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-[calc(130%+1.3px)] h-[60px]"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
+                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+           fill="#1E3A8A"
+
+            ></path>
+          </svg>
+        </div>
         </section>
     );
 };

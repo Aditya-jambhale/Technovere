@@ -124,7 +124,7 @@ const Problem = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white text-[#1C2238] overflow-x-hidden overflow-y-hidden">
+    <section ref={sectionRef} className="py-20 bg-white text-[#1C2238] overflow-x-hidden overflow-y-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 bg-[#00AEEF1A] px-4 py-2 rounded-full mb-6 border border-[#00AEEF33]">
@@ -254,6 +254,23 @@ const Problem = () => {
           animation: fade-in-scale 0.3s ease-out;
         }
       `}</style>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-[calc(130%+1.3px)] h-[60px]"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
+                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            fill="#1E3A8A"
+
+          ></path>
+        </svg>
+      </div>
     </section>
   );
 };
