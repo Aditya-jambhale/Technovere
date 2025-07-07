@@ -173,19 +173,19 @@ const Header = () => {
             
             {/* Logo Section */}
             <div className="flex items-center gap-2 flex-shrink-0">
-              <div className="logo-animation floating-animation">
+             
                 <img
-                  src="/images/logomain.png"
+                  src="/images/Art1.png"
                   alt="Technovere Logo"
                   className={`object-contain transition-all duration-500 hover:scale-110 ${
                     isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-10 sm:h-10'
                   }`}
                 />
-              </div>
+              
               <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
                 isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
               }`}>
-                <span className="text-[#00AEEF] font-semibold hover:text-[#0099CC] transition-colors duration-300">
+                <span className="text-[#1E3A8A] font-semibold hover:text-[#0099CC] transition-colors duration-300">
                   TECHNO
                 </span>
                 <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-semibold hover:from-[#f5d000] hover:to-[#e3c400] transition-all duration-300">
@@ -224,7 +224,7 @@ const Header = () => {
                 rel="noopener noreferrer"
               >
                 <Button
-                  className={`text-black bg-gradient-to-r from-[#FFEB3B] to-[#FDD835] hover:from-[#FDD835] hover:to-[#FFEB3B] font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${
+                  className={`text-black bg-yellow-400 hover:bg-yellow-500 font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${
                     !isScrolled ? 'shadow-lg' : ''
                   }`}
                   style={{
@@ -233,7 +233,7 @@ const Header = () => {
                 >
                   <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
                   <span className="flex items-center gap-2 relative z-10">
-                    <Phone className="w-4 h-4 text-purple-700 transition-transform duration-300 hover:rotate-12" />
+                    <Phone className="w-4 h-4 text-[#1E3A8A] transition-transform duration-300 hover:rotate-12" />
                     BOOK A CALL
                   </span>
                 </Button>

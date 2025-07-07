@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Lightbulb, Target, Globe, Briefcase, Trophy, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Lightbulb, Target, Globe, Briefcase, Trophy, ArrowUpRight, Users, Award, Zap } from 'lucide-react';
 
 const AboutTechnovere = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,124 +49,121 @@ const AboutTechnovere = () => {
     },
   ];
 
+  const stats = [
+    { number: "500+", label: "Projects Delivered" },
+    { number: "3", label: "Countries Served" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "5+", label: "Years Experience" }
+  ];
+
   return (
     <section
       id="about"
       ref={sectionRef}
-      className="bg-[#1E3A8A] py-20 px-4 lg:px-20 relative overflow-hidden"
+      className="bg-blue-900 py-20 px-4 lg:px-20 relative overflow-hidden"
     >
-      {/* Floating Elements for Visual Interest */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
+       <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
       <div className="absolute top-40 right-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-40"></div>
-      <div className="absolute bottom-32 left-1/4 w-1 h-1 bg-white rounded-full animate-ping opacity-30"></div>
+     
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Logo moved above section */}
-        <div className="flex justify-center mb-10">
-          <img
-            src="/images/logomain.png"
-            alt="Technovere Logo"
-            className="w-16 h-16 md:w-20 md:h-20 object-contain"
-          />
-        </div>
-
-        {/* Header */}
-        <div
-          className={`flex flex-col items-center text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl  font-bold text-yellow-400">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-3">
+            <img
+              src="/images/Art1.png"
+              alt="Technovere Logo"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain"
+            />
+          </div>
+          
+          <div className="mb-3">
+            <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               About Technovere
             </h2>
-          </div>
-
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white/80 mb-6 max-w-3xl">
-            More Than a Web Design Agency — We Build Authority Online.
-          </h3>
-        </div>
-
-        {/* Story Section */}
-        <div
-          className={`mb-20 transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 md:p-8 rounded-2xl">
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                  <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                  Our Story
-                </h4>
-                <p className="text-white/90 leading-relaxed text-base md:text-lg mb-4">
-                  At Technovere, we don't just build websites — we design digital identities.
-                </p>
-                <p className="text-white/80 leading-relaxed text-base md:text-lg">
-                  Founded by Yusuf, a software engineer turned creative entrepreneur, Technovere was born from a mission: To help modern brands grow through clarity, creativity, and conversion-focused design.
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-gradient-to-l from-blue-600/20 to-indigo-600/20 backdrop-blur-sm border border-blue-300/30 p-6 md:p-8 rounded-2xl">
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                  <span className="w-3 h-3 bg-blue-400 rounded-full"></span>
-                  Who We Serve
-                </h4>
-                <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                  Whether you're a solo creator, consultant, startup founder, or scaling service provider — we combine cutting-edge tech and storytelling to help you show up like the brand you are.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-l from-yellow-600/20 to-orange-600/20 backdrop-blur-sm border border-yellow-300/30 p-6 md:p-8 rounded-2xl">
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                  <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                  Our Approach
-                </h4>
-                <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                  From sleek designs to compelling brand messaging — we blend tech, psychology, and storytelling to help you look credible, feel confident, and convert visitors into clients.
-                </p>
-              </div>
-            </div>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              More than a web design agency — we build authority online through strategic design and powerful storytelling.
+            </p>
           </div>
         </div>
 
-        {/* Why Technovere */}
-        <div
-          className={`mb-16 transition-all duration-1000 delay-600 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          {/* Left Column - Story */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-3xl font-bold text-white mb-6">Our Story</h3>
+              <div className="w-20 h-1 bg-yellow-400 mb-6"></div>
+              <p className="text-white/80 text-lg leading-relaxed mb-4">
+                At Technovere, we don't just build websites — we design digital identities that drive results and build lasting connections.
+              </p>
+              <p className="text-white/80 text-lg leading-relaxed">
+                Founded by Yusuf, a software engineer turned creative entrepreneur, Technovere was born from a mission: To help modern brands grow through clarity, creativity, and conversion-focused design.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-2xl font-bold text-white mb-4">Our Approach</h4>
+              <p className="text-white/80 text-lg leading-relaxed">
+                We blend cutting-edge technology with strategic storytelling to create websites that not only look exceptional but perform exceptionally. Every project is a collaboration built on trust, transparency, and results.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column - Stats & Values */}
+          <div className="space-y-8">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="text-3xl font-bold text-blue-900 mb-2">{stat.number}</div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mission Statement */}
+            <div className="bg-blue-800 text-white p-8 rounded-xl border border-blue-700 hover:bg-blue-700 transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <Zap className="w-6 h-6 text-yellow-400 mr-3" />
+                <h4 className="text-xl font-bold">Our Mission</h4>
+              </div>
+              <p className="text-white/90 leading-relaxed">
+                To empower ambitious professionals and growing businesses with digital experiences that convert visitors into customers and brands into authorities.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Services/Why Choose Us */}
+        <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Technovere?</h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-blue-400 mx-auto rounded-full"></div>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Choose Technovere?</h3>
+            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">
+              We deliver comprehensive solutions that combine strategic thinking with flawless execution.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
                 <div
                   key={index}
-                  className={`group bg-white/5 backdrop-blur-sm border border-white/10 p-6 md:p-8 rounded-2xl hover:bg-white/10 hover:border-white/30 hover:scale-105 transition-all duration-500 cursor-pointer ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                  }`}
-                  style={{ transitionDelay: `${800 + index * 200}ms` }}
+                  className="group bg-white p-8 rounded-xl hover:shadow-xl hover:shadow-blue-900/20 transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                      <div className="w-14 h-14 bg-yellow-400 rounded-lg flex items-center justify-center group-hover:bg-blue-900 group-hover:scale-110 transition-all duration-300">
+                        <IconComponent className="w-7 h-7 text-black group-hover:text-white transition-colors duration-300" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-white font-bold text-lg md:text-xl mb-3 group-hover:text-yellow-300 transition-colors duration-300">
+                      <h4 className="text-blue-900 font-bold text-xl mb-3 group-hover:text-blue-800 transition-colors duration-300">
                         {feature.title}
                       </h4>
-                      <p className="text-white/80 text-sm md:text-base leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                      <p className="text-gray-600 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -177,51 +174,66 @@ const AboutTechnovere = () => {
           </div>
         </div>
 
+        {/* Who We Serve */}
+        <div className="bg-white/70 rounded-3xl -mx-4 lg:-mx-20 px-4 lg:px-20 py-16 mb-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-[#1E3A8A] mb-4">Who We Serve</h3>
+              <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-blue-900 mb-3">Solo Entrepreneurs</h4>
+                <p className="text-gray-600">Consultants, coaches, and freelancers looking to establish their digital presence and attract premium clients.</p>
+              </div>
+              
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Briefcase className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-blue-900 mb-3">Growing Businesses</h4>
+                <p className="text-gray-600">Startups and SMEs ready to scale their operations with professional branding and conversion-focused websites.</p>
+              </div>
+              
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="text-xl font-bold text-blue-900 mb-3">Industry Leaders</h4>
+                <p className="text-gray-600">Established professionals seeking to elevate their online presence and maintain their competitive edge.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
-        <div
-          className={`text-center transition-all duration-1000 delay-1200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
-          <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 p-6 md:p-8 rounded-3xl max-w-3xl mx-auto">
-            <h4 className="text-xl md:text-2xl font-bold text-white mb-4">
-              Ready to create a website that's more than just pretty?
+        <div className="text-center bg-blue-800 rounded-3xl -mx-4 lg:-mx-20 px-4 lg:px-20 py-16">
+          <div className="max-w-4xl mx-auto">
+            <h4 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Build Your Digital Authority?
             </h4>
-            <p className="text-white/80 mb-6 md:mb-8 text-base md:text-lg">
-              One that works as hard as you do?
+            <p className="text-white/90 mb-8 text-lg">
+              Let's create a website that works as hard as you do and converts visitors into loyal customers.
             </p>
 
             <a
               href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
               target="_blank"
               rel="noopener noreferrer"
-              className="group"
+              className="group inline-block"
             >
-              <button className="bg-gradient-to-r from-[#FFEB3B] to-[#FDD835] hover:from-[#FDD835] hover:to-[#F9A825] text-black font-bold px-8 py-4 md:px-10 md:py-5 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center gap-3 md:gap-4 mx-auto text-base md:text-xl group-hover:shadow-yellow-400/50">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-10 py-5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-4 mx-auto text-lg group-hover:scale-105">
                 Book Your Discovery Call
-                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </button>
             </a>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="relative block w-[calc(130%+1.3px)] h-[60px]"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-           fill="#FFFFFF"
-
-            ></path>
-          </svg>
-        </div>
     </section>
   );
 };

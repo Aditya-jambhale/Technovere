@@ -1,4 +1,5 @@
-import { Phone, Mail, MessageCircle } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,19 +28,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white py-12 lg:py-16">
+    <footer className="bg-[#1E3A8A] text-white py-12 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 transition-all duration-300 mb-4">
               <img
-                src="/images/logomain.png"
+                src="/images/Art1.png"
                 alt="Technovere Logo"
                 className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-all duration-300"
               />
               <div className="font-extrabold tracking-wide font-poppins leading-none transition-all duration-300 text-xl sm:text-2xl lg:text-3xl">
-                <span className="text-[#00ADEF]">TECHNO</span>
+                <span className="text-[#1E3A8A]">TECHNO</span>
                 <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
               </div>
             </div>
@@ -69,7 +70,7 @@ const Footer = () => {
               
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-4 h-4 text-white" />
+                  <FaWhatsapp className="w-4 h-4 text-white" />
                 </div>
                 <a 
                   href="https://wa.me/+919792347498" 
@@ -132,7 +133,7 @@ const Footer = () => {
         </div>
         
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-8 lg:mt-12 pt-6 lg:pt-8">
+        <div className="border-t border-gray-400 mt-8 lg:mt-12 pt-6 lg:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 font-inter text-sm sm:text-base text-center sm:text-left">
               © {currentYear} Technovere. All rights reserved. Built with precision and passion.

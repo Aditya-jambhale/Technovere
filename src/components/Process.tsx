@@ -89,6 +89,7 @@ const ProcessStep = ({ step, index, isLast }: { step: any; index: number; isLast
   const Icon = step.icon;
 
   return (
+    
     <motion.div
       ref={ref}
       initial={{ opacity: 0, x: -50 }}
@@ -205,6 +206,7 @@ const ProcessSection = () => {
   }, [isHeaderInView]);
 
   return (
+    <>
     <div className="min-h-screen bg-white py-16 px-4 relative">
       <ScrollIndicator />
 
@@ -218,7 +220,7 @@ const ProcessSection = () => {
           className="text-center mb-16"
         >
     <motion.div
-      className="text-4xl font-bold text-black mb-4 min-h-[3rem]"
+      className="text-4xl font-bold text-[#1E3A8A] mb-4 min-h-[3rem]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -229,7 +231,7 @@ const ProcessSection = () => {
             initial={{ opacity: 0 }}
             animate={isHeaderInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 2 }}
-            className="text-lg text-[#00AEEF] font-bold  max-w-3xl mx-auto"
+            className="text-lg text-black/60 font-semibold  max-w-3xl mx-auto"
           >
             Follow our proven methodology that transforms your vision into exceptional results
           </motion.p>
@@ -248,15 +250,22 @@ const ProcessSection = () => {
         </div>
 
         {/* Completion message */}
-        <motion.div
+       
+
+      </div>
+    </div>
+    <section>
+     
+       <motion.div
   initial={{ opacity: 0, scale: 0.9 }}
   whileInView={{ opacity: 1, scale: 1 }}
   viewport={{ once: true }}
   transition={{ duration: 0.6, delay: 0.3 }}
-  className="text-center mt-16 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100"
+  className="text-center mt-5 p-8 bg-[#1E3A8A]  "
 >
-  <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Get Started?</h3>
-  <p className="text-gray-600 mb-6">
+  
+  <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
+  <p className="text-gray-300 mb-6">
     Let's transform your vision into reality with our proven process.
   </p>
 
@@ -274,9 +283,8 @@ const ProcessSection = () => {
     </motion.button>
   </a>
 </motion.div>
-
-      </div>
-    </div>
+    </section>
+    </>
   );
 };
 

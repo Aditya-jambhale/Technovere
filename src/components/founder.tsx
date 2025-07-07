@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Check } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe } from 'lucide-react';
 
 const AboutFounder = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [currentSlide, setCurrentSlide] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -22,90 +23,104 @@ const AboutFounder = () => {
         return () => observer.disconnect();
     }, []);
 
-   const credentials = [
-  "B.Tech in Computer Science — Specialization in Web & Cybersecurity",
-  "Certified in Object-Oriented Programming (Java)",
-  "Front-End Web UI Frameworks – HKUST",
-  "Front-End Development – University of Michigan",
-  "Cybercrime Projects & Ethical Hacking Training",
-  "Technical Support Fundamentals – Google",
-  "National Social Summit – IIT Roorkee",
-  "Digital Marketing & Strategy – IIT Delhi",
-  "Meta Ads & Performance Marketing – Meta",
-  "Cybersecurity Essentials – Cisco",
-  "Plus 15+ other credentials in UI/UX, SEO, Branding, and Conversion Optimization"
-];
+    const credentials = [
+        "B.Tech in Computer Science — Specialization in Web & Cybersecurity",
+        "Certified in Object-Oriented Programming (Java)",
+        "Front-End Web UI Frameworks – HKUST",
+        "Front-End Development – University of Michigan",
+        "Cybercrime Projects & Ethical Hacking Training",
+        "Technical Support Fundamentals – Google",
+        "National Social Summit – IIT Roorkee",
+        "Digital Marketing & Strategy – IIT Delhi",
+        "Meta Ads & Performance Marketing – Meta",
+        "Cybersecurity Essentials – Cisco",
+        "Plus 15+ other credentials in UI/UX, SEO, Branding, and Conversion Optimization"
+    ];
 
+    const credentialSlides = [
+        credentials.slice(0, 4),
+        credentials.slice(4, 8),
+        credentials.slice(8, 11)
+    ];
+
+    const highlights = [
+        { icon: Users, title: "500+", subtitle: "Projects Delivered" },
+        { icon: Globe, title: "3+", subtitle: "Countries Served" },
+        { icon: Award, title: "15+", subtitle: "Certifications" },
+        { icon: Code, title: "5+", subtitle: "Years Experience" }
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % credentialSlides.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + credentialSlides.length) % credentialSlides.length);
+    };
 
     return (
-        <section ref={sectionRef} className="py-20 bg-white relative ">
+        <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+             <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
+      <div className="absolute top-40 right-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-40"></div>
             <div className="container mx-auto px-4">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
-                    <div
-                        className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                            }`}
-                    >
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                            About the Founder
+                    <div className="text-center mb-16">
+                        <span className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+                            Leadership
+                        </span>
+                        <h2 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-6">
+                            Meet the Founder
                         </h2>
-                        <p className="text-xl md:text-2xl text-[#00AEEF] font-semibold max-w-3xl mx-auto">
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             From Code to Clients: The Engineer Behind Technovere
                         </p>
                     </div>
 
-                    {/* Main Content */}
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
-                        {/* Left Side - Founder Image */}
-                        <div
-                            className={`lg:sticky lg:top-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-                                }`}
-                        >
-                            <div className="relative">
-                                {/* Decorative Background */}
-                                <div className="absolute -inset-4 bg-gradient-to-br from-blue-100/30 to-yellow-100/20 rounded-3xl blur-xl"></div>
-
-                                {/* Main Card */}
-                                <div className="relative bg-white border border-gray-200 rounded-3xl p-6 shadow-xl">
-                                    {/* Badge */}
-                                    <div className="absolute -top-4 left-6 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md">
-                                        <span>👨‍💻</span>
-                                        <span>Founder & Creative Director</span>
-                                    </div>
-
-                                    {/* Image */}
-                                    <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden mb-6 ring-4 ring-blue-200">
-                                        <img
-                                            src="/images/photo.png"
-                                            alt="Mohd Yusuf - Founder of Technovere"
-                                            className="w-full h-full object-cover"
-                                            onError={(e) => {
-                                                const img = e.target as HTMLImageElement;
-                                                img.style.display = 'none';
-                                                const fallback = img.nextElementSibling as HTMLElement | null;
-                                                if (fallback) fallback.style.display = 'flex';
-                                            }}
-                                        />
-                                        <div
-                                            className="w-full h-full bg-gray-300 rounded-2xl flex items-center justify-center text-gray-800 text-4xl font-bold"
-                                            style={{ display: 'none' }}
-                                        >
-                                            MY
+                    {/* Main Content - Two Column Layout */}
+                    <div className="grid lg:grid-cols-5 gap-12 items-start">
+                        {/* Left Side - Founder Image (2 columns) */}
+                        <div className="lg:col-span-2">
+                            <div className="sticky top-8">
+                                <div className="relative">
+                                    {/* Main Image Card */}
+                                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
+                                        {/* Badge */}
+                                        <div className="absolute -top-3 left-6 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+                                            Founder & Creative Director
                                         </div>
-                                    </div>
 
-                                    {/* Name & Stats */}
-                                    <div className="text-center">
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Mohd Yusuf</h3>
-                                        <p className="text-blue-600 font-medium mb-4">Founder & Creative Director</p>
-                                        <div className="grid grid-cols-2 gap-4 mt-6">
-                                            <div className="text-center p-4 bg-gray-50 rounded-xl">
-                                                <div className="text-xl font-bold text-gray-900">500+</div>
-                                                <div className="text-sm text-gray-600">Projects Delivered</div>
+                                        {/* Image */}
+                                        <div className="w-full aspect-square rounded-xl overflow-hidden mb-6 bg-gray-100">
+                                            <img
+                                                src="/images/photo.png"
+                                                alt="Mohd Yusuf - Founder of Technovere"
+                                                className="w-full h-full object-cover"
+                                                onError={(e) => {
+                                                    const img = e.target as HTMLImageElement;
+                                                    img.style.display = 'none';
+                                                    const fallback = img.nextElementSibling as HTMLElement | null;
+                                                    if (fallback) fallback.style.display = 'flex';
+                                                }}
+                                            />
+                                            <div
+                                                className="w-full h-full bg-blue-900 rounded-xl flex items-center justify-center text-white text-4xl font-bold"
+                                                style={{ display: 'none' }}
+                                            >
+                                                MY
                                             </div>
-                                            <div className="text-center p-4 bg-gray-50 rounded-xl">
-                                                <div className="text-xl font-bold text-gray-900">15+</div>
-                                                <div className="text-sm text-gray-600">Certifications</div>
+                                        </div>
+
+                                        {/* Name & Title */}
+                                        <div className="text-center">
+                                            <h3 className="text-2xl font-bold text-blue-900 mb-2">ER.Mohd Yusuf</h3>
+                                            <p className="text-gray-600 font-medium mb-6">Founder & Creative Director</p>
+                                            
+                                            {/* Quote */}
+                                            <div className="bg-blue-900 rounded-lg p-6 text-white">
+                                                <p className="text-sm leading-relaxed italic">
+                                                    "It's never just about a website. It's about building something that positions you, performs well, and scales fast."
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -113,91 +128,141 @@ const AboutFounder = () => {
                             </div>
                         </div>
 
-                        {/* Right Side - Story Content */}
-                        <div
-                            className={`space-y-10 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-                                }`}
-                        >
-                            {/* Story */}
-                            <div>
-                                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                                    Meet <strong className="text-gray-900">Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online. As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses, creators, and consultants turn their online presence into a growth engine.
-                                </p>
-                                <p className="text-lg text-gray-700 leading-relaxed">
-                                    What began as college freelancing has now evolved into a <strong className="text-gray-900">500+ project portfolio</strong>, with clients featured on <strong className="text-blue-600">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
-                                </p>
+                        {/* Right Side - Content (3 columns) */}
+                        <div className="lg:col-span-3 space-y-8">
+                            {/* Story Card */}
+                            <div className="bg-gray-50 rounded-xl p-8">
+                                <h4 className="text-2xl font-bold text-blue-900 mb-6">The Story</h4>
+                                <div className="space-y-4">
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Meet <strong className="text-blue-900">Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
+                                    </p>
+                                    <p className="text-gray-700 leading-relaxed">
+                                        As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine.
+                                    </p>
+                                    <p className="text-gray-700 leading-relaxed">
+                                        What began as college freelancing has now evolved into a <strong className="text-blue-900">500+ project portfolio</strong>, with clients featured on <strong className="text-yellow-600">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
+                                    </p>
+                                </div>
                             </div>
 
-                            {/* Certifications */}
-                            <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
-                                <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                                    <span>🧠</span>
-                                    Certified in Innovation
-                                </h4>
-                                <div className="space-y-4">
-                                    {credentials.map((item, index) => (
-                                        <div key={index} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                                                <Check className="w-3 h-3 text-white" />
+                            {/* Highlights Grid */}
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                {highlights.map((highlight, index) => {
+                                    const IconComponent = highlight.icon;
+                                    return (
+                                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+                                            <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                                <IconComponent className="w-6 h-6 text-black" />
                                             </div>
-                                            <p className="text-gray-700 leading-relaxed">{item}</p>
+                                            <div className="text-2xl font-bold text-blue-900 mb-1">{highlight.title}</div>
+                                            <div className="text-sm text-gray-600">{highlight.subtitle}</div>
                                         </div>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Certifications Slider */}
+                            <div className="bg-white border border-gray-200 rounded-xl p-8">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h4 className="text-2xl font-bold text-blue-900 flex items-center gap-3">
+                                        <Award className="w-6 h-6 text-yellow-400" />
+                                        Certifications & Training
+                                    </h4>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={prevSlide}
+                                            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+                                        >
+                                            <ChevronLeft className="w-5 h-5" />
+                                        </button>
+                                        <button
+                                            onClick={nextSlide}
+                                            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+                                        >
+                                            <ChevronRight className="w-5 h-5" />
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div className="relative overflow-hidden">
+                                    <div 
+                                        className="flex transition-transform duration-300 ease-in-out"
+                                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                                    >
+                                        {credentialSlides.map((slide, slideIndex) => (
+                                            <div key={slideIndex} className="w-full flex-shrink-0">
+                                                <div className="space-y-3">
+                                                    {slide.map((item, index) => (
+                                                        <div key={index} className="flex items-start gap-3">
+                                                            <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                                                                <Check className="w-3 h-3 text-white" />
+                                                            </div>
+                                                            <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+                                {/* Slide Indicators */}
+                                <div className="flex justify-center gap-2 mt-6">
+                                    {credentialSlides.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentSlide(index)}
+                                            className={`w-3 h-3 rounded-full transition-colors ${
+                                                index === currentSlide ? 'bg-yellow-400' : 'bg-gray-300'
+                                            }`}
+                                        />
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Quote */}
-                            <div className="bg-gray-900 rounded-2xl p-8 text-white relative overflow-hidden">
-                                <div className="absolute top-3 left-4 text-6xl text-yellow-200/20 font-serif">“</div>
-                                <div className="relative z-10">
-                                    <p className="text-xl leading-relaxed mb-4 italic">
-                                        To me, it's never just about a website or a reel. It's about building something that positions you, performs well, and scales fast. That's the Technovere mindset.
-                                    </p>
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                        <span className="font-semibold text-yellow-300">Mohd Yusuf</span>
-                                    </div>
+                            {/* CTA Section */}
+                            <div className="bg-blue-900 rounded-xl p-8 text-white">
+                                <h4 className="text-xl font-bold mb-4">Ready to Work with Yusuf?</h4>
+                                <p className="text-blue-100 mb-6">
+                                    Get a free discovery call and see how we can transform your digital presence.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <a
+                                        href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg text-center transition-all"
+                                    >
+                                        Book Discovery Call
+                                    </a>
+                                    <button className="flex-1 border border-white hover:bg-white hover:text-blue-900 font-semibold px-6 py-3 rounded-lg transition-all">
+                                        View Portfolio
+                                    </button>
                                 </div>
-                            </div>
-
-                            {/* CTAs */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <a
-                                    href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-1 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold px-6 py-4 rounded-xl text-center transition-all"
-                                >
-                                    📅 Book a Free Discovery Call
-                                </a>
-                                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-xl transition-all">
-                                    🔗 Connect with Yusuf
-                                </button>
-                                <button className="flex-1 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-semibold px-6 py-4 rounded-xl transition-all">
-                                    📄 More About the Founder
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="relative block w-[calc(130%+1.3px)] h-[60px]"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-           fill="#1E3A8A"
-
-            ></path>
-          </svg>
-        </div>
+            
+            {/* Wave Separator */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-[calc(130%+1.3px)] h-[60px]"
+                >
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+                        -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
+                        C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        fill="#1E3A8A"
+                    ></path>
+                </svg>
+            </div>
         </section>
     );
 };

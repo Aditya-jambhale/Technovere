@@ -93,8 +93,8 @@ const Testimonials = () => {
     return (
         <section id="testimonials" className="w-full py-16 px-4 bg-white relative">
             <div className="max-w-7xl mx-auto text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-black">What Our Clients Say?</h2>
-                <p className="text-base md:text-lg text-[#00AEEF] font-bold mt-2">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A8A]">What Our Clients Say?</h2>
+                <p className="text-base md:text-lg text-black/60 font-semibold mt-2">
                     Don't just take our word for it – here’s what our amazing clients say.
                 </p>
             </div>

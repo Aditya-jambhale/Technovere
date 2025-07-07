@@ -154,7 +154,7 @@ const FounderBrandPitch = () => {
                             >
                                 <div className="flex gap-4">
                                     <div className="bg-blue-500/20 p-3 rounded-lg">
-                                        <benefit.icon className="w-6 h-6 text-blue-300" />
+                                        <benefit.icon className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-white">{benefit.title}</h3>
@@ -188,10 +188,10 @@ const FounderBrandPitch = () => {
                                 className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-md border border-white/10 transition-all hover:scale-[1.03]"
                             >
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="bg-green-600/20 p-2 rounded-lg">
-                                        <service.icon className="w-5 h-5 text-green-400" />
+                                    <div className="bg-blue-500/20 p-2 rounded-lg">
+                                        <service.icon className="w-5 h-5 text-white" />
                                     </div>
-                                    <CheckCircle className="w-5 h-5 text-green-300" />
+                                    {/* <CheckCircle className="w-5 h-5 text-green-300" /> */}
                                 </div>
                                 <h3 className="text-lg font-bold text-white">{service.title}</h3>
                                 <p className="text-slate-200 text-sm mt-2">{service.description}</p>

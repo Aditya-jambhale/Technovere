@@ -57,8 +57,6 @@ const Services = () => {
       title: "Custom Web Development",
       description: "Blazing-fast, SEO-optimized websites built to convert across all devices",
       icon: Code,
-      color: "from-blue-400 to-purple-500",
-      iconBg: "from-slate-700 to-slate-800",
       details: [
         "PHP Laravel High-Quality Coding Website with Fully Responsive",
         "WordPress Responsive and SEO Friendly Website",
@@ -71,8 +69,6 @@ const Services = () => {
       title: "Mobile App Development",
       description: "Clean, intuitive apps for Android & iOS – tailored for product-market fit",
       icon: Smartphone,
-      color: "from-purple-400 to-pink-500",
-      iconBg: "from-indigo-700 to-purple-800",
       details: [
         "Custom Application Development with UI/UX Design expertise",
         "API Integration & Firebase Integration",
@@ -89,8 +85,6 @@ const Services = () => {
       title: "Shopify eCommerce Stores",
       description: "Conversion-focused eCom storefronts with optimized checkout flows",
       icon: ShoppingCart,
-      color: "from-green-400 to-blue-500",
-      iconBg: "from-emerald-700 to-teal-800",
       details: [
         "Custom Shopify theme development",
         "Conversion-optimized checkout processes",
@@ -106,8 +100,6 @@ const Services = () => {
       title: "Custom Software / SaaS",
       description: "Secure, scalable platforms to solve business challenges or power products",
       icon: Server,
-      color: "from-yellow-400 to-orange-500",
-      iconBg: "from-amber-700 to-orange-800",
       details: [
         "Custom software architecture and development",
         "Cloud-based SaaS solutions",
@@ -123,8 +115,6 @@ const Services = () => {
       title: "Website Redesign & Maintenance",
       description: "Complete redesign, optimization, and ongoing support to keep your site performing at its best",
       icon: Wrench,
-      color: "from-pink-400 to-red-500",
-      iconBg: "from-rose-700 to-pink-800",
       details: [
         "Complete visual redesign with modern aesthetics",
         "User experience (UX) optimization",
@@ -146,8 +136,6 @@ const Services = () => {
       title: "Personal Branding",
       description: "Build a powerful personal brand that attracts opportunities and amplifies your influence",
       icon: User,
-      color: "from-cyan-400 to-blue-500",
-      iconBg: "from-cyan-700 to-blue-800",
       details: [
         "Professional portfolio website development",
         "Personal brand strategy and positioning",
@@ -169,22 +157,15 @@ const Services = () => {
       ref={sectionRef}
       className="py-20 overflow-hidden bg-white relative"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1E3A8A] mb-6">
               Our Services 
             </h2>
-            <p className="text-lg text-[#00AEEF]  font-bold max-w-3xl mx-auto">
+            <p className="text-lg text-black/60 font-semibold max-w-3xl mx-auto">
              Tailored web solutions that bring your brand to life and drive meaningful results.
             </p>
           </div>
@@ -201,45 +182,36 @@ const Services = () => {
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   <div className="relative h-full">
-                    {/* Glassmorphism card with border */}
-                    <div className="relative bg-white/20 backdrop-blur-lg p-8 rounded-2xl border-2 border-gray-200/50 h-full transition-all duration-500 group-hover:bg-white/25 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-purple-300/50">
-
-                      {/* Gradient glow effect on hover */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`}></div>
+                    {/* Card with border */}
+                    <div className="relative bg-white p-8 rounded-2xl border-2 border-gray-200 h-full transition-all duration-500 group-hover:bg-gray-50 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-yellow-400">
 
                       {/* Icon */}
                       <div className="relative mb-6">
-                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.iconBg} p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <div className="w-16 h-16 rounded-xl bg-blue-900 p-3 group-hover:bg-yellow-400 group-hover:scale-110 transition-all duration-300 shadow-lg">
                           <IconComponent
-                            className="w-full h-full text-white group-hover:animate-pulse"
+                            className="w-full h-full text-white group-hover:text-black"
                           />
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className="relative">
-                        <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-600 group-hover:bg-clip-text transition-all duration-300">
+                        <h3 className="text-xl font-bold text-blue-900 mb-4 group-hover:text-black transition-all duration-300">
                           {service.title}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                        <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                           {service.description}
                         </p>
                       </div>
 
-                      {/* Optional CTA button */}
+                      {/* CTA button */}
                       <div className="relative mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                         <button
                           onClick={() => openModal(service)}
-                          className={`text-sm font-semibold bg-gradient-to-r ${service.color} text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200`}
+                          className="text-sm font-semibold bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200"
                         >
                           Learn More
                         </button>
-                      </div>
-
-                      {/* Floating animation */}
-                      <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                        <div className="absolute -top-1 -left-1 w-4 h-4 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-purple-400/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-100"></div>
                       </div>
                     </div>
                   </div>
@@ -260,24 +232,24 @@ const Services = () => {
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
+          <div className="relative bg-blue-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
             {/* Close button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200"
+              className="absolute top-4 right-4 text-white hover:text-yellow-400 transition-colors duration-200"
             >
               <X className="w-6 h-6" />
             </button>
 
             {/* Modal Header */}
             <div className="mb-6">
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${selectedService.iconBg} p-3 mb-4 shadow-lg`}>
-                <selectedService.icon className="w-full h-full text-white" />
+              <div className="w-16 h-16 rounded-xl bg-yellow-400 p-3 mb-4 shadow-lg">
+                <selectedService.icon className="w-full h-full text-black" />
               </div>
               <h3 className="text-3xl font-bold text-white mb-3">
                 {selectedService.title}
               </h3>
-              <p className="text-gray-300 text-lg">
+              <p className="text-white/80 text-lg">
                 {selectedService.description}
               </p>
             </div>
@@ -288,12 +260,12 @@ const Services = () => {
               <div className="space-y-3">
                 {selectedService.details.map((detail, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${selectedService.color} p-0.5 mt-0.5 flex-shrink-0`}>
-                      <div className="w-full h-full bg-gray-900 rounded-full flex items-center justify-center">
+                    <div className="w-5 h-5 rounded-full bg-yellow-400 p-0.5 mt-0.5 flex-shrink-0">
+                      <div className="w-full h-full bg-blue-900 rounded-full flex items-center justify-center">
                         <Check className="w-3 h-3 text-white" />
                       </div>
                     </div>
-                    <p className="text-gray-300 leading-relaxed">{detail}</p>
+                    <p className="text-white/90 leading-relaxed">{detail}</p>
                   </div>
                 ))}
               </div>
@@ -304,7 +276,7 @@ const Services = () => {
               <div className="flex gap-4">
                 <button
                   onClick={closeModal}
-                  className="flex-1 bg-white/10 backdrop-blur-lg text-white font-semibold py-2 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
+                  className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-lg transition-all duration-200"
                 >
                   Close
                 </button>
