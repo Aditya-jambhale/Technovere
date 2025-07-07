@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white py-12 lg:py-16">
+    <footer className="bg-[#1E3A8A] text-white py-12 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
@@ -132,16 +132,16 @@ const Footer = () => {
         </div>
         
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-8 lg:mt-12 pt-6 lg:pt-8">
+        <div className="border-t border-white/60 mt-8 lg:mt-12 pt-6 lg:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 font-inter text-sm sm:text-base text-center sm:text-left">
+            <p className="text-white-400 font-inter text-sm sm:text-base text-center sm:text-left">
               © {currentYear} Technovere. All rights reserved. Built with precision and passion.
             </p>
             <div className="flex items-center gap-4 sm:gap-6">
-              <a href="#privacy" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+              <a href="#privacy" className="text-white-400 hover:text-white transition-colors text-sm sm:text-base">
                 Privacy Policy
               </a>
-              <a href="#terms" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+              <a href="#terms" className="text-white-400 hover:text-white transition-colors text-sm sm:text-base">
                 Terms of Service
               </a>
             </div>

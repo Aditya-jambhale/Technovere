@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Globe } from 'lucide-react';
+import { ExternalLink, Globe, Briefcase, User, Calendar } from 'lucide-react';
 
 interface Project {
     id: number;
@@ -26,7 +26,7 @@ const projects: Project[] = [
         name: "Arise Apostolic",
         category: "Religious",
         url: "http://ariseapostolic.com/",
-        image: "https://ariseapostolic.com/wp-content/uploads/2021/05/Arise-Apostolic-Network.png", // Since no Arise logo was provided
+        image: "https://ariseapostolic.com/wp-content/uploads/2021/05/Arise-Apostolic-Network.png",
         description: "Modern church community website",
         tagline: "Faith Community Platform"
     },
@@ -35,7 +35,7 @@ const projects: Project[] = [
         name: "Anish Lalchandani",
         category: "Personal",
         url: "http://anishlalchandani.com/",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80", // Placeholder, since you said "none"
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
         description: "Professional portfolio website",
         tagline: "Personal Portfolio"
     },
@@ -62,7 +62,7 @@ const projects: Project[] = [
         name: "360 Program",
         category: "Education",
         url: "https://360program.org",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80", // Under development; kept placeholder
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
         description: "Comprehensive educational initiative",
         tagline: "Educational Excellence"
     },
@@ -95,27 +95,20 @@ const projects: Project[] = [
     }
 ];
 
-
-const categories = ["Business", "Doctor", "Coach", "Healthcare", "Education", "Religious", "Personal", "Event"];
+const categories = [
+    { label: "All", icon: Globe },
+    { label: "Business", icon: Briefcase },
+    { label: "Personal", icon: User },
+    { label: "Event", icon: Calendar }
+];
 
 const WorkSection: React.FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState<string>("Business");
+    const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-    const filteredProjects = projects.filter(project => project.category === selectedCategory);
-
-    const getPlaceholderColor = (category: string) => {
-        const colors = {
-            'Business': 'bg-blue-500',
-            'Doctor': 'bg-green-500',
-            'Coach': 'bg-purple-500',
-            'Healthcare': 'bg-teal-500',
-            'Education': 'bg-orange-500',
-            'Religious': 'bg-indigo-500',
-            'Personal': 'bg-pink-500',
-            'Event': 'bg-red-500'
-        };
-        return colors[category as keyof typeof colors] || 'bg-gray-500';
-    };
+    const filteredProjects =
+        selectedCategory === "All"
+            ? projects
+            : projects.filter((project) => project.category === selectedCategory);
 
     const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         const [imageLoaded, setImageLoaded] = useState(false);
@@ -127,7 +120,6 @@ const WorkSection: React.FC = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                {/* Logo-friendly Image section */}
                 <div className="relative h-52 sm:h-60 bg-gray-100 flex items-center justify-center overflow-hidden rounded-lg">
                     {!imageLoaded && (
                         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center z-10">
@@ -137,21 +129,15 @@ const WorkSection: React.FC = () => {
                             </div>
                         </div>
                     )}
-
                     <img
                         src={project.image}
                         alt={project.name}
-                        className={`max-h-32 sm:max-h-40 object-contain transition-all duration-700 ${isHovered ? 'scale-105 brightness-110' : 'scale-100'
-                            } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`max-h-32 sm:max-h-40 object-contain transition-all duration-700 ${isHovered ? 'scale-105 brightness-110' : 'scale-100'} ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         onLoad={() => setImageLoaded(true)}
                     />
-
-                    {/* Overlay when hovered */}
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'
-                        }`}>
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-300 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                         <div className="absolute bottom-4 left-4 right-4">
-                            <div className={`transform transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                                }`}>
+                            <div className={`transform transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                                 <div className="flex items-center gap-2 text-white">
                                     <Globe className="w-4 h-4" />
                                     <span className="text-sm font-medium">View Project</span>
@@ -159,45 +145,29 @@ const WorkSection: React.FC = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* Category Badge */}
                     <div className="absolute top-3 right-3 z-20">
-                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm transition-all duration-300 ${isHovered ? 'bg-white/90 text-gray-900' : 'bg-black/40 text-white'
-                            }`}>
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm transition-all duration-300 ${isHovered ? 'bg-white/90 text-gray-900' : 'bg-black/40 text-white'}`}>
                             {project.category}
                         </span>
                     </div>
                 </div>
 
-
-                {/* Main content section - more spacious */}
                 <div className="p-6 flex-1">
                     <div className="mb-6">
-                        <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? 'text-blue-600' : 'text-gray-900'
-                            }`}>
+                        <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${isHovered ? 'text-blue-600' : 'text-gray-900'}`}>
                             {project.name}
                         </h3>
-
                         {project.tagline && (
                             <p className="text-sm text-blue-600 font-semibold mb-3 uppercase tracking-wide">
                                 {project.tagline}
                             </p>
                         )}
-
                         <p className="text-gray-600 leading-relaxed line-clamp-2">
                             {project.description}
                         </p>
                     </div>
 
-                    {/* Interactive footer */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className={`transform transition-all duration-300 ${isHovered ? 'scale-105' : 'scale-100'
-                            }`}>
-                            {/* <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">
-                                Portfolio Project
-                            </span> */}
-                        </div>
-
                         <a
                             href={project.url}
                             target="_blank"
@@ -209,8 +179,7 @@ const WorkSection: React.FC = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <span className="text-sm">Visit Site</span>
-                            <ExternalLink className={`w-4 h-4 transition-transform duration-200 ${isHovered ? 'translate-x-0.5' : ''
-                                }`} />
+                            <ExternalLink className={`w-4 h-4 transition-transform duration-200 ${isHovered ? 'translate-x-0.5' : ''}`} />
                         </a>
                     </div>
                 </div>
@@ -219,35 +188,31 @@ const WorkSection: React.FC = () => {
     };
 
     return (
-        <section id="our-work" className="bg-[#1E3A8A] py-16 px-4 sm:px-6 lg:px-8 relative">
+        <section id="our-work" className="bg-white py-16 px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 text-yellow-400 mb-4">
-                        Our Work
+                    <h2 className="text-4xl sm:text-5xl font-bold text-[#1E3A8A] mb-4">
+                        Our <span className='text-yellow-400'>Work</span>
                     </h2>
-                    <p className="text-lg text-white/80  font-bold max-w-3xl mx-auto">
-                        Explore our portfolio of custom-built websites that drive results across industries.
-                    </p>
                 </div>
 
-                {/* Category Filter */}
                 <div className="flex flex-wrap justify-center gap-2 mb-12">
-                    {categories.map((category) => (
+                    {categories.map(({ label, icon: Icon }) => (
                         <button
-                            key={category}
-                            onClick={() => setSelectedCategory(category)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === category
-                                ? 'bg-blue-600 text-white shadow-md'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800'
-                                }`}
+                            key={label}
+                            onClick={() => setSelectedCategory(label)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                                selectedCategory === label
+                                    ? 'bg-blue-600 text-white shadow-md'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800'
+                            }`}
                         >
-                            {category}
+                            <Icon className="w-4 h-4" />
+                            {label}
                         </button>
                     ))}
                 </div>
 
-                {/* Projects Grid - improved spacing and responsiveness */}
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
                         <div
@@ -262,7 +227,6 @@ const WorkSection: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Empty State */}
                 {filteredProjects.length === 0 && (
                     <div className="text-center py-12">
                         <div className="text-4xl mb-4">🔍</div>
@@ -271,7 +235,8 @@ const WorkSection: React.FC = () => {
                     </div>
                 )}
             </div>
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
+
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
                 <svg
                     data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +249,6 @@ const WorkSection: React.FC = () => {
               -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
                 C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
                         fill="#FFFFFF"
-
                     ></path>
                 </svg>
             </div>
@@ -292,7 +256,6 @@ const WorkSection: React.FC = () => {
     );
 };
 
-// Add CSS animations
 const styles = `
     @keyframes fadeInUp {
         from {
@@ -304,7 +267,7 @@ const styles = `
             transform: translateY(0);
         }
     }
-    
+
     .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -313,7 +276,6 @@ const styles = `
     }
 `;
 
-// Inject styles
 if (typeof document !== 'undefined') {
     const styleSheet = document.createElement("style");
     styleSheet.innerText = styles;

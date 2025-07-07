@@ -10,13 +10,13 @@ const Header = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
     };
-    
+
     checkMobile();
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -24,7 +24,7 @@ const Header = () => {
     const handleResize = () => {
       const newIsMobile = window.innerWidth < 1280;
       setIsMobile(newIsMobile);
-      
+
       if (!newIsMobile && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
@@ -45,7 +45,7 @@ const Header = () => {
     } else {
       document.body.style.overflow = '';
     }
-    
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -170,22 +170,20 @@ const Header = () => {
           }}
         >
           <div className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
-            
+
             {/* Logo Section */}
             <div className="flex items-center gap-2 flex-shrink-0">
-              <div className="logo-animation floating-animation">
-                <img
-                  src="/images/logomain.png"
-                  alt="Technovere Logo"
-                  className={`object-contain transition-all duration-500 hover:scale-110 ${
-                    isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-10 sm:h-10'
+
+              <img
+                src="/images/Art1.png"
+                alt="Technovere Logo"
+                className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-10 h-10 sm:w-10 sm:h-10' : 'w-10 h-10 sm:w-10 sm:h-10'
                   }`}
-                />
-              </div>
-              <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
-                isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
-              }`}>
-                <span className="text-[#00AEEF] font-semibold hover:text-[#0099CC] transition-colors duration-300">
+              />
+
+              <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
+                }`}>
+                <span className="text-[#1E3A8A] font-semibold hover:text-[#1E3A8A] transition-colors duration-300">
                   TECHNO
                 </span>
                 <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-semibold hover:from-[#f5d000] hover:to-[#e3c400] transition-all duration-300">
@@ -201,15 +199,14 @@ const Header = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${
-                      isScrolled ? 'text-gray-800 hover:text-[#00ADEF]' : 'text-white hover:text-[#00ADEF] drop-shadow-md'
-                    }`}
+                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-[#1E3A8A]' : 'text-gray-600 hover:text-[#1E3A8A] drop-shadow-md'
+                      }`}
                     style={{
                       animationDelay: `${0.8 + index * 0.1}s`
                     }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00ADEF] to-[#0099CC] transition-all duration-500 group-hover:w-full rounded-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1E3A8A] to-[#1E3A8A] transition-all duration-500 group-hover:w-full rounded-full"></span>
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white opacity-30 transition-all duration-300 group-hover:w-full rounded-full delay-75"></span>
                   </button>
                 ))}
@@ -224,16 +221,19 @@ const Header = () => {
                 rel="noopener noreferrer"
               >
                 <Button
-                  className={`text-black bg-gradient-to-r from-[#FFEB3B] to-[#FDD835] hover:from-[#FDD835] hover:to-[#FFEB3B] font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${
-                    !isScrolled ? 'shadow-lg' : ''
-                  }`}
+                  className={`text-[#1E3A8A] bg-yellow-400 hover:bg-yellow-500 font-poppins font-semibold  px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform border-2  hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${!isScrolled ? 'shadow-lg' : ''
+                    
+                    }`}
                   style={{
-                    animation: isLoaded ? 'fadeInUp 0.8s ease-out 1.3s both' : 'none'
+                    animation: isLoaded ? 'fadeInUp 0.8s ease-out 1.3s both' : 'none',
+                
+          
+                    borderColor: '#1E3A8A'
                   }}
                 >
-                  <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 border-2 hover:shadow-xl"></span>
                   <span className="flex items-center gap-2 relative z-10">
-                    <Phone className="w-4 h-4 text-purple-700 transition-transform duration-300 hover:rotate-12" />
+                    <Phone className="w-4 h-4 text-text-[#1E3A8A] font-semibold transition-transform duration-300 hover:rotate-12" />
                     BOOK A CALL
                   </span>
                 </Button>
@@ -243,23 +243,20 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <div className="xl:hidden flex-shrink-0">
               <button
-                className={`p-2 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${
-                  isMobileMenuOpen ? 'bg-white/20' : ''
-                }`}
+                className={`p-2 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isMobileMenuOpen ? 'bg-white/20' : ''
+                  }`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >
                 <div className="relative w-6 h-6">
                   <Menu
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                      isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                    } ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
+                      } ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
                   />
                   <X
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                      isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                    } ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
+                      } ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
                   />
                 </div>
               </button>
@@ -270,7 +267,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-40 xl:hidden"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
@@ -299,13 +296,13 @@ const Header = () => {
               <div className="pt-6">
                 <Button
                   onClick={handleBookCall}
-                  className="bg-gradient-to-r from-[#00ADEF] to-[#0099CC] hover:from-[#0099CC] hover:to-[#00ADEF] text-white font-poppins font-semibold px-8 py-4 rounded-full w-full hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden text-lg"
+                  className="text-[#1E3A8A]  font-poppins font-semibold px-8 py-4 rounded-full w-full hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden text-lg"
                   style={{
                     animation: 'fadeInUp 0.6s ease-out 0.6s both'
                   }}
                 >
                   <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
-                  <span className="flex items-center justify-center gap-3 relative z-10">
+                  <span className="flex items-center justify-center gap-3 relative z-10 text-[#1E3A8A]">
                     <Phone className="w-5 h-5 transition-transform duration-300 hover:rotate-12" />
                     BOOK A CALL
                   </span>

@@ -205,6 +205,7 @@ const ProcessSection = () => {
   }, [isHeaderInView]);
 
   return (
+    <>
     <div className="min-h-screen bg-white py-16 px-4 relative">
       <ScrollIndicator />
 
@@ -247,16 +248,21 @@ const ProcessSection = () => {
           ))}
         </div>
 
-        {/* Completion message */}
+      
+      </div>
+      
+    </div>
+    <section >
+     {/* Completion message */}
         <motion.div
   initial={{ opacity: 0, scale: 0.9 }}
   whileInView={{ opacity: 1, scale: 1 }}
   viewport={{ once: true }}
   transition={{ duration: 0.6, delay: 0.3 }}
-  className="text-center mt-16 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100"
+  className="text-center mt-16 p-8 bg-[#1E3A8A]"
 >
-  <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Get Started?</h3>
-  <p className="text-gray-600 mb-6">
+  <h3 className="text-2xl font-bold text-yellow-400 mb-4">Ready to Get Started?</h3>
+  <p className="text-white/60 mb-6">
     Let's transform your vision into reality with our proven process.
   </p>
 
@@ -275,8 +281,8 @@ const ProcessSection = () => {
   </a>
 </motion.div>
 
-      </div>
-    </div>
+    </section>
+    </>
   );
 };
 
