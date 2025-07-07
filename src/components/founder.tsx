@@ -4,7 +4,7 @@ import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe } from 'luc
 const AboutFounder = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -59,39 +59,30 @@ const AboutFounder = () => {
     };
 
     return (
-        <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
-             <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
-      <div className="absolute top-40 right-20 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-40"></div>
+        <section ref={sectionRef} className="py-16 sm:py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="max-w-7xl mx-auto">
-                    {/* Header */}
-                    <div className="text-center mb-16">
-                        <span className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <span className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide mb-3 sm:mb-4">
                             Leadership
                         </span>
-                        <h2 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-6">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4 sm:mb-6">
                             Meet the Founder
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-base sm:text-lg text-white/70 max-w-3xl mx-auto">
                             From Code to Clients: The Engineer Behind Technovere
                         </p>
                     </div>
 
-                    {/* Main Content - Two Column Layout */}
-                    <div className="grid lg:grid-cols-5 gap-12 items-start">
-                        {/* Left Side - Founder Image (2 columns) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-12 items-start">
                         <div className="lg:col-span-2">
                             <div className="sticky top-8">
                                 <div className="relative">
-                                    {/* Main Image Card */}
-                                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
-                                        {/* Badge */}
-                                        <div className="absolute -top-3 left-6 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+                                    <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-lg">
+                                        <div className="absolute -top-3 left-4 sm:left-6 bg-yellow-400 text-black px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                                             Founder & Creative Director
                                         </div>
-
-                                        {/* Image */}
-                                        <div className="w-full aspect-square rounded-xl overflow-hidden mb-6 bg-gray-100">
+                                        <div className="w-full aspect-square rounded-xl overflow-hidden mb-5 sm:mb-6 bg-gray-100">
                                             <img
                                                 src="/images/photo.png"
                                                 alt="Mohd Yusuf - Founder of Technovere"
@@ -104,21 +95,17 @@ const AboutFounder = () => {
                                                 }}
                                             />
                                             <div
-                                                className="w-full h-full bg-blue-900 rounded-xl flex items-center justify-center text-white text-4xl font-bold"
+                                                className="w-full h-full bg-blue-900 rounded-xl flex items-center justify-center text-white text-3xl sm:text-4xl font-bold"
                                                 style={{ display: 'none' }}
                                             >
                                                 MY
                                             </div>
                                         </div>
-
-                                        {/* Name & Title */}
                                         <div className="text-center">
-                                            <h3 className="text-2xl font-bold text-blue-900 mb-2">ER.Mohd Yusuf</h3>
-                                            <p className="text-gray-600 font-medium mb-6">Founder & Creative Director</p>
-                                            
-                                            {/* Quote */}
-                                            <div className="bg-blue-900 rounded-lg p-6 text-white">
-                                                <p className="text-sm leading-relaxed italic">
+                                            <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-1 sm:mb-2">Mohd Yusuf</h3>
+                                            <p className="text-gray-600 text-sm sm:text-base font-medium mb-4 sm:mb-6">Founder & Creative Director</p>
+                                            <div className="bg-blue-900 rounded-lg p-4 sm:p-6 text-white">
+                                                <p className="text-sm sm:text-base leading-relaxed italic">
                                                     "It's never just about a website. It's about building something that positions you, performs well, and scales fast."
                                                 </p>
                                             </div>
@@ -128,75 +115,61 @@ const AboutFounder = () => {
                             </div>
                         </div>
 
-                        {/* Right Side - Content (3 columns) */}
                         <div className="lg:col-span-3 space-y-8">
-                            {/* Story Card */}
-                            <div className="bg-gray-50 rounded-xl p-8">
-                                <h4 className="text-2xl font-bold text-blue-900 mb-6">The Story</h4>
+                            <div className="bg-gray-50 rounded-xl p-6 sm:p-8">
+                                <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">The Story</h4>
                                 <div className="space-y-4">
-                                    <p className="text-gray-700 leading-relaxed">
+                                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                                         Meet <strong className="text-blue-900">Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
                                     </p>
-                                    <p className="text-gray-700 leading-relaxed">
+                                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                                         As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine.
                                     </p>
-                                    <p className="text-gray-700 leading-relaxed">
+                                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                                         What began as college freelancing has now evolved into a <strong className="text-blue-900">500+ project portfolio</strong>, with clients featured on <strong className="text-yellow-600">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
                                     </p>
                                 </div>
                             </div>
 
-                            {/* Highlights Grid */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                                 {highlights.map((highlight, index) => {
                                     const IconComponent = highlight.icon;
                                     return (
-                                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
-                                            <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                                <IconComponent className="w-6 h-6 text-black" />
+                                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 text-center hover:shadow-md transition-shadow">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-400 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                                                <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                                             </div>
-                                            <div className="text-2xl font-bold text-blue-900 mb-1">{highlight.title}</div>
-                                            <div className="text-sm text-gray-600">{highlight.subtitle}</div>
+                                            <div className="text-lg sm:text-2xl font-bold text-blue-900 mb-1">{highlight.title}</div>
+                                            <div className="text-xs sm:text-sm text-gray-600">{highlight.subtitle}</div>
                                         </div>
                                     );
                                 })}
                             </div>
 
-                            {/* Certifications Slider */}
-                            <div className="bg-white border border-gray-200 rounded-xl p-8">
-                                <div className="flex items-center justify-between mb-6">
-                                    <h4 className="text-2xl font-bold text-blue-900 flex items-center gap-3">
-                                        <Award className="w-6 h-6 text-yellow-400" />
+                            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8">
+                                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                                    <h4 className="text-xl sm:text-2xl font-bold text-blue-900 flex items-center gap-2 sm:gap-3">
+                                        <Award className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
                                         Certifications & Training
                                     </h4>
                                     <div className="flex gap-2">
-                                        <button
-                                            onClick={prevSlide}
-                                            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
-                                        >
-                                            <ChevronLeft className="w-5 h-5" />
+                                        <button onClick={prevSlide} className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center">
+                                            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                                         </button>
-                                        <button
-                                            onClick={nextSlide}
-                                            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
-                                        >
-                                            <ChevronRight className="w-5 h-5" />
+                                        <button onClick={nextSlide} className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center">
+                                            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                                         </button>
                                     </div>
                                 </div>
-                                
                                 <div className="relative overflow-hidden">
-                                    <div 
-                                        className="flex transition-transform duration-300 ease-in-out"
-                                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                                    >
+                                    <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                                         {credentialSlides.map((slide, slideIndex) => (
                                             <div key={slideIndex} className="w-full flex-shrink-0">
                                                 <div className="space-y-3">
                                                     {slide.map((item, index) => (
                                                         <div key={index} className="flex items-start gap-3">
-                                                            <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                                                                <Check className="w-3 h-3 text-white" />
+                                                            <div className="w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full flex items-center justify-center mt-1">
+                                                                <Check className="w-2.5 h-2.5 text-white" />
                                                             </div>
                                                             <p className="text-gray-700 text-sm leading-relaxed">{item}</p>
                                                         </div>
@@ -206,28 +179,23 @@ const AboutFounder = () => {
                                         ))}
                                     </div>
                                 </div>
-                                
-                                {/* Slide Indicators */}
-                                <div className="flex justify-center gap-2 mt-6">
+                                <div className="flex justify-center gap-2 mt-5">
                                     {credentialSlides.map((_, index) => (
                                         <button
                                             key={index}
                                             onClick={() => setCurrentSlide(index)}
-                                            className={`w-3 h-3 rounded-full transition-colors ${
-                                                index === currentSlide ? 'bg-yellow-400' : 'bg-gray-300'
-                                            }`}
+                                            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-yellow-400' : 'bg-gray-300'}`}
                                         />
                                     ))}
                                 </div>
                             </div>
 
-                            {/* CTA Section */}
-                            <div className="bg-blue-900 rounded-xl p-8 text-white">
-                                <h4 className="text-xl font-bold mb-4">Ready to Work with Yusuf?</h4>
-                                <p className="text-blue-100 mb-6">
+                            <div className="bg-blue-900 rounded-xl p-6 sm:p-8 text-white">
+                                <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Ready to Work with Yusuf?</h4>
+                                <p className="text-sm sm:text-base text-blue-100 mb-4 sm:mb-6">
                                     Get a free discovery call and see how we can transform your digital presence.
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                     <a
                                         href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
                                         target="_blank"
@@ -245,8 +213,6 @@ const AboutFounder = () => {
                     </div>
                 </div>
             </div>
-            
-            {/* Wave Separator */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
                 <svg
                     data-name="Layer 1"
@@ -260,7 +226,7 @@ const AboutFounder = () => {
                         -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
                         C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
                         fill="#1E3A8A"
-                    ></path>
+                    />
                 </svg>
             </div>
         </section>
