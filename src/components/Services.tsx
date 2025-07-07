@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  Code, Smartphone, ShoppingCart, Wrench,
-  Server, X, Check, User
-} from 'lucide-react';
+import { Code, Smartphone, ShoppingCart, Wrench, Server, X, Check, User } from 'lucide-react';
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -11,11 +8,19 @@ const Services = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true);
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -33,10 +38,18 @@ const Services = () => {
 
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        closeModal();
+      }
     };
-    if (isModalOpen) document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [isModalOpen]);
 
   const services = [
@@ -44,6 +57,8 @@ const Services = () => {
       title: "Custom Web Development",
       description: "Blazing-fast, SEO-optimized websites built to convert across all devices",
       icon: Code,
+      color: "from-blue-400 to-purple-500",
+      iconBg: "from-slate-700 to-slate-800",
       details: [
         "PHP Laravel High-Quality Coding Website with Fully Responsive",
         "WordPress Responsive and SEO Friendly Website",
@@ -56,6 +71,8 @@ const Services = () => {
       title: "Mobile App Development",
       description: "Clean, intuitive apps for Android & iOS – tailored for product-market fit",
       icon: Smartphone,
+      color: "from-purple-400 to-pink-500",
+      iconBg: "from-indigo-700 to-purple-800",
       details: [
         "Custom Application Development with UI/UX Design expertise",
         "API Integration & Firebase Integration",
@@ -72,6 +89,8 @@ const Services = () => {
       title: "Shopify eCommerce Stores",
       description: "Conversion-focused eCom storefronts with optimized checkout flows",
       icon: ShoppingCart,
+      color: "from-green-400 to-blue-500",
+      iconBg: "from-emerald-700 to-teal-800",
       details: [
         "Custom Shopify theme development",
         "Conversion-optimized checkout processes",
@@ -87,6 +106,8 @@ const Services = () => {
       title: "Custom Software / SaaS",
       description: "Secure, scalable platforms to solve business challenges or power products",
       icon: Server,
+      color: "from-yellow-400 to-orange-500",
+      iconBg: "from-amber-700 to-orange-800",
       details: [
         "Custom software architecture and development",
         "Cloud-based SaaS solutions",
@@ -102,6 +123,8 @@ const Services = () => {
       title: "Website Redesign & Maintenance",
       description: "Complete redesign, optimization, and ongoing support to keep your site performing at its best",
       icon: Wrench,
+      color: "from-pink-400 to-red-500",
+      iconBg: "from-rose-700 to-pink-800",
       details: [
         "Complete visual redesign with modern aesthetics",
         "User experience (UX) optimization",
@@ -123,6 +146,8 @@ const Services = () => {
       title: "Personal Branding",
       description: "Build a powerful personal brand that attracts opportunities and amplifies your influence",
       icon: User,
+      color: "from-cyan-400 to-blue-500",
+      iconBg: "from-cyan-700 to-blue-800",
       details: [
         "Professional portfolio website development",
         "Personal brand strategy and positioning",
@@ -142,42 +167,79 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="py-20 overflow-hidden bg-[#1E3A8A] relative"
+      className="py-20 overflow-hidden bg-white relative"
     >
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-4xl font-bold text-white mb-6">Our <span className='text-yellow-400'>Services</span></h2>
-            {/* <p className="text-lg text-white/60 font-bold max-w-3xl mx-auto">
-              Tailored web solutions that bring your brand to life and drive meaningful results.
-            </p> */}
+          {/* Header */}
+          <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6">
+              Our Services 
+            </h2>
+            <p className="text-lg text-[#00AEEF]  font-bold max-w-3xl mx-auto">
+             Tailored web solutions that bring your brand to life and drive meaningful results.
+            </p>
           </div>
 
+          {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <div
                   key={index}
-                  className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className={`group transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   <div className="relative h-full">
-                    <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl hover:border-[#facc15] transition-all duration-300 h-full">
-                      <div className="mb-6">
-                        <div className="w-16 h-16 rounded-xl bg-[#facc15] flex items-center justify-center shadow-md">
-                          <IconComponent className="w-8 h-8 text-[#1E3A8A]" />
+                    {/* Glassmorphism card with border */}
+                    <div className="relative bg-white/20 backdrop-blur-lg p-8 rounded-2xl border-2 border-gray-200/50 h-full transition-all duration-500 group-hover:bg-white/25 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:border-purple-300/50">
+
+                      {/* Gradient glow effect on hover */}
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl`}></div>
+
+                      {/* Icon */}
+                      <div className="relative mb-6">
+                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.iconBg} p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                          <IconComponent
+                            className="w-full h-full text-white group-hover:animate-pulse"
+                          />
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">{service.title}</h3>
-                      <p className="text-gray-700">{service.description}</p>
-                      <div className="mt-6">
+
+                      {/* Content */}
+                      <div className="relative">
+                        <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-600 group-hover:bg-clip-text transition-all duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Optional CTA button */}
+                      <div className="relative mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                         <button
                           onClick={() => openModal(service)}
-                          className="text-sm font-semibold bg-[#facc15] text-[#1E3A8A] px-4 py-2 rounded-lg hover:bg-yellow-400 transition"
+                          className={`text-sm font-semibold bg-gradient-to-r ${service.color} text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200`}
                         >
                           Learn More
                         </button>
+                      </div>
+
+                      {/* Floating animation */}
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none">
+                        <div className="absolute -top-1 -left-1 w-4 h-4 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-purple-400/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping delay-100"></div>
                       </div>
                     </div>
                   </div>
@@ -191,42 +253,93 @@ const Services = () => {
       {/* Modal */}
       {isModalOpen && selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal}></div>
-          <div className="relative bg-white rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-gray-200">
-            <button onClick={closeModal} className="absolute top-4 right-4 text-gray-500 hover:text-black">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={closeModal}
+          ></div>
+
+          {/* Modal Content */}
+          <div className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200"
+            >
               <X className="w-6 h-6" />
             </button>
+
+            {/* Modal Header */}
             <div className="mb-6">
-              <div className="w-16 h-16 rounded-xl bg-[#facc15] flex items-center justify-center mb-4 shadow-md">
-                <selectedService.icon className="w-8 h-8 text-[#1E3A8A]" />
+              <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${selectedService.iconBg} p-3 mb-4 shadow-lg`}>
+                <selectedService.icon className="w-full h-full text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">{selectedService.title}</h3>
-              <p className="text-gray-700 text-lg">{selectedService.description}</p>
+              <h3 className="text-3xl font-bold text-white mb-3">
+                {selectedService.title}
+              </h3>
+              <p className="text-gray-300 text-lg">
+                {selectedService.description}
+              </p>
             </div>
+
+            {/* Service Details */}
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">What we provide:</h4>
+              <h4 className="text-xl font-semibold text-white mb-4">What we provide:</h4>
               <div className="space-y-3">
                 {selectedService.details.map((detail, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-[#facc15] flex items-center justify-center mt-1">
-                      <Check className="w-3 h-3 text-[#1E3A8A]" />
+                    <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${selectedService.color} p-0.5 mt-0.5 flex-shrink-0`}>
+                      <div className="w-full h-full bg-gray-900 rounded-full flex items-center justify-center">
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
                     </div>
-                    <p className="text-gray-700">{detail}</p>
+                    <p className="text-gray-300 leading-relaxed">{detail}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mt-8 pt-4 border-t border-gray-200">
-              <button
-                onClick={closeModal}
-                className="w-full bg-[#1E3A8A] text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-800 transition"
-              >
-                Close
-              </button>
+
+            {/* Modal Footer */}
+            <div className="mt-8 pt-4 border-t border-white/20">
+              <div className="flex gap-4">
+                <button
+                  onClick={closeModal}
+                  className="flex-1 bg-white/10 backdrop-blur-lg text-white font-semibold py-2 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
+       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
+                <svg
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-[calc(130%+1.3px)] h-[60px]"
+                >
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
+                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        fill="#1E3A8A"
+
+                    ></path>
+                </svg>
+            </div>
     </section>
   );
 };

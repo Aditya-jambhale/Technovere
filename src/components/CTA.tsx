@@ -64,7 +64,7 @@ const PremiumCTAFooter = () => {
   };
 
   return (
-    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-white overflow-hidden">
+    <section ref={sectionRef} id='Contact' className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
       {/* Background Elements */}
       {/* <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
