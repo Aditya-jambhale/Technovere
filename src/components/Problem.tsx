@@ -125,7 +125,7 @@ const Problem = () => {
             <span className="text-[#1E3A8A]">But Your Online Presence Doesn't Show It</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Most personal brands lose high-value clients because their digital identity doesn't reflect their real-world expertise and authority.
+            Most personal brands lose high-value clients because their digital identity doesn't reflect their real-world expertise and authority
           </p>
         </div>
 
@@ -172,13 +172,13 @@ const Problem = () => {
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-yellow-400">
               We blend premium web design with personal brand strategy
-              <span className="text-[#1E3A8A]"> to help you stand out and convert.</span>
+              <span className="text-[#1E3A8A]"> to help you stand out and convert</span>
             </h3>
             <p className="text-base text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
-              Your website becomes your best sales tool — designed to build trust and connection with your audience.
+              Your website becomes your best sales tool — designed to build trust and connection with your audience
             </p>
             <p className="text-base text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Whether you're a coach scaling offers, a doctor entering private practice, a founder raising your profile, or a brand building its online presence — we'll bring your brand to life.
+              Whether you're a coach scaling offers, a doctor entering private practice, a founder raising your profile, or a brand building its online presence — we'll bring your brand to life
             </p>
           </div>
 

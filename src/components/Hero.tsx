@@ -105,7 +105,7 @@ const EnhancedHero = () => {
           className="w-full h-full object-cover"
           poster="" // Optional fallback image if you have one
         >
-          <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1751551804/bg_elh2rs.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1752205050/bg_website_3_ef5qy4.mp4" type="video/mp4" />
           {/* Fallback gradient if video doesn't load */}
           Your browser does not support the video tag.
         </video>
@@ -114,7 +114,7 @@ const EnhancedHero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
 
         {/* Dark Overlay for Better Readability */}
-        <div className="absolute inset-0 bg-black/50 z-20"></div>
+        {/* <div className="absolute inset-0 bg-black/50 z-20"></div> */}
       </div>
 
       {/* Content */}

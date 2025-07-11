@@ -107,7 +107,7 @@ const FounderBrandPitch = () => {
                         <div className="lg:w-1/2">
                             <div className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="/images/withclient.png"
+                                    src="/images/withclient1.png"
                                     alt="Mohd Yusuf - Founder"
                                     className="w-full h-auto object-cover aspect-[4/5] rounded-2xl"
                                 />
@@ -185,16 +185,16 @@ const FounderBrandPitch = () => {
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
-                                className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-md border border-white/10 transition-all hover:scale-[1.03]"
+                                className="bg-white backdrop-blur-md p-6 rounded-xl shadow-md border border-white/10 transition-all hover:scale-[1.03]"
                             >
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="bg-blue-500/20 p-2 rounded-lg">
+                                    <div className="bg-[#1E3A8A] p-2 rounded-lg">
                                         <service.icon className="w-5 h-5 text-white" />
                                     </div>
                                     {/* <CheckCircle className="w-5 h-5 text-green-300" /> */}
                                 </div>
-                                <h3 className="text-lg font-bold text-white">{service.title}</h3>
-                                <p className="text-slate-200 text-sm mt-2">{service.description}</p>
+                                <h3 className="text-lg font-bold text-[#1E3A8A]">{service.title}</h3>
+                                <p className="text-black text-sm mt-2">{service.description}</p>
                             </motion.div>
                         ))}
                     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe, Linkedin, Instagram } from 'lucide-react';
 
 const AboutFounder = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -66,7 +66,7 @@ const AboutFounder = () => {
                         <span className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide mb-3 sm:mb-4">
                             Leadership
                         </span>
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4 sm:mb-6">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 sm:mb-6">
                             Meet the Founder
                         </h2>
                         <p className="text-base sm:text-lg text-white/70 max-w-3xl mx-auto">
@@ -190,30 +190,47 @@ const AboutFounder = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-blue-900 rounded-xl p-6 sm:p-8 text-white">
-                                <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Ready to Work with Yusuf?</h4>
-                                <p className="text-sm sm:text-base text-blue-100 mb-4 sm:mb-6">
-                                    Get a free discovery call and see how we can transform your digital presence.
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                            <div className="bg-blue-900 text-white rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                                <div className="text-center sm:text-left">
+                                    <h2 className="text-xl font-semibold">Ready to Work with Yusuf?</h2>
+                                    <p className="text-sm mt-1">Get a free discovery call and see how we can transform your digital presence.</p>
+                                </div>
+
+                                <div className="flex flex-col sm:flex-row items-center gap-4">
                                     <a
                                         href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg text-center transition-all"
+                                        className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg text-center transition-all"
                                     >
                                         Book Discovery Call
                                     </a>
-                                    <button className="flex-1 border border-white hover:bg-white hover:text-blue-900 font-semibold px-6 py-3 rounded-lg transition-all">
-                                        View Portfolio
-                                    </button>
+
+                                    <div className="flex gap-4">
+                                        <a
+                                            href="https://www.instagram.com/yourusername"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:scale-110 transition-transform"
+                                        >
+                                            <Instagram size={24} />
+                                        </a>
+                                        <a
+                                            href="https://www.linkedin.com/in/yourusername"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:scale-110 transition-transform"
+                                        >
+                                            <Linkedin size={24} />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
                 <svg
                     data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +245,7 @@ const AboutFounder = () => {
                         fill="#1E3A8A"
                     />
                 </svg>
-            </div>
+            </div> */}
         </section>
     );
 };

@@ -1,9 +1,12 @@
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, ArrowUp } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
+  const [isVisible, setIsVisible] = useState(false);
+
   const navigationItems = [
     { id: 'about', label: 'About' },
     { id: 'our-work', label: 'Our Work' },
@@ -27,49 +30,57 @@ const Footer = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
   return (
-    <footer className="bg-[#1E3A8A] text-white py-12 lg:py-16">
+    <footer className="relative bg-[#1E3A8A] text-white py-12 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Company Info */}
+          {/* Logo & Contact Info */}
           <div className="md:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 sm:gap-3 transition-all duration-300 mb-4">
+            <div className="flex items-center mb-2">
               <img
-                src="/images/Art1.png"
+                src="/images/footerimg2.png" // Update path if needed
                 alt="Technovere Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-all duration-300"
+                className="w-40 h-auto object-contain"
               />
-              <div className="font-extrabold tracking-wide font-poppins leading-none transition-all duration-300 text-xl sm:text-2xl lg:text-3xl">
-                <span className="text-[#1E3A8A]">TECHNO</span>
-                <span className="bg-gradient-to-r from-[#FFE500] to-[#FFF7A0] text-transparent bg-clip-text">VERE</span>
-              </div>
             </div>
+
             <p className="text-gray-300 font-inter leading-relaxed mb-6 text-sm sm:text-base">
               Building premium websites that position you as an expert, build trust, and drive leads.
             </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-3">
+
+            <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#00ADEF] to-[#FFE500] rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
                 <a href="tel:+919792347498" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                  +91  9792347498
+                  +91 9792347498
                 </a>
               </div>
-              
+
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#00ADEF] to-[#FFE500] rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center">
                   <Mail className="w-4 h-4 text-white" />
                 </div>
                 <a href="mailto:hr@technovere.com" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
-                    hr@technovere.com
+                  hr@technovere.com
                 </a>
               </div>
-              
+
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
                   <FaWhatsapp className="w-4 h-4 text-white" />
                 </div>
                 <a 
@@ -83,8 +94,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-          {/* Services */}
+
+          {/* Services List */}
           <div className="lg:col-span-1">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Services</h4>
             <ul className="space-y-2 lg:space-y-3 font-inter text-gray-300">
@@ -95,8 +106,8 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
-          {/* Company Pages */}
+
+          {/* Company Navigation */}
           <div className="lg:col-span-1">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Company</h4>
             <ul className="space-y-2 lg:space-y-3 font-inter text-gray-300">
@@ -112,8 +123,8 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
-          {/* Newsletter/CTA */}
+
+          {/* Newsletter */}
           <div className="lg:col-span-1">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Stay Connected</h4>
             <p className="text-gray-300 font-inter mb-4 text-sm sm:text-base">
@@ -125,13 +136,13 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADEF] text-sm sm:text-base"
               />
-              <button className="px-6 py-2 bg-gradient-to-r from-[#00ADEF] to-[#FFE500] text-gray-900 font-semibold rounded-md hover:opacity-90 transition-opacity text-sm sm:text-base whitespace-nowrap">
+              <button className="px-6 py-2 bg-[#1E3A8A] text-white font-semibold rounded-md hover:bg-blue-800 transition-colors text-sm sm:text-base whitespace-nowrap">
                 Subscribe
               </button>
             </div>
           </div>
         </div>
-        
+
         {/* Bottom Section */}
         <div className="border-t border-gray-400 mt-8 lg:mt-12 pt-6 lg:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -149,6 +160,17 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+          aria-label="Scroll to Top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
     </footer>
   );
 };

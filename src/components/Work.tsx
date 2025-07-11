@@ -213,7 +213,7 @@ const WorkSection: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-10">
                     {filteredProjects.map((project, index) => (
                         <div
                             key={project.id}

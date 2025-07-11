@@ -185,10 +185,10 @@ const Header = () => {
               <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
                 isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
               }`}>
-                <span className="text-[#1E3A8A] font-semibold hover:text-[#0099CC] transition-colors duration-300">
+                <span className="text-[#1E3A8A] font-semibold  transition-colors duration-300">
                   TECHNO
                 </span>
-                <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-semibold hover:from-[#f5d000] hover:to-[#e3c400] transition-all duration-300">
+                <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-bold  transition-all duration-300">
                   VERE
                 </span>
               </div>
