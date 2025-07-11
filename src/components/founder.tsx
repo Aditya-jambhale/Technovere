@@ -126,7 +126,7 @@ const AboutFounder = () => {
                                         As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        What began as college freelancing has now evolved into a <strong className="text-blue-900">500+ project portfolio</strong>, with clients featured on <strong className="text-yellow-600">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
+                                        What began as college freelancing has now evolved into a <strong className="text-blue-900">500+ project portfolio</strong>, with clients featured on <strong className="text-blue-900">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
                                     </p>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@ const AboutFounder = () => {
 
                                     <div className="flex gap-4">
                                         <a
-                                            href="https://www.instagram.com/yourusername"
+                                            href="https://www.instagram.com/digitallyusuf"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:scale-110 transition-transform"
@@ -216,7 +216,7 @@ const AboutFounder = () => {
                                             <Instagram size={24} />
                                         </a>
                                         <a
-                                            href="https://www.linkedin.com/in/yourusername"
+                                            href="https://www.linkedin.com/in/digitallyusuf"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:scale-110 transition-transform"
