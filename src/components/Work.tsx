@@ -17,7 +17,7 @@ const projects: Project[] = [
         name: "J&C Assets",
         category: "Business",
         url: "http://jandcassets.com/",
-        image: "https://jandcassets.com/wp-content/uploads/2023/12/unnamed.png",
+        image: "/images/jandc.png",
         description: "Corporate asset management platform",
         tagline: "Asset Management Solutions"
     },
@@ -120,7 +120,7 @@ const WorkSection: React.FC = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <div className="relative h-52 sm:h-60 bg-gray-100 flex items-center justify-center overflow-hidden rounded-lg">
+                <div className="relative h-52 sm:h-60 bg-gray-300 flex items-center justify-center overflow-hidden rounded-lg">
                     {!imageLoaded && (
                         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center z-10">
                             <div className="text-center">
