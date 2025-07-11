@@ -102,7 +102,7 @@ const AboutFounder = () => {
                                             </div>
                                         </div>
                                         <div className="text-center">
-                                            <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-1 sm:mb-2">Mohd Yusuf</h3>
+                                            <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-1 sm:mb-2">ER.Mohd Yusuf</h3>
                                             <p className="text-gray-600 text-sm sm:text-base font-medium mb-4 sm:mb-6">Founder & Creative Director</p>
                                             <div className="bg-blue-900 rounded-lg p-4 sm:p-6 text-white">
                                                 <p className="text-sm sm:text-base leading-relaxed italic">
@@ -120,7 +120,7 @@ const AboutFounder = () => {
                                 <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">The Story</h4>
                                 <div className="space-y-4">
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        Meet <strong className="text-blue-900">Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
+                                        Meet <strong className="text-blue-900">ER.Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                                         As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine.
