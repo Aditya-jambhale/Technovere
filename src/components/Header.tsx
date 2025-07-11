@@ -75,6 +75,7 @@ const Header = () => {
   };
 
   const navigationItems = [
+      { id: 'hero-section', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
     { id: 'our-work', label: 'Our Work' },
