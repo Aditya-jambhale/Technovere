@@ -113,7 +113,7 @@ const FounderBrandPitch = () => {
                                         className="w-full h-auto object-cover aspect-[4/5] rounded-2xl"
                                     />
                                     <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg">
-                                        <span className="font-semibold block">Mohd Yusuf</span>
+                                        <span className="font-semibold block">Er. Mohd Yusuf</span>
                                         <span className="text-sm opacity-90">Founder, Technovere</span>
                                     </div>
                                 </div>
