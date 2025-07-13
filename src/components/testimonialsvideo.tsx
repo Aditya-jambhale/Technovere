@@ -11,18 +11,18 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
     {
-        name: 'Limbi',
-        company: 'Funeminds',
+        name: 'Dr Brenda ',
+        company: 'TEDx Speaker',
         videoUrl: 'https://www.youtube.com/embed/0oQ2103A6H8',
     },
     {
-        name: 'Client 1',
-        company: 'Company One',
+        name: ' Dr Eric Weiss',
+        company: 'Clamp Time',
         videoUrl: 'https://www.youtube.com/embed/vOHPMhu_r9c',
     },
     {
-        name: 'Client 3',
-        company: 'Company Three',
+        name: 'Lynne B',
+        company: 'Podcast Host',
         videoUrl: 'https://www.youtube.com/embed/WecJOuguoRA',
     },
 ];

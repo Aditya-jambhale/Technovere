@@ -120,14 +120,17 @@ const FounderBrandPitch = () => {
                             </div>
 
                             {/* Text Content */}
-                            <div className="lg:w-1/2 text-lg leading-relaxed text-slate-200">
+                            <div className="lg:w-1/2 w-full text-left text-lg leading-relaxed text-slate-200 space-y-5">
                                 <p>
-                                    As the founder of <span className="font-semibold text-yellow-400">Technovere</span>, I've seen firsthand how powerful personal branding can be — not just for visibility, but for trust, credibility, and long-term growth.
+                                    As the founder of <span className="font-semibold text-yellow-400">Technovere</span>, I've seen firsthand how powerful personal
+                                    branding can be - not just for visibility, but for building trust, credibility, and long-term business growth. In today’s noisy digital world, people don’t just connect with products or services - they connect with people. And your personal brand is the bridge between what you do and how the world perceives you.
                                 </p>
-                                <p className="mt-4">
-                                    That’s why we offer <span className="font-semibold">done-for-you personal branding services</span> to help professionals like you build influence and income, faster.
+                                <p>
+                                    That’s why we offer <span className="font-semibold text-yellow-400">done-for-you personal branding services</span> - designed to help professionals like you turn your expertise into influence, and that influence into income. From strategy and positioning to storytelling and content creation, we handle it all so you can stay focused on what you do best, while we build a brand that works for you 24/7.
                                 </p>
                             </div>
+
+
                         </div>
 
                     </motion.div>
@@ -140,7 +143,7 @@ const FounderBrandPitch = () => {
                         viewport={{ once: true }}
                         className="mb-20"
                     >
-                        <h2 className="text-3xl font-bold text-center text-white mb-10">
+                        <h2 className="text-3xl font-bold text-center text-yellow-400 mb-10">
                             Transform Your Professional Presence
                         </h2>
                         <div className="grid md:grid-cols-2 gap-6">
@@ -175,7 +178,7 @@ const FounderBrandPitch = () => {
                         viewport={{ once: true }}
                         className="mb-3"
                     >
-                        <h2 className="text-3xl font-bold text-center text-white mb-10">
+                        <h2 className="text-3xl font-bold text-center text-yellow-400 mb-10">
                             Our Personal Branding Services
                         </h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -201,68 +204,12 @@ const FounderBrandPitch = () => {
                         </div>
                     </motion.div>
 
-                   
+
 
                 </div>
 
             </div>
-            <section className='relative'>
-                <motion.div
-                    variants={fadeUp(1.2)}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-center"
-                >
-                    <div className="bg-[#1E3A8A] rounded-2xl p-10 shadow-lg text-white text-center space-y-6">
-                        {/* Top Message */}
-                        <p className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-                            Whether you're a <span className="font-semibold">founder</span>, <span className="font-semibold">creator</span>, or <span className="font-semibold">consultant</span> — we’ll help you build a digital presence that works 24/7 to grow your brand.
-                        </p>
 
-                        {/* Prompt */}
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
-                            <Phone className="w-6 h-6" />
-                            <span className="text-xl font-bold">Want to explore this?</span>
-                        </div>
-
-                        {/* Subtext */}
-                        <p className="text-white/90 text-sm">Just mention it during your discovery call.</p>
-
-                        {/* CTA Button */}
-                        <a
-                            href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#1E3A8A] font-semibold rounded-lg hover:bg-gray-100 transition shadow-md hover:shadow-lg"
-                        ><span className="flex items-center justify-center gap-2 sm:gap-3">
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    Book Your Free Discovery Call
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </span>
-                           
-                        </a>
-                    </div>
-
-                </motion.div>
-                {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
-                <svg
-                    data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1200 120"
-                    preserveAspectRatio="none"
-                    className="relative block w-[calc(130%+1.3px)] h-[60px]"
-                >
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        fill="#FFFFFF"
-
-                    ></path>
-                </svg>
-            </div> */}
-            </section>
         </>
     );
 };

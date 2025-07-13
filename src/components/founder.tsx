@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe, Linkedin, Instagram } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe, Linkedin, Instagram, Star, Shield } from 'lucide-react';
 
 const AboutFounder = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -69,7 +69,7 @@ const AboutFounder = () => {
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A8A] mb-4 sm:mb-6">
                             Meet the Founder
                         </h2>
-                        <p className="text-base sm:text-lg text-white/70 max-w-3xl mx-auto">
+                        <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
                             From Code to Clients: The Engineer Behind Technovere
                         </p>
                     </div>
@@ -82,7 +82,14 @@ const AboutFounder = () => {
                                         <div className="absolute -top-3 left-4 sm:left-6 bg-yellow-400 text-black px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                                             Founder & Creative Director
                                         </div>
-                                        <div className="w-full aspect-square rounded-xl overflow-hidden mb-5 sm:mb-6 bg-gray-100">
+
+                                        {/* Fiverr Top Rated Badge */}
+                                        <div className="absolute -top-3 right-4 sm:right-6 bg-blue-900 text-white px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-1.5">
+                                            <Shield className="w-3 h-3" />
+                                            Top Rated
+                                        </div>
+
+                                        <div className="w-full aspect-square rounded-xl overflow-hidden mb-5 sm:mb-6 bg-gray-100 relative">
                                             <img
                                                 src="/images/photo.png"
                                                 alt="Mohd Yusuf - Founder of Technovere"
@@ -101,8 +108,31 @@ const AboutFounder = () => {
                                                 MY
                                             </div>
                                         </div>
+
+                                        {/* Reviews Section */}
+                                        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 mb-5 sm:mb-6">
+                                            <div className="flex items-center justify-between mb-3">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="flex">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                                                        ))}
+                                                    </div>
+                                                    <span className="text-sm font-semibold text-gray-700">5.0</span>
+                                                </div>
+                                                <div className="text-right">
+                                                    <div className="text-lg font-bold text-blue-900">1500+</div>
+                                                    <div className="text-xs text-gray-600">Client Reviews</div>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-2 text-xs text-gray-600">
+                                                <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Fiverr Pro</span>
+                                                <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Top Rated</span>
+                                            </div>
+                                        </div>
+
                                         <div className="text-center">
-                                            <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-1 sm:mb-2">ER.Mohd Yusuf</h3>
+                                            <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A8A] mb-1 sm:mb-2">Er. Mohd Yusuf</h3>
                                             <p className="text-gray-600 text-sm sm:text-base font-medium mb-4 sm:mb-6">Founder & Creative Director</p>
                                             <div className="bg-blue-900 rounded-lg p-4 sm:p-6 text-white">
                                                 <p className="text-sm sm:text-base leading-relaxed italic">
@@ -120,13 +150,13 @@ const AboutFounder = () => {
                                 <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">The Story</h4>
                                 <div className="space-y-4">
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        Meet <strong className="text-blue-900">ER.Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
+                                        Meet <strong className="text-yellow-400">Er. Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine.
+                                        As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine. His dedication to excellence has earned him the <strong className="text-yellow-400">Top Rated badge on Fiverr</strong>, recognizing his exceptional service quality and client satisfaction.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        What began as college freelancing has now evolved into a <strong className="text-blue-900">500+ project portfolio</strong>, with clients featured on <strong className="text-blue-900">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
+                                        What began as college freelancing has now evolved into a <strong className="text-yellow-400">500+ project portfolio</strong> with <strong className="text-yellow-400">1500+ satisfied clients</strong>, with businesses featured on <strong className="text-yellow-400">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
                                     </p>
                                 </div>
                             </div>
@@ -230,22 +260,6 @@ const AboutFounder = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-                <svg
-                    data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1200 120"
-                    preserveAspectRatio="none"
-                    className="relative block w-[calc(130%+1.3px)] h-[60px]"
-                >
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-                        -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                        C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        fill="#1E3A8A"
-                    />
-                </svg>
-            </div> */}
         </section>
     );
 };

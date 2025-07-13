@@ -11,11 +11,15 @@ import Services from '@/components/Services';
 import Testimonials from '@/components/testimonials';
 import OurWork from '@/components/Work';
 import Process from '@/components/Process';
-import CTA from '@/components/CTA';
+import CTA from '@/components/contactus';
 import Footer from '@/components/Footer';
 import AboutFounder from '@/components/founder';
 import FounderBrandPitch from '@/components/personalbrandpitch';
-
+// import { CTASection } from '@/components/CTAmains';
+// import { Cta2 } from '@/components/CTAmains';
+import CTADesigns from '@/components/CTAmains';
+import { CTABottomSection } from '@/components/CTAmains';
+import { Processcta } from '@/components/CTAmains';
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -25,8 +29,11 @@ const Index = () => {
 
       {/* <Benefits /> */}
       <About />
+   <CTADesigns />
       <AboutFounder/>
       <FounderBrandPitch/>
+      {/* <Cta2 /> */}
+     <CTABottomSection />
       <Services />
       <OurWork />
       
@@ -34,7 +41,8 @@ const Index = () => {
       <Testimonials />
   <TestimonialSection />
       <Process />
-      <CTA />
+      <Processcta />
+         <CTA />
       <Footer />
     </div>
   );

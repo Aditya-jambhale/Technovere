@@ -214,7 +214,7 @@ const AboutTechnovere = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef}>
+      {/* <section ref={ctaRef}>
         <div
           className={clsx(
             "text-center bg-[#1E3A8A]  px-2  lg:px-20 py-2  transition-all duration-700",
@@ -245,7 +245,7 @@ const AboutTechnovere = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

@@ -176,14 +176,14 @@ const Header = () => {
             <div className="flex items-center gap-2 flex-shrink-0">
              
                 <img
-                  src="/images/Art1.png"
+                  src="/images/logo.png"
                   alt="Technovere Logo"
                   className={`object-contain transition-all duration-500 hover:scale-110 ${
-                    isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-10 sm:h-10'
+                    isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-48 h-10 sm:w-48 sm:h-10'
                   }`}
                 />
               
-              <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
+              {/* <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
                 isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
               }`}>
                 <span className="text-[#1E3A8A] font-semibold  transition-colors duration-300">
@@ -192,7 +192,7 @@ const Header = () => {
                 <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-bold  transition-all duration-300">
                   VERE
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* Desktop Navigation */}

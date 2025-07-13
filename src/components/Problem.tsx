@@ -112,7 +112,7 @@ const Problem = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white text-black overflow-x-hidden overflow-y-hidden relative">
+    <section ref={sectionRef} className="py-20 bg-white text-black overflow-x-hidden overflow-y-hidden relative font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 bg-yellow-50 px-4 py-2 rounded-full mb-6 border border-yellow-400">
@@ -120,7 +120,7 @@ const Problem = () => {
             <span className="text-[#1E3A8A] font-medium text-sm">The Hidden Problem</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-yellow-400">
-            You've Built Credibility Offline —
+            You've Built Credibility Offline 
             <br />
             <span className="text-[#1E3A8A]">But Your Online Presence Doesn't Show It</span>
           </h2>
@@ -170,8 +170,8 @@ const Problem = () => {
               <Check className="w-4 h-4 text-[#1E3A8A]" />
               <span className="text-[#1E3A8A] font-medium text-sm">The Technovere Solution</span>
             </div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-yellow-400">
-              We blend premium web design with personal brand strategy
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-[#1E3A8A]">
+              We Blend <span className='text-yellow-400'>Premium Web Design</span>  with <span className='text-yellow-400'>Personal Brand Strategy</span>
               <span className="text-[#1E3A8A]"> to help you stand out and convert</span>
             </h3>
             <p className="text-base text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">

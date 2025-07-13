@@ -254,36 +254,7 @@ const ProcessSection = () => {
 
       </div>
     </div>
-    <section>
-     
-       <motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.3 }}
-  className="text-center mt-5 p-8 bg-[#1E3A8A] border rounded-lg "
->
-  
-  <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-  <p className="text-gray-300 mb-6">
-    Let's transform your vision into reality with our proven process.
-  </p>
-
-  <a
-    href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="bg-yellow-400 text-[#1E3A8A] px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300"
-    >
-      Start Your Journey
-    </motion.button>
-  </a>
-</motion.div>
-    </section>
+    
     </>
   );
 };

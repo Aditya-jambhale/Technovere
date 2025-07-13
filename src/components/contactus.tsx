@@ -76,7 +76,7 @@ const PremiumCTAFooter = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Us Heading */}
         <div className="text-center text-2xl md:text-3xl lg:text-4xl text-[#1E3A8A] font-bold  mb-16">
-         <p>Contact Us </p>
+          <p>Contact Us </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
@@ -97,25 +97,25 @@ const PremiumCTAFooter = () => {
 
               {/* Main Heading */}
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1E3A8A] mb-6 leading-tight">
-              Let’s Build a Website That Reflects Your Worth.
+                Let’s Build a Website That Reflects Your Worth.
               </h2>
 
               {/* Subheading */}
               <p className="text-xl md:text-xl lg:text-xl text-[#1E3A8A]/80 mb-8 leading-relaxed max-w-2xl">
-               Book a free discovery call to explore your brand, vision, and how we can bring it to life.
+                Book a free discovery call to explore your brand, vision, and how we can bring it to life.
               </p>
 
               {/* CTA Button */}
-            <a
-  href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group inline-flex items-center gap-3 bg-yellow-300 hover:bg-yellow-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 hover:ring-2 hover:ring-purple-300/50"
->
-  <Phone className="w-5 h-5 text-purple-700" />
-  Schedule My Call
-  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-</a>
+              <a
+                href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 bg-yellow-300 hover:bg-yellow-500 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 hover:ring-2 hover:ring-purple-300/50"
+              >
+                <Phone className="w-5 h-5 text-purple-700" />
+                Schedule My Call
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
 
               {/* Stats */}
               <div className="mt-12 grid grid-cols-3 gap-6 text-white">
@@ -175,9 +175,10 @@ const PremiumCTAFooter = () => {
                           border: 'none',
                           borderRadius: '12px',
                           minHeight: '400px',
+                          backgroundColor: 'transparent',
                         }}
                         loading="lazy"
-                        allowTransparency={true}
+
                         title="Schedule Discovery Call"
                         className="w-full"
                       />

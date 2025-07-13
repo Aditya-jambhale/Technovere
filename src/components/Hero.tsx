@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { 
-  Check, Sparkles, ArrowRight, Star, Users, Globe, TrendingUp, ChevronDown, Code, 
-  Zap, Shield, Brain, Rocket, Target, MessageCircle, BarChart3, Lightbulb, Cpu, Bot, Phone 
+import {
+  Check, Sparkles, ArrowRight, Star, Users, Globe, TrendingUp, ChevronDown, Code,
+  Zap, Shield, Brain, Rocket, Target, MessageCircle, BarChart3, Lightbulb, Cpu, Bot, Phone
 } from 'lucide-react';
 
 const EnhancedHero = () => {
@@ -93,7 +93,7 @@ const EnhancedHero = () => {
   ];
 
   return (
-    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 font-sans">
 
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -105,7 +105,7 @@ const EnhancedHero = () => {
           className="w-full h-full object-cover"
           poster="" // Optional fallback image if you have one
         >
-          <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1752205050/bg_website_3_ef5qy4.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1752435803/bg_website_6_kwc1bo.mp4" type="video/mp4" />
           {/* Fallback gradient if video doesn't load */}
           Your browser does not support the video tag.
         </video>
@@ -114,14 +114,14 @@ const EnhancedHero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
 
         {/* Dark Overlay for Better Readability */}
-        {/* <div className="absolute inset-0 bg-black/50 z-20"></div> */}
+        {/* <div className="absolute inset-0 bg-black/30 z-20"></div> */}
       </div>
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
         <div className="w-full max-w-4xl">
           <div className="text-center space-y-6 lg:space-y-8">
-            
+
             {/* Badge */}
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="inline-flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full shadow-lg mb-4">
@@ -192,22 +192,22 @@ const EnhancedHero = () => {
           </div>
         </div>
       </div>
-       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="relative block w-full h-[60px] sm:w-[calc(130%+1.3px)]"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-[60px] sm:w-[calc(130%+1.3px)]"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
               -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
                 C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              fill="#FFFFFF" // match this with your final background end color
-            ></path>
-          </svg>
-        </div>
+            fill="#FFFFFF" // match this with your final background end color
+          ></path>
+        </svg>
+      </div>
 
 
     </section>
