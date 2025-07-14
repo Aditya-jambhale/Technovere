@@ -176,10 +176,10 @@ const Header = () => {
             <div className="flex items-center gap-2 flex-shrink-0">
              
                 <img
-                  src="/images/logo.png"
+                  src="/images/logofinal.png"
                   alt="Technovere Logo"
                   className={`object-contain transition-all duration-500 hover:scale-110 ${
-                    isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-48 h-10 sm:w-48 sm:h-10'
+                    isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'
                   }`}
                 />
               
