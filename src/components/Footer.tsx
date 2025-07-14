@@ -192,7 +192,7 @@ const Footer = () => {
           )}
           
           {/* Spinning Text CTA */}
-          <div onClick={toggleCTAs} className="cursor-pointer select-none relative">
+        {/*  <div onClick={toggleCTAs} className="cursor-pointer select-none relative">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center">
               {/* Spinning Text Circle */}
               <svg className="w-full h-full animate-spin-slow absolute inset-0" viewBox="0 0 100 100">
@@ -217,7 +217,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       )}
 
       <style >{`
