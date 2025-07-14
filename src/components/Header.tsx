@@ -10,13 +10,13 @@ const Header = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1280);
     };
-    
+
     checkMobile();
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -24,7 +24,7 @@ const Header = () => {
     const handleResize = () => {
       const newIsMobile = window.innerWidth < 1280;
       setIsMobile(newIsMobile);
-      
+
       if (!newIsMobile && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
@@ -40,12 +40,7 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
@@ -75,7 +70,7 @@ const Header = () => {
   };
 
   const navigationItems = [
-      { id: 'hero-section', label: 'Home' },
+    { id: 'hero-section', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
     { id: 'our-work', label: 'Our Work' },
@@ -87,78 +82,52 @@ const Header = () => {
     <>
       <style>{`
         @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
+          from { transform: translateY(-100%); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
         }
-        
         @keyframes fadeInUp {
-          from {
-            transform: translateY(20px);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
         }
-        
         @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-3px);
-          }
-          60% {
-            transform: translateY(-2px);
-          }
+          0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+          40% { transform: translateY(-3px); }
+          60% { transform: translateY(-2px); }
         }
-        
         @keyframes shimmer {
-          0% {
-            background-position: -200% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
         }
-        
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
+          0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-5px); }
         }
-        
+
         .logo-animation {
           animation: ${isLoaded ? 'bounce 1s ease-out 0.5s' : 'none'};
         }
-        
+
         .nav-item {
           animation: ${isLoaded ? 'fadeInUp 0.6s ease-out' : 'none'};
         }
-        
+
         .shimmer-effect {
           background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
           background-size: 200% 100%;
           animation: shimmer 3s infinite;
         }
-        
+
         .floating-animation {
           animation: ${isScrolled ? 'none' : 'float 3s ease-in-out infinite'};
         }
-        
+
         .mobile-menu-backdrop {
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
         }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-50 w-full">
+      <header className="fixed top-0 left-0 right-0 z-[1000] w-full">
         <div
           className={`transition-all duration-700 ease-out mx-auto transform
             ${isScrolled
@@ -166,36 +135,20 @@ const Header = () => {
               : 'w-full max-w-7xl px-3 sm:px-4 lg:px-6'
             }
             ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
-          style={{
-            animation: isLoaded ? 'slideDown 0.8s ease-out' : 'none'
-          }}
+          style={{ animation: isLoaded ? 'slideDown 0.8s ease-out' : 'none' }}
         >
           <div className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
-            
-            {/* Logo Section */}
             <div className="flex items-center gap-2 flex-shrink-0">
-             
-                <img
-                  src="/images/logo.png"
-                  alt="Technovere Logo"
-                  className={`object-contain transition-all duration-500 hover:scale-110 ${
-                    isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-48 h-10 sm:w-48 sm:h-10'
-                  }`}
-                />
-              
-              {/* <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
-                isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
-              }`}>
-                <span className="text-[#1E3A8A] font-semibold  transition-colors duration-300">
-                  TECHNO
-                </span>
-                <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-bold  transition-all duration-300">
-                  VERE
-                </span>
-              </div> */}
+              <img
+                src="/images/logo.png"
+                alt="Technovere Logo"
+                className={`object-contain transition-all duration-500 hover:scale-110 ${
+                  isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-48 h-10 sm:w-48 sm:h-10'
+                }`}
+              />
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Nav */}
             <nav className="hidden xl:flex items-center justify-center flex-1 mx-4 xl:mx-8">
               <div className="flex items-center space-x-4 xl:space-x-6">
                 {navigationItems.map((item, index) => (
@@ -205,9 +158,7 @@ const Header = () => {
                     className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${
                       isScrolled ? 'text-gray-800 hover:text-[#00ADEF]' : 'text-white hover:text-[#00ADEF] drop-shadow-md'
                     }`}
-                    style={{
-                      animationDelay: `${0.8 + index * 0.1}s`
-                    }}
+                    style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00ADEF] to-[#0099CC] transition-all duration-500 group-hover:w-full rounded-full"></span>
@@ -217,7 +168,7 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* Desktop CTA Button */}
+            {/* Desktop CTA */}
             <div className="hidden xl:block flex-shrink-0">
               <a
                 href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
@@ -269,10 +220,10 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* ✅ Updated: Mobile Menu Overlay z-index */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 z-40 xl:hidden"
+        <div
+          className="fixed inset-0 z-[999] xl:hidden"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setIsMobileMenuOpen(false);
