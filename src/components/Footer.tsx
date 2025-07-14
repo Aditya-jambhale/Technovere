@@ -165,9 +165,9 @@ const Footer = () => {
       </div>
 
       {/* Responsive Floating CTA */}
-      {isScrolled && (
+      {/*{isScrolled && (
         <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
-          {/* CTA Icons */}
+       
           {showCTAs && (
             <div className="flex flex-col items-center gap-2 sm:gap-3 mb-2 animate-slide-up">
               <a
@@ -191,10 +191,10 @@ const Footer = () => {
             </div>
           )}
           
-          {/* Spinning Text CTA */}
+         
           <div onClick={toggleCTAs} className="cursor-pointer select-none relative">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center">
-              {/* Spinning Text Circle */}
+           
               <svg className="w-full h-full animate-spin-slow absolute inset-0" viewBox="0 0 100 100">
                 <defs>
                   <path
@@ -209,7 +209,7 @@ const Footer = () => {
                 </text>
               </svg>
               
-              {/* Center Icon */}
+              
               <div className="bg-yellow-400 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 relative z-10">
                 <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
                   <span className="text-xs sm:text-sm font-bold">💬</span>
@@ -217,7 +217,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       )}
 
       <style >{`

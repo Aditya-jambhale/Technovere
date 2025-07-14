@@ -96,25 +96,21 @@ const EnhancedHero = () => {
     <section id="hero-section" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 font-sans">
 
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          poster="" // Optional fallback image if you have one
+          className="w-full h-full object-cover pointer-events-none"
+          poster=""
         >
           <source src="https://res.cloudinary.com/dxpxzbz51/video/upload/v1752435803/bg_website_6_kwc1bo.mp4" type="video/mp4" />
-          {/* Fallback gradient if video doesn't load */}
           Your browser does not support the video tag.
         </video>
 
-        {/* Gradient Fallback if video fails or for extra contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay"></div>
-
-        {/* Dark Overlay for Better Readability */}
-        {/* <div className="absolute inset-0 bg-black/30 z-20"></div> */}
+        {/* Gradient Fallback */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 z-10 mix-blend-overlay pointer-events-none"></div>
       </div>
 
       {/* Content */}
@@ -192,6 +188,8 @@ const EnhancedHero = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom SVG */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
           data-name="Layer 1"
@@ -201,15 +199,14 @@ const EnhancedHero = () => {
           className="relative block w-full h-[60px] sm:w-[calc(130%+1.3px)]"
         >
           <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19
+              c-82.26-17.34-168.06-16.33-250.45.39
               -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            fill="#FFFFFF" // match this with your final background end color
+              C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            fill="#FFFFFF"
           ></path>
         </svg>
       </div>
-
-
     </section>
   );
 };
