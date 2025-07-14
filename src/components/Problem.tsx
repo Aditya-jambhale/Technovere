@@ -172,7 +172,7 @@ const Problem = () => {
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-[#1E3A8A]">
               We Blend <span className='text-yellow-400'>Premium Web Design</span>  with <span className='text-yellow-400'>Personal Brand Strategy</span>
-              <span className="text-[#1E3A8A]"> to help you stand out and convert</span>
+              <span className="text-[#1E3A8A]"> to Help you Stand Out and Convert</span>
             </h3>
             <p className="text-base text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
               Your website becomes your best sales tool — designed to build trust and connection with your audience

@@ -139,15 +139,14 @@ const Header = () => {
         >
           <div className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
             <div className="flex items-center gap-2 flex-shrink-0">
-             
-                <img
-                  src="/images/logofinal.png"
-                  alt="Technovere Logo"
-                  className={`object-contain transition-all duration-500 hover:scale-110 ${
-                    isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'
+
+              <img
+                src="/images/logofinal.png"
+                alt="Technovere Logo"
+                className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'
                   }`}
-                />
-              
+              />
+
               {/* <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
                 isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
               }`}>
@@ -167,9 +166,8 @@ const Header = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${
-                      isScrolled ? 'text-gray-800 hover:text-[#00ADEF]' : 'text-white hover:text-[#00ADEF] drop-shadow-md'
-                    }`}
+                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-[#00ADEF]' : 'text-white hover:text-[#00ADEF] drop-shadow-md'
+                      }`}
                     style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
                     {item.label}
@@ -188,9 +186,8 @@ const Header = () => {
                 rel="noopener noreferrer"
               >
                 <Button
-                  className={`text-black bg-yellow-400 hover:bg-yellow-500 font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${
-                    !isScrolled ? 'shadow-lg' : ''
-                  }`}
+                  className={`text-black bg-yellow-400 hover:bg-yellow-500 font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden ${!isScrolled ? 'shadow-lg' : ''
+                    }`}
                   style={{
                     animation: isLoaded ? 'fadeInUp 0.8s ease-out 1.3s both' : 'none'
                   }}
@@ -207,23 +204,20 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <div className="xl:hidden flex-shrink-0">
               <button
-                className={`p-2 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${
-                  isMobileMenuOpen ? 'bg-white/20' : ''
-                }`}
+                className={`p-2 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isMobileMenuOpen ? 'bg-white/20' : ''
+                  }`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >
                 <div className="relative w-6 h-6">
                   <Menu
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                      isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                    } ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
+                      } ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
                   />
                   <X
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                      isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                    } ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
+                      } ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
                   />
                 </div>
               </button>

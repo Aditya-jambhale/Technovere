@@ -68,10 +68,10 @@ const AboutTechnovere = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Delivered" },
-    { number: "3", label: "Countries Served" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "5+", label: "Years Experience" }
+    { number: "1500+", label: "Projects Delivered" },
+    { number: "30+", label: "Countries Served" },
+    { number: "500+", label: "Clients Served" },
+    { number: "6+", label: "Years Experience" }
   ];
 
   return (

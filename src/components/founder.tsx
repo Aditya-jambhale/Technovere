@@ -44,10 +44,10 @@ const AboutFounder = () => {
     ];
 
     const highlights = [
-        { icon: Users, title: "500+", subtitle: "Projects Delivered" },
-        { icon: Globe, title: "3+", subtitle: "Countries Served" },
-        { icon: Award, title: "15+", subtitle: "Certifications" },
-        { icon: Code, title: "5+", subtitle: "Years Experience" }
+        { icon: Users, title: "1500+", subtitle: "Projects Delivered" },
+        { icon: Globe, title: "30+", subtitle: "Countries Served" },
+        { icon: Award, title: "25+", subtitle: "Certifications" },
+        { icon: Code, title: "6+", subtitle: "Years Experience" }
     ];
 
     const nextSlide = () => {
@@ -113,21 +113,25 @@ const AboutFounder = () => {
                                         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 mb-5 sm:mb-6">
                                             <div className="flex items-center justify-between mb-3">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="flex">
+                                                    <div className="flex ">
                                                         {[...Array(5)].map((_, i) => (
                                                             <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                                                         ))}
+                                                        
                                                     </div>
+                                                    
                                                     <span className="text-sm font-semibold text-gray-700">5.0</span>
+                                                {/* <div className="text-xs text-white/50">Clients WorldWide</div> */}
                                                 </div>
+                                             
                                                 <div className="text-right">
-                                                    <div className="text-lg font-bold text-blue-900">1500+</div>
-                                                    <div className="text-xs text-gray-600">Client Reviews</div>
+                                                    <div className="text-lg font-bold text-blue-900">500+</div>
+                                                    <div className="text-xs text-gray-600">Clients WorldWide</div>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-2 text-xs text-gray-600">
-                                                <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Fiverr Pro</span>
-                                                <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Top Rated</span>
+                                                <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Fiver Top Rated</span>
+                                                {/* <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Top Rated</span> */}
                                             </div>
                                         </div>
 
@@ -150,13 +154,13 @@ const AboutFounder = () => {
                                 <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">The Story</h4>
                                 <div className="space-y-4">
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        Meet <strong className="text-yellow-400">Er. Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
+                                        Meet <strong className="text-[#1E3A8A]">Er. Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine. His dedication to excellence has earned him the <strong className="text-yellow-400">Top Rated badge on Fiverr</strong>, recognizing his exceptional service quality and client satisfaction.
+                                        As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine. His dedication to excellence has earned him the <strong className="text-[#1E3A8A]">Top Rated badge on Fiverr</strong>, recognizing his exceptional service quality and client satisfaction.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        What began as college freelancing has now evolved into a <strong className="text-yellow-400">500+ project portfolio</strong> with <strong className="text-yellow-400">1500+ satisfied clients</strong>, with businesses featured on <strong className="text-yellow-400">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
+                                        What began as college freelancing has now evolved into a <strong className="text-[#1E3A8A]">500+ project portfolio</strong> with <strong className="text-[#1E3A8A]">1500+ satisfied clients</strong>, with businesses featured on <strong className="text-[#1E3A8A]">Forbes, CW, Yahoo Finance, Fast Company</strong>, and more.
                                     </p>
                                 </div>
                             </div>
