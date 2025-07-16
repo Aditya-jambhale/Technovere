@@ -114,7 +114,7 @@ const EnhancedHero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
+      <div className="relative container mx-auto px-4 py-16 lg:py-20 min-h-screen flex items-center justify-center">
         <div className="w-full max-w-4xl">
           <div className="text-center space-y-6 lg:space-y-8">
 

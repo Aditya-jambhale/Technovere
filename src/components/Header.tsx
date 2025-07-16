@@ -127,36 +127,24 @@ const Header = () => {
         }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-[1000] w-full">
+      <header className="fixed top-0 left-0 right-0 z-10 w-full h-fit">
         <div
-          className={`transition-all duration-700 ease-out mx-auto transform
+          className={`transition-all duration-700 ease-out mx-auto transform z-30
             ${isScrolled
-              ? 'w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white/95 shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
+              ? 'w-full max-w-[95%] sm:max-w-[92%] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white/95 shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
               : 'w-full max-w-7xl px-3 sm:px-4 lg:px-6'
             }
             ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
           style={{ animation: isLoaded ? 'slideDown 0.8s ease-out' : 'none' }}
         >
           <div className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
-            <div className="flex items-center gap-2 flex-shrink-0">
-
+            <div className="flex items-center gap-2 flex-shrink-0 max-w-[90vw] overflow-hidden">
               <img
                 src="/images/logofinal.png"
                 alt="Technovere Logo"
                 className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'
                   }`}
               />
-
-              {/* <div className={`font-extrabold tracking-wide font-poppins leading-none whitespace-nowrap transition-all duration-500 ${
-                isScrolled ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl xl:text-3xl'
-              }`}>
-                <span className="text-[#1E3A8A] font-semibold  transition-colors duration-300">
-                  TECHNO
-                </span>
-                <span className="bg-gradient-to-r from-[#e3c400] to-[#f5d000] text-transparent bg-clip-text font-bold  transition-all duration-300">
-                  VERE
-                </span>
-              </div> */}
             </div>
 
             {/* Desktop Nav */}
@@ -202,22 +190,20 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <div className="xl:hidden flex-shrink-0">
+            <div className="xl:hidden flex-shrink-0 ">
               <button
-                className={`p-2 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isMobileMenuOpen ? 'bg-white/20' : ''
+                className={`p-2 hover:bg-white/20 bg-white  rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isMobileMenuOpen ? 'bg-white/20' : ''
                   }`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >
-                <div className="relative w-6 h-6">
+                <div className="relative w-6 h-6 ">
                   <Menu
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                      } ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 text-gray-800 ${isMobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`}
                   />
                   <X
-                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'
-                      } ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
+                    className={`absolute inset-0 w-6 h-6 transition-all duration-300 text-gray-800  ${isMobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-75'}`}
                   />
                 </div>
               </button>
@@ -226,18 +212,18 @@ const Header = () => {
         </div>
       </header>
 
-      {/* ✅ Updated: Mobile Menu Overlay z-index */}
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-[999] xl:hidden"
+          className="fixed inset-0 z-10 xl:hidden w-full" 
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setIsMobileMenuOpen(false);
             }
           }}
         >
-          <div className="absolute inset-0 mobile-menu-backdrop bg-white/95">
-            <div className="flex flex-col h-full pt-24 pb-6 px-4">
+          <div className="absolute inset-0 mobile-menu-backdrop bg-white/95 h-fit" style={{ borderRadius: "0 0 1rem 1rem"}}>
+            <div className="flex flex-col pt-24 pb-6 px-4 space-y-4 overflow-y-auto">
               <nav className="flex-1 flex flex-col justify-center space-y-1">
                 {navigationItems.map((item, index) => (
                   <button
@@ -257,7 +243,7 @@ const Header = () => {
               <div className="pt-6">
                 <Button
                   onClick={handleBookCall}
-                  className="bg-gradient-to-r from-[#00ADEF] to-[#0099CC] hover:from-[#0099CC] hover:to-[#00ADEF] text-white font-poppins font-semibold px-8 py-4 rounded-full w-full hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden text-lg"
+                  className="bg-gradient-to-r from-[#00ADEF] to-[#0099CC] hover:from-[#0099CC] hover:to-[#00ADEF] text-white font-poppins font-semibold px-6 py-3 rounded-full w-full text-base sm:text-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden"
                   style={{
                     animation: 'fadeInUp 0.6s ease-out 0.6s both'
                   }}

@@ -152,55 +152,40 @@ const Footer = () => {
 
       {/* Responsive Floating CTA */}
       {isScrolled && (
-        <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
-          {showCTAs && (
-            <div className="flex flex-col items-center gap-2 sm:gap-3 mb-2 animate-slide-up">
-              <a
-                href="https://wa.me/+919792347498"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-transform hover:scale-110"
-                aria-label="Contact via WhatsApp"
-              >
-                <FaWhatsapp className="w-5 h-5 sm:w-6 sm:h-6" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/digitallyusuf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-500 hover:bg-blue-600 text-white p-2 sm:p-3 rounded-full shadow-lg transition-transform hover:scale-110"
-                aria-label="Hire us on Fiverr"
-              >
-                <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
-              </a>
-            </div>
-          )}
+  <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
+    {showCTAs && (
+      <div className="flex flex-col items-center gap-2 sm:gap-3 mb-2 animate-slide-up">
+        <a
+          href="https://wa.me/+919792347498"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
+          aria-label="Contact via WhatsApp"
+        >
+          <FaWhatsapp className="w-5 h-5" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/digitallyusuf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
+          aria-label="Connect on LinkedIn"
+        >
+          <FaLinkedin className="w-5 h-5" />
+        </a>
+      </div>
+    )}
 
-          <div onClick={toggleCTAs} className="cursor-pointer select-none relative">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center">
-              <svg className="w-full h-full animate-spin-slow absolute inset-0" viewBox="0 0 100 100">
-                <defs>
-                  <path
-                    id="circle"
-                    d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-                  />
-                </defs>
-                {/* <text className="text-xl sm:text-sm fill-black font-medium">
-                  <textPath href="#circle" startOffset="0%">
-                    CONTACT US FOR MORE INFO 💡
-                  </textPath>
-                </text> */}
-              </svg>
+    <button
+      onClick={toggleCTAs}
+      className="bg-yellow-400 text-black p-3 rounded-full shadow-md transition-all duration-300 hover:scale-105 focus:outline-none"
+      aria-label="Toggle contact buttons"
+    >
+      💬
+    </button>
+  </div>
+)}
 
-              <div className="bg-yellow-400 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 relative z-10">
-                <div className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
-                  <span className="text-xs sm:text-sm font-bold">💬</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <style>{`
         @keyframes slideUp {
