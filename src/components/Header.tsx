@@ -127,11 +127,11 @@ const Header = () => {
         }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-10 w-full h-fit">
+      <header className="fixed top-0 left-0 right-0 z-30 w-full h-fit">
         <div
           className={`transition-all duration-700 ease-out mx-auto transform z-30
             ${isScrolled
-              ? 'w-full max-w-[95%] sm:max-w-[92%] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white/95 shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
+              ? 'w-full max-w-[95%] sm:max-w-[92%] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
               : 'w-full max-w-7xl px-3 sm:px-4 lg:px-6'
             }
             ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
@@ -192,8 +192,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <div className="xl:hidden flex-shrink-0 ">
               <button
-                className={`p-2 hover:bg-white/20 bg-white  rounded-lg transition-all duration-300 backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isMobileMenuOpen ? 'bg-white/20' : ''
-                  }`}
+                className={`p-2 bg-white  rounded-lg transition-all  backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 `}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
