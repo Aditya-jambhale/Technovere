@@ -81,39 +81,23 @@ export default CTASection;
 
 //personal branding section 
 
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const CTABottomSection = () => {
   return (
     <div className="bg-[#1E3A8A] text-white rounded-2xl px-4 sm:px-6 lg:px-12 py-10 w-full max-w-7xl mx-auto mt-14 relative overflow-hidden">
-      {/* Background Animations */}
-      {/* <div className="absolute inset-0">
-     
-        <div className="absolute top-4 left-4 w-16 h-16 bg-yellow-400/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/2 left-8 w-8 h-8 bg-yellow-400/20 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute bottom-6 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-        
-
-        <div className="absolute top-8 right-16 w-6 h-6 bg-yellow-400/15 rotate-45 animate-spin" style={{animationDuration: '8s'}}></div>
-        <div className="absolute bottom-8 right-8 w-10 h-10 bg-white/10 rotate-45 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-yellow-400/20 rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
-        
-        
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/5 to-transparent animate-pulse"></div>
-      </div> */}
-
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative z-10">
         {/* Left Content */}
         <div className="flex-1 text-center lg:text-left">
           {/* Heading */}
           <p className="text-lg sm:text-xl md:text-2xl leading-relaxed mb-5">
-            Whether you're a <span className="font-semibold text-yellow-400 ">Founder</span>, <span className="font-semibold text-yellow-400 " >Creator</span>, or <span className="font-semibold text-yellow-400 " style={{ animationDelay: '0.6s' }}>Consultant</span> - we'll help you build a <span className="text-yellow-400 font-semibold">Digital Presence</span> that works <span className="text-yellow-400 font-semibold">24/7</span> to grow your brand.
+            Whether you're a <span className="font-semibold text-yellow-400">Founder</span>, <span className="font-semibold text-yellow-400">Creator</span>, or <span className="font-semibold text-yellow-400" style={{ animationDelay: '0.6s' }}>Consultant</span> - we'll help you build a <span className="text-yellow-400 font-semibold">Digital Presence</span> that works <span className="text-yellow-400 font-semibold">24/7</span> to grow your brand.
           </p>
 
           {/* Prompt */}
           <div className="flex justify-center lg:justify-start items-center gap-2 text-lg sm:text-xl font-semibold mb-2">
-            <Phone className="w-5 h-5 text-yellow-400 " />
+            <Phone className="w-5 h-5 text-yellow-400" />
             Want to <span className="text-yellow-400">explore</span> this?
           </div>
 
@@ -121,7 +105,7 @@ export const CTABottomSection = () => {
           <p className="text-white/80 text-sm">Just mention it during your <span className="text-yellow-400 font-medium">discovery call</span>.</p>
         </div>
 
-        {/* Right Side - Animated Objects + Button */}
+        {/* Right Side - Animated Objects + Buttons */}
         <div className="flex-shrink-0 flex flex-col items-center lg:items-end gap-6">
           {/* Animated floating objects */}
           <div className="relative w-32 h-20 hidden lg:block">
@@ -129,29 +113,45 @@ export const CTABottomSection = () => {
             <div className="absolute top-2 right-4 w-6 h-6 bg-white/15 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             <div className="absolute bottom-0 left-1/2 w-10 h-2 bg-yellow-400/30 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
             <div className="absolute top-1/2 right-0 w-4 h-8 bg-yellow-400/25 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
-
-
             <div className="absolute top-4 left-8 w-12 h-0.5 bg-yellow-400/30 animate-pulse" style={{ animationDelay: '2s' }}></div>
             <div className="absolute bottom-4 right-8 w-8 h-0.5 bg-white/20 animate-pulse" style={{ animationDelay: '2.5s' }}></div>
           </div>
 
-          {/* CTA Button with enhanced animation */}
-          <a
-            href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#1E3A8A] font-semibold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-400/20 hover:scale-105 whitespace-nowrap group relative overflow-hidden"
-          >
-            {/* Button background animation */}
-            <div className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Buttons Container */}
+          <div className="flex flex-col sm:flex-row gap-3 items-center">
+            {/* Case Studies Button */}
+            <a
+              href="https://drive.google.com/your-case-studies-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+            >
+              <FileText className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+              <span className="relative z-10">Case Studies</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+              
+              {/* Shine effect */}
+              <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+            </a>
 
-            <Phone className="w-4 h-4 group-hover:animate-bounce relative z-10" />
-            <span className="relative z-10">Book Your Free Discovery Call</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+            {/* Primary CTA Button */}
+            <a
+              href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#1E3A8A] font-semibold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-400/20 hover:scale-105 whitespace-nowrap group relative overflow-hidden"
+            >
+              {/* Button background animation */}
+              <div className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-            {/* Shine effect */}
-            <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
-          </a>
+              <Phone className="w-4 h-4 group-hover:animate-bounce relative z-10" />
+              <span className="relative z-10">Book Your Free Discovery Call</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+
+              {/* Shine effect */}
+              <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+            </a>
+          </div>
         </div>
       </div>
 

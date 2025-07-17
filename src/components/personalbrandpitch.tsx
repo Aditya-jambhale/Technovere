@@ -14,7 +14,7 @@ const fadeUp = (delay = 0): Variants => ({
         y: 0,
         transition: {
             duration: 0.6,
-            ease: [0.25, 0.1, 0.25, 1], // safe cubic bezier
+            ease: [0.25, 0.1, 0.25, 1],
             delay,
         },
     },
@@ -96,47 +96,51 @@ const FounderBrandPitch = () => {
                     </motion.div>
 
                     {/* Founder Intro */}
-                    <motion.div
-                        variants={fadeUp(0.2)}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="mb-20"
-                    >
-                        <div className="flex flex-col lg:flex-row items-center gap-10">
-                            {/* Image Section */}
-                            <div className="lg:w-1/2">
-                                <div className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl">
-                                    <img
-                                        src="/images/withclient1.png"
-                                        alt="Mohd Yusuf - Founder"
-                                        className="w-full h-auto object-cover aspect-[4/5] rounded-2xl"
-                                    />
-                                    <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg">
-                                        <span className="font-semibold block">Er. Mohd Yusuf</span>
-                                        <span className="text-sm opacity-90">Founder, Technovere</span>
-                                    </div>
-                                </div>
-                            </div>
+                <motion.div
+    variants={fadeUp(0.2)}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="mb-20"
+>
+    <div className="flex flex-col lg:flex-row items-center gap-10">
+        {/* Image Section */}
+        <div className="lg:w-1/2">
+            <div className="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                    src="/images/withclient1.png"
+                    alt="Mohd Yusuf - Founder"
+                    className="w-full h-auto object-cover aspect-[4/5] rounded-2xl"
+                />
+                <div className="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg">
+                    <span className="font-semibold block">Er. Mohd Yusuf</span>
+                    <span className="text-sm opacity-90">Founder, Technovere</span>
+                </div>
+            </div>
+        </div>
 
-                            {/* Text Content */}
-                            <div className="lg:w-1/2 w-full text-left text-lg leading-relaxed text-slate-200 space-y-5">
-                                <p>
-                                    As the founder of <span className="font-semibold text-yellow-400">Technovere</span>, I've seen firsthand how powerful personal
-                                    branding can be - not just for visibility, but for building trust, credibility, and long-term business growth. In today’s noisy digital world, people don’t just connect with products or services - they connect with people. And your personal brand is the bridge between what you do and how the world perceives you.
-                                </p>
-                                <p>
-                                    That’s why we offer <span className="font-semibold text-yellow-400">done-for-you personal branding services</span> - designed to help professionals like you turn your expertise into influence, and that influence into income. From strategy and positioning to storytelling and content creation, we handle it all so you can stay focused on what you do best, while we build a brand that works for you 24/7.
-                                </p>
-                            </div>
+        {/* Text Content */}
+        <div className="lg:w-1/2 w-full text-left text-lg leading-relaxed text-slate-200 space-y-5">
+            <p>
+                As the founder of <span className="font-semibold text-yellow-400">Technovere</span>, I've seen firsthand how powerful personal
+                branding can be — not just for visibility, but for building trust, credibility, and long-term business growth. In today’s noisy digital world, people don’t just connect with products or services — they connect with people. And your personal brand is the bridge between what you do and how the world perceives you.
+            </p>
+            <p>
+                That’s why we offer <span className="font-semibold text-yellow-400">done-for-you personal branding services</span> — designed to help professionals like you turn your expertise into influence, and that influence into income. From strategy and positioning to storytelling and content creation, we handle it all so you can stay focused on what you do best, while we build a brand that works for you 24/7.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-slate-200">
+                <li><span className="text-yellow-400 font-semibold">Be seen as industry experts</span></li>
+                <li><span className="text-yellow-400 font-semibold">Build trust online before the first call</span></li>
+                <li><span className="text-yellow-400 font-semibold">Attract higher-quality leads consistently</span></li>
+                <li><span className="text-yellow-400 font-semibold">Grow on LinkedIn, Instagram, YouTube, and podcasts</span></li>
+            </ul>
+        </div>
+    </div>
+</motion.div>
 
-
-                        </div>
-
-                    </motion.div>
 
                     {/* Benefits */}
-                    <motion.div
+                    {/* <motion.div
                         variants={fadeUp(0.3)}
                         initial="hidden"
                         whileInView="visible"
@@ -168,7 +172,7 @@ const FounderBrandPitch = () => {
                                 </motion.div>
                             ))}
                         </div>
-                    </motion.div>
+                    </motion.div> */}
 
                     {/* Services */}
                     <motion.div
@@ -195,7 +199,6 @@ const FounderBrandPitch = () => {
                                         <div className="bg-[#1E3A8A] p-2 rounded-lg">
                                             <service.icon className="w-5 h-5 text-white" />
                                         </div>
-                                        {/* <CheckCircle className="w-5 h-5 text-green-300" /> */}
                                     </div>
                                     <h3 className="text-lg font-bold text-[#1E3A8A]">{service.title}</h3>
                                     <p className="text-black text-sm mt-2">{service.description}</p>
@@ -204,12 +207,8 @@ const FounderBrandPitch = () => {
                         </div>
                     </motion.div>
 
-
-
                 </div>
-
             </div>
-
         </>
     );
 };
