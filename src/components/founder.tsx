@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe, Linkedin, Instagram, Star, Shield } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Award, Code, Users, Globe, Linkedin, Instagram, Star, Shield, Mail } from 'lucide-react';
 
 const AboutFounder = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -112,18 +112,17 @@ const AboutFounder = () => {
                                         {/* Reviews Section */}
                                         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 mb-5 sm:mb-6">
                                             <div className="flex items-center justify-between mb-3">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="flex ">
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                                                        ))}
-                                                        
+                                                <div className="flex flex-col gap-1">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="flex">
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                                                            ))}
+                                                        </div>
+                                                        <span className="text-sm font-semibold text-gray-700">5.0</span>
                                                     </div>
-                                                    
-                                                    <span className="text-sm font-semibold text-gray-700">5.0</span>
-                                                {/* <div className="text-xs text-white/50">Clients WorldWide</div> */}
+                                                    <div className="text-xs text-gray-600">800+ 5 Star Reviews</div>
                                                 </div>
-                                             
                                                 <div className="text-right">
                                                     <div className="text-lg font-bold text-blue-900">500+</div>
                                                     <div className="text-xs text-gray-600">Clients WorldWide</div>
@@ -131,9 +130,9 @@ const AboutFounder = () => {
                                             </div>
                                             <div className="flex items-center gap-2 text-xs text-gray-600">
                                                 <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Fiver Top Rated</span>
-                                                {/* <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Top Rated</span> */}
                                             </div>
                                         </div>
+
 
                                         <div className="text-center">
                                             <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A8A] mb-1 sm:mb-2">Er. Mohd Yusuf</h3>
@@ -242,12 +241,10 @@ const AboutFounder = () => {
 
                                     <div className="flex gap-4">
                                         <a
-                                            href="https://www.instagram.com/digitallyusuf"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            href="mailto:hello@technovere.com"
                                             className="hover:scale-110 transition-transform"
                                         >
-                                            <Instagram size={24} />
+                                            <Mail size={24} />
                                         </a>
                                         <a
                                             href="https://www.linkedin.com/in/digitallyusuf"

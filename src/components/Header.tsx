@@ -154,12 +154,13 @@ const Header = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-[#00ADEF]' : 'text-white hover:text-[#00ADEF] drop-shadow-md'
+                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-[#1E3A8A]' : 'text-white hover:text-[#1E3A8A] drop-shadow-md'
                       }`}
                     style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00ADEF] to-[#0099CC] transition-all duration-500 group-hover:w-full rounded-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r  from-yellow-300 to-yellow-500
+transition-all duration-500 group-hover:w-full rounded-full"></span>
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white opacity-30 transition-all duration-300 group-hover:w-full rounded-full delay-75"></span>
                   </button>
                 ))}

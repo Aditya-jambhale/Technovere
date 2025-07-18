@@ -132,7 +132,7 @@ const FounderBrandPitch = () => {
                 <li><span className="text-yellow-400 font-semibold">Be seen as industry experts</span></li>
                 <li><span className="text-yellow-400 font-semibold">Build trust online before the first call</span></li>
                 <li><span className="text-yellow-400 font-semibold">Attract higher-quality leads consistently</span></li>
-                <li><span className="text-yellow-400 font-semibold">Grow on LinkedIn, Instagram, YouTube, and podcasts</span></li>
+                <li><span className="text-yellow-400 font-semibold">Grow on LinkedIn, Instagram, YouTube, and podcast</span></li>
             </ul>
         </div>
     </div>
@@ -183,7 +183,7 @@ const FounderBrandPitch = () => {
                         className="mb-3"
                     >
                         <h2 className="text-3xl font-bold text-center text-yellow-400 mb-10">
-                            Our Personal Branding Services
+                        Personal Branding Services
                         </h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {services.map((service, index) => (
@@ -193,8 +193,8 @@ const FounderBrandPitch = () => {
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={{ once: true }}
-                                    className="bg-white backdrop-blur-md p-6 rounded-xl shadow-md border border-white/10 transition-all hover:scale-[1.03]"
-                                >
+                                    className="bg-white backdrop-blur-md p-6 rounded-xl shadow-md border border-white/10 transition-all hover:scale-[2.03] "
+                                > 
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="bg-[#1E3A8A] p-2 rounded-lg">
                                             <service.icon className="w-5 h-5 text-white" />

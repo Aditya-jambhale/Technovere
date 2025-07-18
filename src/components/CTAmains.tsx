@@ -81,7 +81,7 @@ export default CTASection;
 
 //personal branding section 
 
-import { Phone, ArrowRight, FileText } from 'lucide-react';
+import { Phone, ArrowRight, FileText, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const CTABottomSection = () => {
@@ -102,7 +102,19 @@ export const CTABottomSection = () => {
           </div>
 
           {/* Subtext */}
-          <p className="text-white/80 text-sm">Just mention it during your <span className="text-yellow-400 font-medium">discovery call</span>.</p>
+          <p className="text-white/80 text-sm mb-3">Just mention it during your <span className="text-yellow-400 font-medium">discovery call</span>.</p>
+          
+          {/* Email Contact */}
+          <div className="flex justify-center lg:justify-start items-center gap-2 text-sm text-white/70">
+            <Mail className="w-4 h-4 text-yellow-400" />
+            <span>Or email us at:</span>
+            <a 
+              href="mailto:Yusuf@technovere.com" 
+              className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium underline decoration-yellow-400/50 hover:decoration-yellow-300"
+            >
+            Yusuf@technovere.com
+            </a>
+          </div>
         </div>
 
         {/* Right Side - Animated Objects + Buttons */}
@@ -118,22 +130,7 @@ export const CTABottomSection = () => {
           </div>
 
           {/* Buttons Container */}
-          <div className="flex flex-col sm:flex-row gap-3 items-center">
-            {/* Case Studies Button */}
-            <a
-              href="https://drive.google.com/your-case-studies-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
-            >
-              <FileText className="w-4 h-4 group-hover:animate-pulse relative z-10" />
-              <span className="relative z-10">Case Studies</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-              
-              {/* Shine effect */}
-              <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
-            </a>
-
+          <div className="flex flex-col gap-3 items-center">
             {/* Primary CTA Button */}
             <a
               href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
@@ -151,6 +148,37 @@ export const CTABottomSection = () => {
               {/* Shine effect */}
               <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
             </a>
+
+            {/* Secondary buttons row */}
+            <div className="flex flex-col sm:flex-row gap-3 items-center">
+              {/* Case Studies Button */}
+              <a
+                href="https://drive.google.com/your-case-studies-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+              >
+                <FileText className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+                <span className="relative z-10">Case Studies</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+              </a>
+
+              {/* Email Button */}
+              <a
+                href="mailto:Yusuf@technovere.com"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+              >
+                <Mail className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+                <span className="relative z-10">Email Us</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -161,7 +189,6 @@ export const CTABottomSection = () => {
     </div>
   );
 };
-
 export const Processcta = () => {
   return (
     <section className="w-full flex justify-center px-4">

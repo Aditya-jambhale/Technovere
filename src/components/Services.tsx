@@ -162,8 +162,8 @@ const Services = () => {
           {/* Header */}
           <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1E3A8A] mb-6">
-              Our <span className='text-yellow-400'>Services</span>
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#1E3A8A] mb-6">
+              Our Services
             </h2>
             <p className="text-lg text-black/60 font-semibold max-w-3xl mx-auto">
               Tailored web solutions that bring your brand to life and drive meaningful results.
