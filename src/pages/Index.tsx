@@ -20,6 +20,7 @@ import FounderBrandPitch from '@/components/personalbrandpitch';
 import CTADesigns from '@/components/CTAmains';
 import { CTABottomSection } from '@/components/CTAmains';
 import { Processcta } from '@/components/CTAmains';
+import { MovingLogoStrip } from '@/components/CTAmains';
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -32,6 +33,7 @@ const Index = () => {
    <CTADesigns />
       <AboutFounder/>
       <FounderBrandPitch/>
+      <MovingLogoStrip />
       {/* <Cta2 /> */}
      <CTABottomSection />
       <Services />
