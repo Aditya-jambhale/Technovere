@@ -105,19 +105,25 @@ const AboutTechnovere = () => {
 
           {/* Story + Stats */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div className="space-y-8">
+            <div className="space-y-8" style={{ textAlign: 'justify' }}>
               <div>
-                <h3 className="text-3xl font-bold text-white mb-6">Our Story</h3>
-                <div className="w-20 h-1 bg-yellow-400 mb-6"></div>
+               <div className="text-center md:text-left">
+  <h3 className="text-3xl font-bold text-white mb-3">Our Story</h3>
+  <div className="w-20 h-1 bg-yellow-400 mb-6 mx-auto md:mx-0"></div>
+</div>
+
                 <p className="text-white/80 text-lg mb-4">
-                  At Technovere, we don't just build websites — we design digital identities that drive results and build lasting connections.
+                  At Technovere, we don't just build websites - we design digital identities that drive results and build lasting connections.
                 </p>
                 <p className="text-white/80 text-lg">
                   Founded by Yusuf, a software engineer turned creative entrepreneur, Technovere was born from a mission: To help modern brands grow through clarity, creativity, and conversion-focused design.
                 </p>
               </div>
               <div>
-                <h4 className="text-2xl font-bold text-white mb-4">Our Approach</h4>
+              <div className="text-center md:text-left">
+  <h3 className="text-3xl font-bold text-white mb-3">Our Approach</h3>
+  <div className="w-32 h-1 bg-yellow-400 mb-6 mx-auto md:mx-0"></div>
+</div>
                 <p className="text-white/80 text-lg">
                   We blend cutting-edge technology with strategic storytelling to create websites that not only look exceptional but perform exceptionally. Every project is a collaboration built on trust, transparency, and results.
                 </p>

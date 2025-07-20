@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowRight, Star, Users, Trophy } from 'lucide-react';
 import { Phone } from 'lucide-react';
+import CalendlyEmbed from './calendely';
 
 // Typing component for the main heading
 const TypingText = ({
@@ -184,6 +185,7 @@ const PremiumCTAFooter = () => {
                       />
                     </div>
                   </div>
+                  {/* <CalendlyEmbed /> */}
 
                   {/* Badge */}
                   <div className="absolute -top-3 -right-3 bg-[#1E3A8A] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">

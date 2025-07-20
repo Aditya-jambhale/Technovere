@@ -184,13 +184,13 @@ const FounderBrandPitch = () => {
                             </div>
 
                             {/* Text Content */}
-                            <div className="lg:w-1/2 w-full text-left text-lg leading-relaxed text-slate-200 space-y-5">
+                            <div className="lg:w-1/2 w-full text-left text-lg leading-relaxed text-slate-200 space-y-5" style={{ textAlign: 'justify' }}>
                                 <p>
                                     As the founder of <span className="font-semibold text-yellow-400">Technovere</span>, I've seen firsthand how powerful personal
-                                    branding can be — not just for visibility, but for building trust, credibility, and long-term business growth. In today's noisy digital world, people don't just connect with products or services — they connect with people. And your personal brand is the bridge between what you do and how the world perceives you.
+                                    branding can be — not just for visibility, but for building trust, credibility, and long-term business growth. In today's noisy digital world, people don't just connect with products or services - they connect with people. And your personal brand is the bridge between what you do and how the world perceives you.
                                 </p>
                                 <p>
-                                    That's why we offer <span className="font-semibold text-yellow-400">done-for-you personal branding services</span> — designed to help professionals like you turn your expertise into influence, and that influence into income. From strategy and positioning to storytelling and content creation, we handle it all so you can stay focused on what you do best, while we build a brand that works for you 24/7.
+                                    That's why we offer <span className="font-semibold text-yellow-400">done-for-you personal branding services</span> - designed to help professionals like you turn your expertise into influence, and that influence into income. From strategy and positioning to storytelling and content creation, we handle it all so you can stay focused on what you do best, while we build a brand that works for you 24/7.
                                 </p>
                                 <ul className="list-disc pl-6 space-y-2 text-slate-200">
                                     <li><span className="text-yellow-400 font-semibold">Be seen as industry experts</span></li>
@@ -201,14 +201,61 @@ const FounderBrandPitch = () => {
                             </div>
                         </div>
                     </motion.div>
-
+ {/* Services */}
+                    <motion.div
+                        variants={fadeUp(0.5)}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="mb-3"
+                    >
+                        <h2 className="text-4xl font-bold text-center text-yellow-400 mb-10">
+                            Personal Branding Services
+                        </h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {services.map((service, index) => (
+                                <motion.div
+                                    key={index}
+                                    variants={fadeUp(0.6 + index * 0.1)}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    className="group relative bg-white backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:shadow-2xl hover:scale-[1.05] hover:border-blue-200 transition-all duration-500 cursor-pointer overflow-hidden"
+                                > 
+                                    {/* Animated background effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <div className="bg-[#1E3A8A] p-3 rounded-xl shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
+                                                <service.icon className="w-6 h-6 text-white" />
+                                            </div>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-[#1E3A8A] mb-3 group-hover:text-blue-700 transition-colors duration-300">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                                            {service.description}
+                                        </p>
+                                        
+                                        {/* Hover indicator */}
+                                        {/* <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <span className="text-blue-600 text-sm font-semibold">Learn more</span>
+                                            <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
+                                        </div> */}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
                     {/* Top Creators Section */}
                     <motion.div
                         variants={fadeUp(0.4)}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="mb-20"
+                        className="mt-20"
                     >
                         <div className="text-center mb-12">
                             <h2 className="text-4xl font-bold text-yellow-400 mb-4">
@@ -282,54 +329,7 @@ const FounderBrandPitch = () => {
                     {/* <MovingLogoStrip /> */}
 
                     {/* Services */}
-  {/* Services */}
-                    <motion.div
-                        variants={fadeUp(0.5)}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="mb-3"
-                    >
-                        <h2 className="text-4xl font-bold text-center text-yellow-400 mb-10">
-                            Personal Branding Services
-                        </h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {services.map((service, index) => (
-                                <motion.div
-                                    key={index}
-                                    variants={fadeUp(0.6 + index * 0.1)}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="group relative bg-white backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:shadow-2xl hover:scale-[1.05] hover:border-blue-200 transition-all duration-500 cursor-pointer overflow-hidden"
-                                > 
-                                    {/* Animated background effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
-                                    
-                                    <div className="relative z-10">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <div className="bg-[#1E3A8A] p-3 rounded-xl shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                                                <service.icon className="w-6 h-6 text-white" />
-                                            </div>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-[#1E3A8A] mb-3 group-hover:text-blue-700 transition-colors duration-300">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                                            {service.description}
-                                        </p>
-                                        
-                                        {/* Hover indicator */}
-                                        {/* <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <span className="text-blue-600 text-sm font-semibold">Learn more</span>
-                                            <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
-                                        </div> */}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
+ 
 
                 </div>
             </div>

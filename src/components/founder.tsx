@@ -149,11 +149,11 @@ const AboutFounder = () => {
                         </div>
 
                         <div className="lg:col-span-3 space-y-8">
-                            <div className="bg-gray-50 rounded-xl p-6 sm:p-8">
-                                <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6">The Story</h4>
+                            <div className="bg-gray-50 rounded-xl p-6 sm:p-8" style={{ textAlign: 'justify' }}>
+                                <h4 className="text-xl sm:text-2xl font-bold text-blue-900 mb-4 sm:mb-6 text-center md:text-left">The Story</h4>
                                 <div className="space-y-4">
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                                        Meet <strong className="text-[#1E3A8A]">Er. Mohd Yusuf</strong> — a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
+                                        Meet <strong className="text-[#1E3A8A]">Er. Mohd Yusuf</strong> - a software engineer who began freelancing in his second year of college with one goal: to help more people build their presence online.
                                     </p>
                                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                                         As the founder of Technovere, Yusuf blends engineering precision with brand-first creativity, helping businesses turn their online presence into a growth engine. His dedication to excellence has earned him the <strong className="text-[#1E3A8A]">Top Rated badge on Fiverr</strong>, recognizing his exceptional service quality and client satisfaction.

@@ -131,7 +131,7 @@ const Header = () => {
         <div
           className={`transition-all duration-700 ease-out mx-auto transform z-30
             ${isScrolled
-              ? 'w-full max-w-[95%] sm:max-w-[92%] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-white shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
+              ? 'w-full max-w-[95%] sm:max-w-[92%] lg:max-w-6xl mt-2 px-3 sm:px-4 lg:px-6 backdrop-blur-xl bg-[#1E3A8A]/60 shadow-2xl border border-gray-200/50 rounded-xl sm:rounded-2xl'
               : 'w-full max-w-7xl px-3 sm:px-4 lg:px-6'
             }
             ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
@@ -139,12 +139,19 @@ const Header = () => {
         >
           <div className={`flex items-center justify-between w-full transition-all duration-700 ease-out ${isScrolled ? 'py-3' : 'py-4'}`}>
             <div className="flex items-center gap-2 flex-shrink-0 max-w-[90vw] overflow-hidden">
-              <img
-                src="/images/logofinal.png"
-                alt="Technovere Logo"
-                className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'
-                  }`}
-              />
+              {isMobile ? (
+                <img
+                  src="/images/mobilelogo.png" // 👈 Your mobile logo path
+                  alt="Technovere Mobile Logo"
+                  className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-36 h-10' : 'w-40 h-12'}`}
+                />
+              ) : (
+                <img
+                  src="/images/mobilelogo.png"
+                  alt="Technovere Logo"
+                  className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'}`}
+                />
+              )}
             </div>
 
             {/* Desktop Nav */}
@@ -154,12 +161,12 @@ const Header = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-[#1E3A8A]' : 'text-white hover:text-[#1E3A8A] drop-shadow-md'
+                    className={`nav-item transition-all duration-500 font-poppins font-medium hover:scale-105 relative group text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 ${isScrolled ? 'text-white hover:text-yellow-400' : 'text-white hover:text-yellow-400 drop-shadow-md'
                       }`}
                     style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
                     {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r  from-yellow-300 to-yellow-500
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-300 to-yellow-500
 transition-all duration-500 group-hover:w-full rounded-full"></span>
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white opacity-30 transition-all duration-300 group-hover:w-full rounded-full delay-75"></span>
                   </button>
@@ -215,14 +222,14 @@ transition-all duration-500 group-hover:w-full rounded-full"></span>
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-10 xl:hidden w-full" 
+          className="fixed inset-0 z-10 xl:hidden w-full"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setIsMobileMenuOpen(false);
             }
           }}
         >
-          <div className="absolute inset-0 mobile-menu-backdrop bg-white/95 h-fit" style={{ borderRadius: "0 0 1rem 1rem"}}>
+          <div className="absolute inset-0 mobile-menu-backdrop bg-white/95 h-fit" style={{ borderRadius: "0 0 1rem 1rem" }}>
             <div className="flex flex-col pt-24 pb-6 px-4 space-y-4 overflow-y-auto">
               <nav className="flex-1 flex flex-col justify-center space-y-1">
                 {navigationItems.map((item, index) => (
