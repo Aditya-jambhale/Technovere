@@ -8,6 +8,9 @@ import {
 import { motion } from 'framer-motion';
 import { Variants } from "framer-motion";
 import { MovingLogoStrip } from './CTAmains';
+// import CreatorCarousel from './creators';
+import CreatorShowcase from './creators';
+import PersonalBrandingServices from './personalser';
 
 const fadeUp = (delay = 0): Variants => ({
     hidden: { opacity: 0, y: 40 },
@@ -56,38 +59,38 @@ const benefits = [
     }
 ];
 
-const services = [
-    {
-        icon: Lightbulb,
-        title: "Brand Strategy & Positioning",
-        description: "Define your unique value proposition and market position"
-    },
-    {
-        icon: Palette,
-        title: "Visual Identity Guidance",
-        description: "Color schemes, fonts, and layout cues that reflect your brand"
-    },
-    {
-        icon: Calendar,
-        title: "Content Planning & Strategy",
-        description: "Strategic content calendar aligned with your business goals"
-    },
-    {
-        icon: PenTool,
-        title: "Content Design & Production",
-        description: "Professional content creation that engages your audience"
-    },
-    {
-        icon: Camera,
-        title: "Creative Direction",
-        description: "Ongoing creative guidance to maintain brand consistency"
-    },
-    {
-        icon: TrendingUp,
-        title: "Growth Strategy",
-        description: "Data-driven strategies to scale your personal brand"
-    }
-];
+// const services = [
+//     {
+//         icon: Lightbulb,
+//         title: "Brand Strategy & Positioning",
+//         description: "Define your unique value proposition and market position"
+//     },
+//     {
+//         icon: Palette,
+//         title: "Visual Identity Guidance",
+//         description: "Color schemes, fonts, and layout cues that reflect your brand"
+//     },
+//     {
+//         icon: Calendar,
+//         title: "Content Planning & Strategy",
+//         description: "Strategic content calendar aligned with your business goals"
+//     },
+//     {
+//         icon: PenTool,
+//         title: "Content Design & Production",
+//         description: "Professional content creation that engages your audience"
+//     },
+//     {
+//         icon: Camera,
+//         title: "Creative Direction",
+//         description: "Ongoing creative guidance to maintain brand consistency"
+//     },
+//     {
+//         icon: TrendingUp,
+//         title: "Growth Strategy",
+//         description: "Data-driven strategies to scale your personal brand"
+//     }
+// ];
 
 const creators = [
     {
@@ -201,136 +204,12 @@ const FounderBrandPitch = () => {
                             </div>
                         </div>
                     </motion.div>
- {/* Services */}
-                    <motion.div
-                        variants={fadeUp(0.5)}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="mb-3"
-                    >
-                        <h2 className="text-4xl font-bold text-center text-yellow-400 mb-10">
-                            Personal Branding Services
-                        </h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {services.map((service, index) => (
-                                <motion.div
-                                    key={index}
-                                    variants={fadeUp(0.6 + index * 0.1)}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="group relative bg-white backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:shadow-2xl hover:scale-[1.05] hover:border-blue-200 transition-all duration-500 cursor-pointer overflow-hidden"
-                                > 
-                                    {/* Animated background effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
-                                    
-                                    <div className="relative z-10">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <div className="bg-[#1E3A8A] p-3 rounded-xl shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
-                                                <service.icon className="w-6 h-6 text-white" />
-                                            </div>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-[#1E3A8A] mb-3 group-hover:text-blue-700 transition-colors duration-300">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                                            {service.description}
-                                        </p>
-                                        
-                                        {/* Hover indicator */}
-                                        {/* <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <span className="text-blue-600 text-sm font-semibold">Learn more</span>
-                                            <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
-                                        </div> */}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                    {/* Top Creators Section */}
-                    <motion.div
-                        variants={fadeUp(0.4)}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="mt-20"
-                    >
-                        <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold text-yellow-400 mb-4">
-                                Top Creators We've Worked With
-                            </h2>
-                            <p className="text-xl text-slate-200 max-w-3xl mx-auto">
-                                Trusted by some of the most influential creators across platforms.
-                                <span className="block mt-2 text-lg">Here's a glimpse of the creators who trust Technovere to elevate their brand:</span>
-                            </p>
-                        </div>
 
-                        <motion.div
-                            variants={staggerContainer}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
-                        >
-                            {creators.map((creator, index) => (
-                                <motion.div
-                                    key={index}
-                                    variants={fadeUp()}
-                                    className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20 hover:scale-[1.03] hover:bg-white/15 transition-all duration-300"
-                                >
-                                    {/* Gradient overlay */}
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${creator.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}></div>
-                                    
-                                    <div className="relative z-10">
-                                        <div className="flex items-start justify-between mb-4">
-                                            <span className="text-3xl">{creator.emoji}</span>
-                                            <div className={`p-2 rounded-lg bg-gradient-to-r ${creator.gradient}`}>
-                                                <creator.icon className="w-5 h-5 text-white" />
-                                            </div>
-                                        </div>
-                                        
-                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                                            {creator.name}
-                                        </h3>
-                                        
-                                        <p className="text-slate-300 text-sm mb-3 leading-relaxed">
-                                            {creator.subtitle}
-                                        </p>
-                                        
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-yellow-400 font-semibold text-sm">
-                                                {creator.stats}
-                                            </span>
-                                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-yellow-400 group-hover:translate-x-1 transition-all duration-300" />
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                    <PersonalBrandingServices />
 
-                        {/* Bottom CTA */}
-                        <motion.div
-                            variants={fadeUp(0.8)}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="text-center bg-gradient-to-r from-yellow-400/20 to-orange-400/20 backdrop-blur-sm rounded-2xl p-8 border border-yellow-400/30"
-                        >
-                            <p className="text-lg text-slate-200 leading-relaxed">
-                                <span className="font-semibold text-yellow-400">👉 Whether it's YouTube/Social Media growth, website design, podcast production, or brand strategy</span>
-                                <span className="block mt-2">—Technovere powers creator success behind the scenes.</span>
-                            </p>
-                        </motion.div>
-                    </motion.div>
+                
 
-                    {/* moving logo strip */}
-                    {/* <MovingLogoStrip /> */}
-
-                    {/* Services */}
- 
-
+                    <CreatorShowcase />
                 </div>
             </div>
         </>

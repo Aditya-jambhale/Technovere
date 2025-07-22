@@ -1,10 +1,10 @@
 import React from 'react';
-import { ArrowUpRight, CheckCircle } from 'lucide-react';
+import { ArrowUpRight, Briefcase, CheckCircle } from 'lucide-react';
 
 
 
 // Main CTA section below about 
- const CTASection = () => {
+const CTASection = () => {
   return (
     <div className="bg-[#1E3A8A] py-8 px-4 sm:px-6 lg:px-12 mt-10 relative border rounded-3xl w-full max-w-7xl mx-auto overflow-hidden">
       {/* Background circuit board pattern */}
@@ -103,16 +103,16 @@ export const CTABottomSection = () => {
 
           {/* Subtext */}
           <p className="text-white/80 text-sm mb-3">Just mention it during your <span className="text-yellow-400 font-medium">discovery call</span>.</p>
-          
+
           {/* Email Contact */}
           <div className="flex justify-center lg:justify-start items-center gap-2 text-sm text-white/70">
             <Mail className="w-4 h-4 text-yellow-400" />
             <span>Or email us at:</span>
-            <a 
-              href="mailto:Yusuf@technovere.com" 
+            <a
+              href="mailto:Yusuf@technovere.com"
               className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 font-medium underline decoration-yellow-400/50 hover:decoration-yellow-300"
             >
-            Yusuf@technovere.com
+              Yusuf@technovere.com
             </a>
           </div>
         </div>
@@ -130,56 +130,64 @@ export const CTABottomSection = () => {
           </div>
 
           {/* Buttons Container */}
-          <div className="flex flex-col gap-3 items-center">
-            {/* Primary CTA Button */}
-            <a
-              href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#1E3A8A] font-semibold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-400/20 hover:scale-105 whitespace-nowrap group relative overflow-hidden"
-            >
-              {/* Button background animation */}
-              <div className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    
 
-              <Phone className="w-4 h-4 group-hover:animate-bounce relative z-10" />
-              <span className="relative z-10">Book Your Free Discovery Call</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+<div className="flex flex-col gap-3 items-center">
+  {/* Primary CTA Button */}
+  <a
+    href="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-[#1E3A8A] font-semibold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-yellow-400/20 hover:scale-105 whitespace-nowrap group relative overflow-hidden"
+  >
+    <div className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <Phone className="w-4 h-4 group-hover:animate-bounce relative z-10" />
+    <span className="relative z-10">Book Your Free Discovery Call</span>
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+    <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+  </a>
 
-              {/* Shine effect */}
-              <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
-            </a>
+  {/* Secondary buttons row */}
+  <div className="flex flex-col sm:flex-row gap-3 items-center">
+    {/* Case Studies Button */}
+    <a
+      href="https://drive.google.com/your-case-studies-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+    >
+      <FileText className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+      <span className="relative z-10">Case Studies</span>
+      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+      <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+    </a>
 
-            {/* Secondary buttons row */}
-            <div className="flex flex-col sm:flex-row gap-3 items-center">
-              {/* Case Studies Button */}
-              <a
-                href="https://drive.google.com/your-case-studies-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
-              >
-                <FileText className="w-4 h-4 group-hover:animate-pulse relative z-10" />
-                <span className="relative z-10">Case Studies</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
-              </a>
+    {/* Email Button */}
+    <a
+      href="mailto:Yusuf@technovere.com"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+    >
+      <Mail className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+      <span className="relative z-10">Email Us</span>
+      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+      <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+    </a>
 
-              {/* Email Button */}
-              <a
-                href="mailto:Yusuf@technovere.com"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
-              >
-                <Mail className="w-4 h-4 group-hover:animate-pulse relative z-10" />
-                <span className="relative z-10">Email Us</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
-              </a>
-            </div>
-          </div>
+    {/* Portfolio Button */}
+    <a
+      href="https://your-portfolio-link.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
+    >
+      <Briefcase className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+      <span className="relative z-10">Portfolio</span>
+      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+      <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+    </a>
+  </div>
+</div>
+
         </div>
       </div>
 
@@ -237,18 +245,24 @@ export const MovingLogoStrip = () => {
     { name: 'InnovateCo', src: '/companies/Arise.png' },
     { name: 'DataFlow', src: '/companies/education.png' },
     { name: 'CloudSync', src: '/companies/her.png' },
-    { name: 'AI Solutions', src: '/companies/intentional.png' },
+    { name: 'AI Solutions', src: '/companies/intentional2.png' },
     { name: 'NextGen', src: '/companies/kundlas.png' },
-    { name: 'FutureTech', src: '/companies/new.png' },
+    { name: 'FutureTech', src: '/companies/new2.png' },
     { name: 'QuantumSoft', src: '/companies/sarvam.svg' },
-    { name: 'QuantumSoft', src: '/companies/Mick.webp' },
+    { name: 'Quant', src: '/companies/Mick.webp' },
+    { name: 'Quan', src: '/companies/accounting.png' },
+    { name: 'Qua', src: '/companies/byjus.png' },
+    { name: 'QuantumSot', src: '/companies/edwise.png' },
+    { name: 'QuantumSft', src: '/companies/flind.png' },
+     { name: 'QuantumSft', src: '/companies/ashis.png' },
+
   ];
 
   // Duplicate logos for seamless infinite scroll
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <div className="w-full bg-white mb-5 py-12 overflow-hidden">
+    <div className="w-full mb-2 py-12 overflow-hidden mt-10">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-yellow-400 mb-2">Trusted by Industry Leaders</h2>
         <p className="text-black">Companies that power their business with our solutions</p>
@@ -256,21 +270,21 @@ export const MovingLogoStrip = () => {
 
       <div className="relative">
         {/* Moving logo container */}
-        <div className="flex animate-scroll w-max bg-gray-50">
+        <div className="flex animate-scroll w-max">
           {duplicatedLogos.map((logo, index) => (
             <div
               key={index}
               className="flex-shrink-0 min-w-fit mx-6 flex items-center justify-center"
             >
               {/* Option 1: Subtle gray background with border */}
-              <div className="bg-gray-100 border border-gray-200 rounded-lg shadow-sm p-6 hover:scale-105 hover:shadow-md transition-all duration-300">
+              <div className="   p-6 hover:scale-105 transition-all duration-300">
                 <img
                   src={logo.src}
                   alt={logo.name}
                   className="w-36 h-24 object-contain filter brightness-90 contrast-110"
                 />
               </div>
-              
+
               {/* Option 2: Card with subtle shadow (uncomment to use) */}
               {/* <div className="bg-white border border-gray-300 rounded-xl shadow-lg p-6 hover:scale-105 hover:shadow-xl transition-all duration-300">
                 <img
@@ -279,8 +293,8 @@ export const MovingLogoStrip = () => {
                   className="w-36 h-24 object-contain"
                 />
               </div> */}
-             
-              
+
+
               {/* Option 3: Gradient background (uncomment to use) */}
               {/* <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 hover:scale-105 hover:from-gray-100 hover:to-gray-150 transition-all duration-300">
                 <img
@@ -289,7 +303,7 @@ export const MovingLogoStrip = () => {
                   className="w-36 h-24 object-contain drop-shadow-sm"
                 />
               </div> */}
-             
+
             </div>
           ))}
         </div>

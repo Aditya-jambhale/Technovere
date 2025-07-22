@@ -170,56 +170,58 @@ const Services = () => {
             </p>
           </div>
 
-    {/* Services Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => {
-        const IconComponent = service.icon;
-        return (
-          <div
-            key={index}
-            className={`group transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            style={{ transitionDelay: `${index * 150}ms` }}
-          >
-            <div className="relative h-full">
-              {/* Card container */}
-              <div className="relative bg-white p-8 rounded-2xl border-2 border-gray-200 h-full flex flex-col justify-between transition-all duration-500 group-hover:bg-gray-50 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-yellow-400">
-                
-                {/* Top section: Icon + Content */}
-                <div>
-                  {/* Icon */}
-                  <div className="mb-6">
-                    <div className="w-16 h-16 rounded-xl bg-blue-900 p-3 group-hover:bg-yellow-400 group-hover:scale-110 transition-all duration-300 shadow-lg ">
-                      <IconComponent className="w-full h-full text-white group-hover:text-black" />
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div
+                  key={index}
+                  className={`group transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className="relative h-full">
+                    {/* Card container */}
+                    <div className="relative bg-white p-8 rounded-2xl border-2 border-gray-200 h-full flex flex-col justify-between transition-all duration-500 group-hover:bg-gray-50 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-yellow-400">
+
+                      {/* Top section: Icon + Content */}
+                      <div>
+                        {/* Icon */}
+                        <div className="mb-6">
+                          <div className="w-16 h-16 rounded-xl bg-blue-900 p-3 group-hover:bg-yellow-400 group-hover:scale-110 transition-all duration-300 shadow-lg ">
+                            <IconComponent className="w-full h-full text-white group-hover:text-black" />
+                          </div>
+                        </div>
+
+                        {/* Title + Description */}
+                        <h3 className="text-xl font-bold text-blue-900 mb-4 group-hover:text-black transition-all duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Button at bottom */}
+                      <div className=" group mt-6 relative">
+                        <button
+                          onClick={() => openModal(service)}
+                          className="opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 
+                          text-sm font-semibold bg-yellow-400 text-black px-4 py-2 rounded-lg shadow-md hover:bg-yellow-500"
+                        >
+                          Learn More
+                        </button>
+                      </div>
+
                     </div>
                   </div>
-
-                  {/* Title + Description */}
-                  <h3 className="text-xl font-bold text-blue-900 mb-4 group-hover:text-black transition-all duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                    {service.description}
-                  </p>
                 </div>
-
-                {/* Button at bottom */}
-                <div className="mt-6">
-                  <button
-                    onClick={() => openModal(service)}
-                    className="text-sm font-semibold bg-blue-900 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200"
-                  >
-                    Learn More
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
-        );
-      })}
-    </div>
 
-  </div>
-</div>
+        </div>
+      </div>
 
       {/* Modal */}
       {isModalOpen && selectedService && (

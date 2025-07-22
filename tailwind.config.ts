@@ -88,6 +88,11 @@ export default {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			keyframes: {
+				/* Infinite scroll left-to-right */
+				'scroll-left-to-right': {
+					'0%': { transform: 'translateX(-50%)' },
+					'100%': { transform: 'translateX(0%)' },
+				},
 				/* moving grid */
 				moveGrid: {
 					"0%": { backgroundPosition: "0 0" },
@@ -148,6 +153,9 @@ export default {
 				float: "float 3s ease-in-out infinite",
 				glow: "glow 2s ease-in-out infinite",
 				"pulse-slow": "pulse-slow 3s ease-in-out infinite",
+
+				// 👇 NEW animation added
+				"infinite-scroll-ltr": "scroll-left-to-right 30s linear infinite",
 			},
 		},
 	},

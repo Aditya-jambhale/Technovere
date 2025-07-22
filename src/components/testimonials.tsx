@@ -1,38 +1,41 @@
 import React from 'react';
 
 const testimonials = [
-    {
-        name: 'Fiverr Client',
-        quote: 'Yusuf was very pleasant to deal with and did a great job in clarifying and following my instructions. Would definitely use his services again and recommend him.',
-    },
+   
     {
         name: 'Vinnum Shawti',
         title: 'Founder of itsvinnumshawti',
         quote: 'He listened to everything I asked!! Had me laughing at my own video! Skills are excellent! I Will work with him on future videos!',
+        image: '/testimonials/vinum.png',
     },
     {
         name: 'Angie Deborja',
         quote: 'Yusuf was fast and skilled in his video editing delivery of a zoom interview. He saved me a ton of time. Highly recommend.',
+        image: '/testimonials/Angie.png',
     },
     {
         name: 'Nicole Rhone',
         title: 'Podcast Host',
         quote: 'He was amazing to work with! He provided the best audio clips ahead of schedule. Excellent communication.',
+        image: '/testimonials/nicole.png',
     },
     {
         name: 'Brenda Denbesten',
         title: 'Speaker & Coach',
         quote: 'Finding Technovere has been a life saver! He took the time to understand my vision and over-delivered.',
+        image: '/testimonials/brenda.png',
     },
     {
         name: 'Marc',
         title: 'Entrepreneur',
         quote: 'Working with Yusuf was great. He had a sincere willingness to meet expectations and learn. Highly recommend.',
+        image: '/testimonials/marc.png',
     },
     {
         name: 'Sonya L. Thompson',
         title: 'Founder of ARISE Apostolic Network',
         quote: 'Excellent job! I do mean excellent. He pays great attention to detail. We will use his services from now on!',
+        image: '/testimonials/sonya.png',
     },
 ];
 
@@ -66,13 +69,33 @@ type ReviewCardProps = {
     name: string;
     title?: string;
     quote: string;
+    image?: string;
 };
 
-const ReviewCard = ({ name, title, quote }: ReviewCardProps) => (
+const ReviewCard = ({ name, title, quote, image }: ReviewCardProps) => (
     <div className="w-[340px] sm:w-[380px] md:w-[450px] lg:w-[480px] flex-shrink-0 bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-all min-h-[200px] flex flex-col justify-start">
         <div className="flex items-center gap-3 mb-4">
-            <div className="rounded-full bg-gradient-to-br from-blue-500 to-purple-600 w-10 h-10 flex items-center justify-center text-white font-bold text-lg">
-                {name.charAt(0)}
+            <div className="w-10 h-10 flex-shrink-0">
+                {image ? (
+                    <img
+                        src={image}
+                        alt={`${name} profile`}
+                        className="w-full h-full rounded-full object-cover border-2 border-gray-200"
+                        onError={(e) => {
+                            // Fallback to letter circle if image fails to load
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.nextElementSibling instanceof HTMLElement) {
+                                e.currentTarget.nextElementSibling.style.display = 'flex';
+                            }
+                        }}
+                    />
+                ) : null}
+                <div
+                    className="rounded-full bg-gradient-to-br from-blue-500 to-purple-600 w-full h-full flex items-center justify-center text-white font-bold text-lg"
+                    style={{ display: image ? 'none' : 'flex' }}
+                >
+                    {name.charAt(0)}
+                </div>
             </div>
             <div className="flex flex-col">
                 <div className="text-sm font-semibold text-gray-800">{name}</div>
@@ -85,7 +108,6 @@ const ReviewCard = ({ name, title, quote }: ReviewCardProps) => (
     </div>
 );
 
-
 const Testimonials = () => {
     const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
     const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
@@ -95,7 +117,7 @@ const Testimonials = () => {
             <div className="max-w-7xl mx-auto text-center mb-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A8A]">What Our Clients Say?</h2>
                 <p className="text-base md:text-lg text-black/60 font-semibold mt-2">
-                    Don't just take our word for it – here’s what our amazing clients say.
+                    Don't just take our word for it – here's what our amazing clients say.
                 </p>
             </div>
 
@@ -120,17 +142,16 @@ const Testimonials = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1200 120"
                     preserveAspectRatio="none"
-                    className="relative block w-[calc(130%+1.3px)] h-[60px] translate-y-[15px] pr-6" // 👈 Added translate-y and padding-right
+                    className="relative block w-[calc(130%+1.3px)] h-[60px] translate-y-[15px] pr-6"
                 >
                     <path
                         d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-         -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-         C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
+                        C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
                         fill="#1E3A8A"
                     />
                 </svg>
             </div>
-
         </section>
     );
 };

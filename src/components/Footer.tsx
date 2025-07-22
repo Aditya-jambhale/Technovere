@@ -1,7 +1,8 @@
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Linkedin, Instagram, Globe2Icon } from 'lucide-react';
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { SiFiverr } from 'react-icons/si';
 import { useEffect, useState } from 'react';
+import { Globe } from './magicui/globe';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -48,9 +49,9 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#1E3A8A] text-white py-8 sm:py-12 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 text-center sm:text-left">
           {/* Logo & Contact Info */}
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="md:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
             <div className="flex items-center mb-4">
               <img
                 src="/images/footerimg2.png"
@@ -64,7 +65,7 @@ const Footer = () => {
             </p>
 
             <div className="space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center sm:justify-start">
                 <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-[#1E3A8A]" />
                 </div>
@@ -73,7 +74,7 @@ const Footer = () => {
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center sm:justify-start">
                 <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-[#1E3A8A]" />
                 </div>
@@ -85,7 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Services List */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col items-center sm:items-start">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Services</h4>
             <ul className="space-y-2 lg:space-y-3 font-inter text-gray-300">
               {services.map((service, index) => (
@@ -97,7 +98,7 @@ const Footer = () => {
           </div>
 
           {/* Company Navigation */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col items-center sm:items-start">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Company</h4>
             <ul className="space-y-2 lg:space-y-3 font-inter text-gray-300">
               {navigationItems.map((item) => (
@@ -113,21 +114,37 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="lg:col-span-1">
+          {/* Social Links */}
+          <div className="lg:col-span-1 flex flex-col items-center sm:items-start">
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Stay Connected</h4>
-            <p className="text-gray-300 font-inter mb-4 text-sm sm:text-base">
-              Get updates on our latest projects and tech insights.
+            <p className="text-gray-300 font-inter mb-4 text-sm sm:text-base text-center sm:text-left">
+              Follow us for updates and behind-the-scenes content.
             </p>
-            <div className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 bg-white border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADEF] text-sm sm:text-base"
-              />
-              <button className="px-6 py-2 bg-yellow-400 text-white font-semibold rounded-md hover:bg-blue-800 transition-colors text-sm sm:text-[#1E3A8A]">
-                Subscribe
-              </button>
+            <div className="flex gap-4 justify-center sm:justify-start">
+              <a
+                href="https://www.linkedin.com/company/technovere-solution/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white rounded-full hover:bg-yellow-400 transition-colors duration-300"
+              >
+                <Linkedin className="w-5 h-5 text-[#1E3A8A]" />
+              </a>
+              <a
+                href="https://www.instagram.com/technovere/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white rounded-full hover:bg-yellow-400 transition-colors duration-300"
+              >
+                <Instagram className="w-5 h-5 text-[#1E3A8A]" />
+              </a>
+              <a
+                href="https://yourportfolio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white rounded-full hover:bg-yellow-400 transition-colors duration-300"
+              >
+                <Globe2Icon className="w-5 h-5 text-[#1E3A8A]" />
+              </a>
             </div>
           </div>
         </div>
@@ -152,40 +169,39 @@ const Footer = () => {
 
       {/* Responsive Floating CTA */}
       {isScrolled && (
-  <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
-    {showCTAs && (
-      <div className="flex flex-col items-center gap-2 sm:gap-3 mb-2 animate-slide-up">
-        <a
-          href="https://wa.me/+919792347498"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
-          aria-label="Contact via WhatsApp"
-        >
-          <FaWhatsapp className="w-5 h-5" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/digitallyusuf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
-          aria-label="Connect on LinkedIn"
-        >
-          <FaLinkedin className="w-5 h-5" />
-        </a>
-      </div>
-    )}
+        <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
+          {showCTAs && (
+            <div className="flex flex-col items-center gap-2 sm:gap-3 mb-2 animate-slide-up">
+              <a
+                href="https://wa.me/+919792347498"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
+                aria-label="Contact via WhatsApp"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/digitallyusuf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-md transition-transform hover:scale-105"
+                aria-label="Connect on LinkedIn"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+            </div>
+          )}
 
-    <button
-      onClick={toggleCTAs}
-      className="bg-yellow-400 text-black p-3 rounded-full shadow-md transition-all duration-300 hover:scale-105 focus:outline-none"
-      aria-label="Toggle contact buttons"
-    >
-      💬
-    </button>
-  </div>
-)}
-
+          <button
+            onClick={toggleCTAs}
+            className="bg-yellow-400 text-black p-3 rounded-full shadow-md transition-all duration-300 hover:scale-105 focus:outline-none"
+            aria-label="Toggle contact buttons"
+          >
+            💬
+          </button>
+        </div>
+      )}
 
       <style>{`
         @keyframes slideUp {

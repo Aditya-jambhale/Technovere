@@ -30,21 +30,22 @@ const Index = () => {
 
       {/* <Benefits /> */}
       <About />
-   <CTADesigns />
-      <AboutFounder/>
-      <FounderBrandPitch/>
-      <MovingLogoStrip />
+      <CTADesigns />
+      <AboutFounder />
+      <FounderBrandPitch />
+
       {/* <Cta2 /> */}
-     <CTABottomSection />
+      <CTABottomSection />
+      <MovingLogoStrip />
       <Services />
       <OurWork />
-      
+
 
       <Testimonials />
-  <TestimonialSection />
+      <TestimonialSection />
       <Process />
       <Processcta />
-         <CTA />
+      <CTA />
       <Footer />
     </div>
   );

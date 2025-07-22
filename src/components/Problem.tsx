@@ -74,7 +74,8 @@ const Problem = () => {
       <h3 className="text-xl font-bold text-gray-800">The Reality Check</h3>
     </div>
     <p className="text-base text-gray-700 leading-relaxed text-justify">
-      You've built real expertise and credibility offline. Your clients trust you and pay premium rates because they know you deliver results. But your website doesn't reflect that expertise - it looks generic and templated. Visitors can't see what makes you different, so they leave without understanding your value. We craft high-converting websites that reflect your authority and turn curious visitors into committed clients - before you even get on a call.
+      You've built real expertise and credibility offline. Your clients trust you and pay premium rates because they know you deliver results. But your website doesn't reflect that expertise - it looks generic and templated. Visitors can't see what makes you different, so they leave without understanding your value. 
+     <p className='mt-3'>We craft high-converting websites that reflect your authority and turn curious visitors into committed clients - before you even get on a call.</p> 
     </p>
   </div>
 </div>
