@@ -3,6 +3,7 @@ import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { SiFiverr } from 'react-icons/si';
 import { useEffect, useState } from 'react';
 import { Globe } from './magicui/globe';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,8 +24,10 @@ const Footer = () => {
     'Web Development',
     'App Development',
     'Shopify Development',
+    'Personal Branding',
     'Website Maintenance',
-    'Website Redesign'
+    'Website Redesign',
+
   ];
 
   const scrollToSection = (sectionId) => {
@@ -54,7 +57,7 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-1 flex flex-col items-center sm:items-start">
             <div className="flex items-center mb-4">
               <img
-                src="/images/footerimg2.png"
+                src="/images/mobilelogo.png"
                 alt="Technovere Logo"
                 className="w-32 sm:w-40 h-auto object-contain"
               />
@@ -66,19 +69,19 @@ const Footer = () => {
 
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center gap-3 justify-center sm:justify-start">
-                <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 bg-white hover:bg-yellow-400 transition-colors rounded-full flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-[#1E3A8A]" />
                 </div>
-                <a href="tel:+919792347498" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">
+                <a href="tel:+919792347498" className="text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base">
                   +91 9792347498
                 </a>
               </div>
 
               <div className="flex items-center gap-3 justify-center sm:justify-start">
-                <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 bg-white hover:bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-[#1E3A8A]" />
                 </div>
-                <a href="mailto:hr@technovere.com" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base break-all">
+                <a href="mailto:hr@technovere.com" className="text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base break-all">
                   hr@technovere.com
                 </a>
               </div>
@@ -90,7 +93,7 @@ const Footer = () => {
             <h4 className="font-sora font-semibold text-lg sm:text-xl mb-4 lg:mb-6 text-white">Services</h4>
             <ul className="space-y-2 lg:space-y-3 font-inter text-gray-300">
               {services.map((service, index) => (
-                <li key={index} className="hover:text-white transition-colors cursor-pointer text-sm sm:text-base">
+                <li key={index} className="hover:text-yellow-400 transition-colors cursor-pointer text-sm sm:text-base">
                   {service}
                 </li>
               ))}
@@ -105,7 +108,7 @@ const Footer = () => {
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="hover:text-white transition-colors cursor-pointer text-left text-sm sm:text-base"
+                    className="hover:text-yellow-400 transition-colors cursor-pointer text-left text-sm sm:text-base"
                   >
                     {item.label}
                   </button>
@@ -156,12 +159,12 @@ const Footer = () => {
               © {currentYear} Technovere. All rights reserved. Built with precision and passion.
             </p>
             <div className="flex items-center gap-4 sm:gap-6">
-              <a href="#privacy" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
                 Privacy Policy
-              </a>
-              <a href="#terms" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+              </Link>
+              <Link to="/terms-of-service" className="text-gray-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

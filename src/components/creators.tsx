@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Instagram, Youtube, Linkedin, Twitter, Mic, ChevronLeft, ChevronRight, Globe2, GlobeIcon } from 'lucide-react';
-import { Globe } from './magicui/globe';
+import { Instagram, Youtube, Linkedin, Twitter, Mic, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 
 const creators = [
     {
@@ -43,7 +42,7 @@ const creators = [
             website: "https://www.hamiora.com"
         },
         primaryIcon: Instagram,
-        secondaryIcon: GlobeIcon,
+        secondaryIcon: Globe,
         verified: true
     },
     {
@@ -79,7 +78,7 @@ const creators = [
         subtitle: "Founder, Build in Public",
         primaryStat: "58K Twitter",
         secondaryStat: "Entrepreneur",
-        profileImage: "https://via.placeholder.com/100x100/FFD700/000000?text=KP",
+        profileImage: "/creators/karthik.png",
         socialLinks: {
             twitter: "https://twitter.com/karthikpuvvada"
         },
@@ -114,16 +113,6 @@ const CreatorShowcase = () => {
         }
     }, [isPaused, isMobile]);
 
-    const handleCreatorClick = (creator) => {
-        const { socialLinks } = creator;
-        const primaryLink = socialLinks.instagram || socialLinks.youtube || 
-                            socialLinks.linkedin || socialLinks.twitter || 
-                            socialLinks.website || socialLinks.podcast;
-        if (primaryLink) {
-            window.open(primaryLink, '_blank');
-        }
-    };
-
     const handlePrevious = () => {
         setIsPaused(true);
         setCurrentIndex((prev) => (prev === 0 ? creators.length - 1 : prev - 1));
@@ -153,9 +142,6 @@ const CreatorShowcase = () => {
                         </h2>
                         <p className="text-base md:text-xl text-white max-w-3xl mx-auto px-4">
                             Trusted by some of the most influential creators across platforms.
-                            {/* <span className="block mt-2 text-sm md:text-lg text-white/80">
-                                Here's a glimpse of the creators who trust Technovere to elevate their brand:
-                            </span> */}
                         </p>
                     </div>
 
@@ -193,8 +179,7 @@ const CreatorShowcase = () => {
                                 <div className="flex justify-center px-8">
                                     <div
                                         key={currentIndex}
-                                        onClick={() => handleCreatorClick(creators[currentIndex])}
-                                        className="group relative w-80 max-w-[calc(100vw-4rem)] h-96 bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-500 cursor-pointer hover:scale-105 animate-fade-in"
+                                        className="group relative w-80 max-w-[calc(100vw-4rem)] h-[450px] bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-500 animate-fade-in"
                                     >
                                         <CreatorCard creator={creators[currentIndex]} />
                                     </div>
@@ -212,8 +197,7 @@ const CreatorShowcase = () => {
                                     {getVisibleCreators().map((creator, index) => (
                                         <div
                                             key={`${creator.name}-${index}`}
-                                            onClick={() => handleCreatorClick(creator)}
-                                            className="group relative flex-shrink-0 w-72 lg:w-80 h-96 lg:h-[420px] bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-300 cursor-pointer hover:scale-105"
+                                            className="group relative flex-shrink-0 w-72 lg:w-80 h-[450px] lg:h-[480px] bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-300"
                                         >
                                             <CreatorCard creator={creator} />
                                         </div>
@@ -244,18 +228,6 @@ const CreatorShowcase = () => {
                             </div>
                         )}
                     </div>
-
-                    {/* Bottom Call-to-Action */}
-                    {/* <div className="text-center bg-yellow-400/10 backdrop-blur-sm mt-20 rounded-2xl p-4 md:p-8 border border-yellow-400/20 animate-fade-in mx-2 md:mx-0">
-                        <p className="text-base md:text-lg text-white leading-relaxed">
-                            <span className="font-semibold text-yellow-400 block md:inline">
-                                Whether it's YouTube/Social Media Growth, Website Design, Podcast Production, or Brand trategy
-                            </span>
-                            <span className="block mt-2 text-white/90">
-                                —Technovere powers creator success behind the scenes.
-                            </span>
-                        </p>
-                    </div> */}
                 </div>
             </div>
 
@@ -279,6 +251,30 @@ const CreatorShowcase = () => {
 };
 
 const CreatorCard = ({ creator }) => {
+    const handleSocialClick = (platform, e) => {
+        e.stopPropagation(); // Prevent card click
+        const link = creator.socialLinks[platform];
+        if (link) {
+            window.open(link, '_blank');
+        }
+    };
+
+    const getPrimaryPlatform = () => {
+        if (creator.socialLinks.instagram) return 'instagram';
+        if (creator.socialLinks.youtube) return 'youtube';
+        if (creator.socialLinks.linkedin) return 'linkedin';
+        if (creator.socialLinks.twitter) return 'twitter';
+        if (creator.socialLinks.website) return 'website';
+        if (creator.socialLinks.podcast) return 'podcast';
+        return null;
+    };
+
+    const getSecondaryPlatform = () => {
+        const primary = getPrimaryPlatform();
+        const platforms = ['youtube', 'instagram', 'linkedin', 'twitter', 'website', 'podcast'];
+        return platforms.find(platform => platform !== primary && creator.socialLinks[platform]);
+    };
+
     return (
         <>
             <div className="flex justify-center mb-4 md:mb-6">
@@ -304,7 +300,7 @@ const CreatorCard = ({ creator }) => {
                 {creator.subtitle}
             </p>
 
-            <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+            <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                 <div className="flex items-center justify-between bg-white/10 rounded-xl p-2 md:p-3 border border-white/10 group-hover:border-yellow-400/20 transition-colors duration-300">
                     <span className="text-yellow-400 font-semibold text-xs md:text-sm">{creator.primaryStat}</span>
                     <creator.primaryIcon className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 flex-shrink-0" />
@@ -315,13 +311,25 @@ const CreatorCard = ({ creator }) => {
                 </div>
             </div>
 
-            <div className="flex justify-center space-x-3 md:space-x-4">
-                <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-yellow-400/20 rounded-lg rotate-45 flex items-center justify-center border border-yellow-400/30 group-hover:bg-yellow-400/30 transition-colors duration-300">
-                    <creator.primaryIcon className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 -rotate-45" />
-                </div>
-                <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-yellow-400/20 rounded-lg rotate-45 flex items-center justify-center border border-yellow-400/30 group-hover:bg-yellow-400/30 transition-colors duration-300">
-                    <creator.secondaryIcon className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 -rotate-45" />
-                </div>
+            {/* Clickable Social Icons */}
+            <div className="flex justify-center space-x-4 md:space-x-6">
+                <button
+                    onClick={(e) => handleSocialClick(getPrimaryPlatform(), e)}
+                    className="group/icon w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-yellow-400/20 rounded-2xl rotate-45 flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 hover:scale-110 hover:border-yellow-400/60 transition-all duration-300 cursor-pointer"
+                    aria-label={`Visit ${creator.name}'s ${getPrimaryPlatform()}`}
+                >
+                    <creator.primaryIcon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400 -rotate-45 group-hover/icon:text-yellow-300 transition-colors duration-300" />
+                </button>
+                
+                {getSecondaryPlatform() && (
+                    <button
+                        onClick={(e) => handleSocialClick(getSecondaryPlatform(), e)}
+                        className="group/icon w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-yellow-400/20 rounded-2xl rotate-45 flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 hover:scale-110 hover:border-yellow-400/60 transition-all duration-300 cursor-pointer"
+                        aria-label={`Visit ${creator.name}'s ${getSecondaryPlatform()}`}
+                    >
+                        <creator.secondaryIcon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400 -rotate-45 group-hover/icon:text-yellow-300 transition-colors duration-300" />
+                    </button>
+                )}
             </div>
 
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"></div>

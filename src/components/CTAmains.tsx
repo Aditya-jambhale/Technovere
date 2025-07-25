@@ -151,7 +151,7 @@ export const CTABottomSection = () => {
   <div className="flex flex-col sm:flex-row gap-3 items-center">
     {/* Case Studies Button */}
     <a
-      href="https://drive.google.com/your-case-studies-link"
+      href="https://docs.google.com/document/d/1V7goVWvPYH2QS-2xZkAoG5EfZ-YpbOCwbjqpY9dyRb4/edit?usp=sharing"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm text-white font-medium rounded-lg hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-white/10 hover:scale-105 whitespace-nowrap group relative overflow-hidden border border-white/20"
@@ -245,7 +245,7 @@ export const MovingLogoStrip = () => {
     { name: 'InnovateCo', src: '/companies/Arise.png' },
     { name: 'DataFlow', src: '/companies/education.png' },
     { name: 'CloudSync', src: '/companies/her.png' },
-    { name: 'AI Solutions', src: '/companies/intentional2.png' },
+    // { name: 'AI Solutions', src: '/companies/intentional2.png' },
     { name: 'NextGen', src: '/companies/kundlas.png' },
     { name: 'FutureTech', src: '/companies/new2.png' },
     { name: 'QuantumSoft', src: '/companies/sarvam.svg' },
@@ -254,7 +254,7 @@ export const MovingLogoStrip = () => {
     { name: 'Qua', src: '/companies/byjus.png' },
     { name: 'QuantumSot', src: '/companies/edwise.png' },
     { name: 'QuantumSft', src: '/companies/flind.png' },
-     { name: 'QuantumSft', src: '/companies/ashis.png' },
+    //  { name: 'QuantumSft', src: '/companies/ashis.png' },
 
   ];
 

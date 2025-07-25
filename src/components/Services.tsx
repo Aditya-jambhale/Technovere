@@ -52,104 +52,75 @@ const Services = () => {
     };
   }, [isModalOpen]);
 
-  const services = [
-    {
-      title: "Custom Web Development",
-      description: "Blazing-fast, SEO-optimized websites built to convert across all devices",
-      icon: Code,
-      details: [
-        "PHP Laravel High-Quality Coding Website with Fully Responsive",
-        "WordPress Responsive and SEO Friendly Website",
-        "We do Unlimited Revision till 100% Satisfaction",
-        "Easy to use Admin Panel",
-        "Uploading and Configuring your final Website to your Hosting"
-      ]
-    },
-    {
-      title: "Mobile App Development",
-      description: "Clean, intuitive apps for Android & iOS – tailored for product-market fit",
-      icon: Smartphone,
-      details: [
-        "Custom Application Development with UI/UX Design expertise",
-        "API Integration & Firebase Integration",
-        "In-App Purchase, Fitness, Ecommerce, and Calling Apps",
-        "Quiz App, Delivery App, Travel Agency App, Food Delivery App",
-        "Google Map Integration, Grocery & Store Apps",
-        "Website to Android App conversion",
-        "Member Login, Custom App Pages, Appointments/Forms",
-        "Password Protected features with technical support",
-        "Fast response with 100% client satisfaction guarantee"
-      ]
-    },
-    {
-      title: "Shopify eCommerce Stores",
-      description: "Conversion-focused eCom storefronts with optimized checkout flows",
-      icon: ShoppingCart,
-      details: [
-        "Custom Shopify theme development",
-        "Conversion-optimized checkout processes",
-        "Product catalog setup and management",
-        "Payment gateway integration",
-        "Inventory management system",
-        "SEO optimization for better visibility",
-        "Mobile-responsive design",
-        "Third-party app integrations"
-      ]
-    },
-    {
-      title: "Custom Software / SaaS",
-      description: "Secure, scalable platforms to solve business challenges or power products",
-      icon: Server,
-      details: [
-        "Custom software architecture and development",
-        "Cloud-based SaaS solutions",
-        "Database design and optimization",
-        "API development and integration",
-        "User authentication and authorization",
-        "Scalable infrastructure setup",
-        "Security implementation and testing",
-        "Performance monitoring and optimization"
-      ]
-    },
-    {
-      title: "Website Redesign & Maintenance",
-      description: "Complete redesign, optimization, and ongoing support to keep your site performing at its best",
-      icon: Wrench,
-      details: [
-        "Complete visual redesign with modern aesthetics",
-        "User experience (UX) optimization",
-        "Performance and speed enhancements",
-        "Mobile responsiveness improvements",
-        "SEO optimization and best practices",
-        "Content restructuring and optimization",
-        "Brand alignment and consistency",
-        "Conversion rate optimization",
-        "Security updates & regular backups",
-        "Speed optimization and performance monitoring",
-        "Blog uploads & content updates",
-        "Technical troubleshooting and bug fixes",
-        "Strategic consultations for growth",
-        "Continuous support to keep your site running smoothly"
-      ]
-    },
-    {
-      title: "Personal Branding",
-      description: "Build a powerful personal brand that attracts opportunities and amplifies your influence",
-      icon: User,
-      details: [
-        "Professional portfolio website development",
-        "Personal brand strategy and positioning",
-        "Social media presence optimization",
-        "Content strategy and blog setup",
-        "Professional photography guidance",
-        "LinkedIn and professional network optimization",
-        "Personal logo and visual identity design",
-        "Thought leadership content creation",
-        "Speaking and networking opportunity strategies",
-        "Online reputation management"
-      ]
-    }
-  ];
+const services = [
+  {
+    title: "Custom Web Development",
+    description:
+      "Fast, responsive websites built with Laravel or WordPress — SEO-ready and optimized for performance and conversion.",
+    icon: Code,
+    details: [
+      "Laravel & WordPress development",
+      "Fully responsive and SEO-friendly",
+      "Admin panel & hosting setup"
+    ]
+  },
+  {
+    title: "Mobile App Development",
+    description:
+      "Custom Android & iOS apps with intuitive UI/UX, real-time features, and seamless performance across devices.",
+    icon: Smartphone,
+    details: [
+      "Modern UI/UX design",
+      "API & Firebase integration",
+      "Fitness, eCommerce, travel & more"
+    ]
+  },
+  {
+    title: "Shopify eCommerce Stores",
+    description:
+      "Visually appealing, mobile-optimized Shopify stores with custom designs, smooth checkouts, and product integration.",
+    icon: ShoppingCart,
+    details: [
+      "Custom themes & product catalog",
+      "Optimized checkout & SEO",
+      "Payment and inventory setup"
+    ]
+  },
+  {
+    title: "Custom Software / SaaS",
+    description:
+      "Scalable, cloud-based software and SaaS platforms tailored to your business — secure, efficient, and user-ready.",
+    icon: Server,
+    details: [
+      "Custom software architecture",
+      "Cloud hosting & APIs",
+      "Security & performance built-in"
+    ]
+  },
+  {
+    title: "Website Redesign & Maintenance",
+    description:
+      "Transform your site with a modern design, improved speed, SEO, and continuous support for peak performance.",
+    icon: Wrench,
+    details: [
+      "Redesign with UX focus",
+      "SEO, speed & mobile fixes",
+      "Ongoing support & updates"
+    ]
+  },
+  {
+    title: "Personal Branding",
+    description:
+      "Build a standout online presence with a personal site, social media strategy, and content that grows your influence.",
+    icon: User,
+    details: [
+      "Portfolio website creation",
+      "Brand strategy & identity",
+      "Social profile & content setup"
+    ]
+  }
+];
+
 
   return (
     <section
@@ -171,7 +142,7 @@ const Services = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -181,33 +152,33 @@ const Services = () => {
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   <div className="relative h-full">
-                    {/* Card container */}
-                    <div className="relative bg-white p-8 rounded-2xl border-2 border-gray-200 h-full flex flex-col justify-between transition-all duration-500 group-hover:bg-gray-50 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-yellow-400">
+                    {/* Card container - Fixed width changes */}
+                    <div className="relative bg-white p-6 md:p-8 rounded-2xl border-2 border-gray-200 h-full min-h-[320px] md:min-h-[360px] flex flex-col justify-between transition-all duration-300 group-hover:bg-gray-50 group-hover:shadow-2xl group-hover:border-yellow-400 group-hover:-translate-y-2">
 
                       {/* Top section: Icon + Content */}
-                      <div>
+                      <div className="flex-1">
                         {/* Icon */}
-                        <div className="mb-6">
-                          <div className="w-16 h-16 rounded-xl bg-blue-900 p-3 group-hover:bg-yellow-400 group-hover:scale-110 transition-all duration-300 shadow-lg ">
-                            <IconComponent className="w-full h-full text-white group-hover:text-black" />
+                        <div className="mb-4 md:mb-6">
+                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-900 p-2.5 md:p-3 group-hover:bg-yellow-400 transition-all duration-300 shadow-lg transform group-hover:scale-105">
+                            <IconComponent className="w-full h-full text-white group-hover:text-black transition-colors duration-300" />
                           </div>
                         </div>
 
                         {/* Title + Description */}
-                        <h3 className="text-xl font-bold text-blue-900 mb-4 group-hover:text-black transition-all duration-300">
+                        <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4 group-hover:text-black transition-colors duration-300 leading-tight">
                           {service.title}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                        <p className="text-sm md:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                           {service.description}
                         </p>
                       </div>
 
                       {/* Button at bottom */}
-                      <div className=" group mt-6 relative">
+                      <div className="mt-2 md:mt-2 pt-2">
                         <button
                           onClick={() => openModal(service)}
-                          className="opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 
-                          text-sm font-semibold bg-yellow-400 text-black px-4 py-2 rounded-lg shadow-md hover:bg-yellow-500"
+                          className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0
+                          text-xs md:text-sm font-semibold bg-yellow-400 text-black px-3 md:px-4 py-2 rounded-lg shadow-md hover:bg-yellow-500 hover:shadow-lg active:scale-95"
                         >
                           Learn More
                         </button>
@@ -233,7 +204,7 @@ const Services = () => {
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-blue-900 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
+          <div className="relative bg-blue-900 rounded-2xl p-6 md:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/20">
             {/* Close button */}
             <button
               onClick={closeModal}
@@ -244,20 +215,20 @@ const Services = () => {
 
             {/* Modal Header */}
             <div className="mb-6">
-              <div className="w-16 h-16 rounded-xl bg-yellow-400 p-3 mb-4 shadow-lg">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-yellow-400 p-2.5 md:p-3 mb-4 shadow-lg">
                 <selectedService.icon className="w-full h-full text-black" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
                 {selectedService.title}
               </h3>
-              <p className="text-white/80 text-lg">
+              <p className="text-white/80 text-base md:text-lg">
                 {selectedService.description}
               </p>
             </div>
 
             {/* Service Details */}
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-white mb-4">What we provide:</h4>
+              <h4 className="text-lg md:text-xl font-semibold text-white mb-4">What we provide:</h4>
               <div className="space-y-3">
                 {selectedService.details.map((detail, index) => (
                   <div key={index} className="flex items-start space-x-3">
@@ -266,7 +237,7 @@ const Services = () => {
                         <Check className="w-3 h-3 text-white" />
                       </div>
                     </div>
-                    <p className="text-white/90 leading-relaxed">{detail}</p>
+                    <p className="text-sm md:text-base text-white/90 leading-relaxed">{detail}</p>
                   </div>
                 ))}
               </div>
@@ -296,23 +267,6 @@ const Services = () => {
           animation: float 6s ease-in-out infinite;
         }
       `}</style>
-      {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] ">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="relative block w-[calc(130%+1.3px)] h-[60px]"
-        >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39
-              -57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8
-                C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            fill="#1E3A8A"
-
-          ></path>
-        </svg>
-      </div> */}
     </section>
   );
 };

@@ -163,13 +163,13 @@ const Header = () => {
                 <img
                   src="/images/mobilelogo.png"
                   alt="Technovere Mobile Logo"
-                  className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-36 h-10' : 'w-40 h-12'}`}
+                  className={`object-contain transition-all duration-500  ${isScrolled ? 'w-36 h-10' : 'w-40 h-12'}`}
                 />
               ) : (
                 <img
                   src="/images/logo.png"
                   alt="Technovere Logo"
-                  className={`object-contain transition-all duration-500 hover:scale-110 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'}`}
+                  className={`object-contain transition-all duration-500 ${isScrolled ? 'w-48 h-10 sm:w-48 sm:h-10' : 'w-52 h-14 sm:w-52 sm:h-14'}`}
                 />
               )}
             </div>
@@ -185,11 +185,10 @@ const Header = () => {
                     style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
                     {item.label}
-                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-500 group-hover:w-full rounded-full ${
-                      isScrolled 
-                        ? 'bg-gradient-to-r from-yellow-300 to-yellow-500' 
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-500 group-hover:w-full rounded-full ${isScrolled
+                        ? 'bg-gradient-to-r from-yellow-300 to-yellow-500'
                         : 'bg-gradient-to-r from-yellow-300 to-yellow-500'
-                    }`}></span>
+                      }`}></span>
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white opacity-30 transition-all duration-300 group-hover:w-full rounded-full delay-75"></span>
                   </button>
                 ))}
@@ -203,18 +202,18 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-               <Button
-  className={`font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden text-black bg-yellow-400 hover:bg-yellow-500 shadow-lg`}
-  style={{
-    animation: isLoaded ? 'fadeInUp 0.8s ease-out 1.3s both' : 'none'
-  }}
->
-  <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
-  <span className="flex items-center gap-2 relative z-10">
-    <Phone className="w-4 h-4 transition-transform duration-300 hover:rotate-12 text-[#1E3A8A]" />
-    BOOK A CALL
-  </span>
-</Button>
+                <Button
+                  className={`font-poppins font-semibold px-4 xl:px-6 py-2.5 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-500 text-sm xl:text-base whitespace-nowrap transform hover:-translate-y-1 hover:rotate-1 relative overflow-hidden text-black bg-yellow-400 hover:bg-yellow-500 shadow-lg`}
+                  style={{
+                    animation: isLoaded ? 'fadeInUp 0.8s ease-out 1.3s both' : 'none'
+                  }}
+                >
+                  <span className="shimmer-effect absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="flex items-center gap-2 relative z-10">
+                    <Phone className="w-4 h-4 transition-transform duration-300 hover:rotate-12 text-[#1E3A8A]" />
+                    BOOK A CALL
+                  </span>
+                </Button>
 
               </a>
             </div>
@@ -222,11 +221,10 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <div className="xl:hidden flex-shrink-0">
               <button
-                className={`p-2 rounded-lg transition-all backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${
-                  isScrolled 
-                    ? 'bg-white/90 shadow-lg border border-gray-200/50' 
+                className={`p-2 rounded-lg transition-all backdrop-blur-sm hover:scale-110 active:scale-95 relative z-50 ${isScrolled
+                    ? 'bg-white/90 shadow-lg border border-gray-200/50'
                     : 'bg-white/80'
-                }`}
+                  }`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}

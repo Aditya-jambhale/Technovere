@@ -35,7 +35,7 @@ const projects: Project[] = [
         name: "Anish Lalchandani",
         category: "Personal",
         url: "http://anishlalchandani.com/",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+        image: "/creators/Anish.png",
         description: "Professional portfolio website",
         tagline: "Personal Portfolio"
     },
@@ -44,7 +44,7 @@ const projects: Project[] = [
         name: "Kundlas MD",
         category: "Doctor",
         url: "http://kundlasmd.com/",
-        image: "https://kundlasmd.com/wp-content/uploads/2023/11/cropped-20231106_103951_0000-2048x927.png",
+        image: "/companies/kundlas.png",
         description: "Medical practice digital presence",
         tagline: "Healthcare Professional"
     },
@@ -57,21 +57,21 @@ const projects: Project[] = [
         description: "Brain health and wellness platform",
         tagline: "Wellness & Education"
     },
-    {
-        id: 6,
-        name: "360 Program",
-        category: "Education",
-        url: "https://360program.org",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
-        description: "Comprehensive educational initiative",
-        tagline: "Educational Excellence"
-    },
+    // {
+    //     id: 6,
+    //     name: "360 Program",
+    //     category: "Education",
+    //     url: "https://360program.org",
+    //     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+    //     description: "Comprehensive educational initiative",
+    //     tagline: "Educational Excellence"
+    // },
     {
         id: 7,
         name: "Intentional Rivers",
         category: "Coach",
         url: "https://intentionalrivers.com",
-        image: "https://intentionalrivers.com/wp-content/uploads/2025/01/PNG.png",
+        image: "/companies/intentional2.png",
         description: "Life coaching and personal development",
         tagline: "Life Transformation"
     },
@@ -80,7 +80,7 @@ const projects: Project[] = [
         name: "eVision Her",
         category: "Business",
         url: "https://evisionher.com",
-        image: "https://evisionher.com/wp-content/uploads/2024/08/Logo.png",
+        image: "/companies/her.png",
         description: "Women's entrepreneurship platform",
         tagline: "Empowering Women"
     },
@@ -89,7 +89,7 @@ const projects: Project[] = [
         name: "Renewal Symposium",
         category: "Event",
         url: "https://renewalsymposium.com",
-        image: "https://renewalsymposium.com/wp-content/uploads/2024/08/defd.png",
+        image: "/companies/new2.png",
         description: "Professional development conference",
         tagline: "Professional Growth"
     }
