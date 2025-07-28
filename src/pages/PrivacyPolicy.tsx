@@ -1,13 +1,22 @@
 import React from 'react';
-
+import { ChevronLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
     return (
         <>
             <section className='bg-gray-300'>
+                <div className="max-w-3xl mx-auto p-6 text-gray-800 text-justify">
 
-                <div className="max-w-3xl  mx-auto p-6 text-gray-800 text-justify">
-                    <h1 className="text-3xl font-bold mb-4  ">Privacy Policy</h1>
+                    {/* Back Arrow */}
+                    <div className="mb-6">
+                        <Link to="/" className="flex items-center text-blue-700 hover:text-blue-900 transition-all">
+                            <ChevronLeft className="mr-2" />
+                            Back to Home
+                        </Link>
+                    </div>
+
+                    <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
                     <p className="mb-4">Last Updated: July 25, 2025</p>
 
                     <h2 className="text-xl font-semibold mt-6 mb-2">1. Information We Collect</h2>

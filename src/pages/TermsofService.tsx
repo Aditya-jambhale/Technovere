@@ -1,11 +1,19 @@
 import React from 'react';
 import Header from '../components/Header';
+import { ChevronLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TermsOfService = () => {
     return (
         <>
 
             <div className="max-w-3xl mx-auto p-6 text-gray-800 text-justify">
+                  <div className="mb-6">
+                        <Link to="/" className="flex items-center text-blue-700 hover:text-blue-900 transition-all">
+                            <ChevronLeft className="mr-2" />
+                            Back to Home
+                        </Link>
+                    </div>
                 <h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
                 <p className="mb-4">Last Updated: July 25, 2025</p>
 
