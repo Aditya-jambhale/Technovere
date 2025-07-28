@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowRight, Star, Users, Trophy } from 'lucide-react';
 import { Phone } from 'lucide-react';
-import CalendlyEmbed from './calendely';
+
 
 // Typing component for the main heading
 const TypingText = ({
@@ -169,7 +169,7 @@ const PremiumCTAFooter = () => {
                   <div id="calendar-embed" className="relative z-10">
                     <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
                       <iframe
-                        src="https://calendly.com/mohammadyusuf025/30min?month=2025-06"
+                        src="https://calendly.com/mohammadyusuf025/30min"
                         width="100%"
                         height="500"
                         style={{

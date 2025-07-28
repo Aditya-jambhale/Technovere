@@ -80,7 +80,7 @@ const creators = [
         secondaryStat: "Entrepreneur",
         profileImage: "/creators/karthik.png",
         socialLinks: {
-            twitter: "https://twitter.com/karthikpuvvada"
+            twitter: "https://x.com/thisiskp_"
         },
         primaryIcon: Twitter,
         secondaryIcon: Instagram,
@@ -95,23 +95,46 @@ const CreatorShowcase = () => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    // Infinite Scroll for Desktop
     useEffect(() => {
-        if (!isPaused && !isMobile) {
+        if (!isMobile && scrollRef.current) {
+            const scrollContainer = scrollRef.current;
+            let animationFrameId;
+            const speed = 0.5;
+
+            const animateScroll = () => {
+                if (!isPaused) {
+                    scrollContainer.scrollLeft += speed;
+                    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+                        scrollContainer.scrollLeft = 0;
+                    }
+                }
+                animationFrameId = requestAnimationFrame(animateScroll);
+            };
+
+            animateScroll();
+
+            return () => cancelAnimationFrame(animationFrameId);
+        }
+    }, [isPaused, isMobile]);
+
+    // Auto-slide for mobile
+    useEffect(() => {
+        if (isMobile && !isPaused) {
             const interval = setInterval(() => {
-                setCurrentIndex((prev) => (prev === creators.length - 1 ? 0 : prev + 1));
+                setCurrentIndex((prev) => (prev + 1) % creators.length);
             }, 3000);
             return () => clearInterval(interval);
         }
     }, [isPaused, isMobile]);
+
+    const getVisibleCreators = () => [...creators, ...creators, ...creators];
 
     const handlePrevious = () => {
         setIsPaused(true);
@@ -121,138 +144,83 @@ const CreatorShowcase = () => {
 
     const handleNext = () => {
         setIsPaused(true);
-        setCurrentIndex((prev) => (prev === creators.length - 1 ? 0 : prev + 1));
+        setCurrentIndex((prev) => (prev + 1) % creators.length);
         setTimeout(() => setIsPaused(false), 2000);
     };
 
-    const getVisibleCreators = () => {
-        if (isMobile) {
-            return [creators[currentIndex]];
-        }
-        return [...creators, ...creators, ...creators];
-    };
-
     return (
-        <div className=" mt-10 p-4 md:p-8">
+        <div className="mt-10 p-4 md:p-8">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-4 md:mb-2 animate-fade-in">
-                    <div className="text-center mb-4 md:mb-14">
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-yellow-400 mb-4">
-                            Top Creators We've Worked With
-                        </h2>
-                        <p className="text-base md:text-xl text-white max-w-3xl mx-auto px-4">
-                            Trusted by some of the most influential creators across platforms.
-                        </p>
-                    </div>
+                <div className="text-center mb-10">
+                    <h2 className="text-2xl md:text-4xl font-bold text-yellow-400 mb-2">
+                        Top Creators We've Worked With
+                    </h2>
+                    <p className="text-white text-base md:text-lg">
+                        Trusted by some of the most influential creators across platforms.
+                    </p>
+                </div>
 
-                    <div className="relative">
-                        {/* Mobile Navigation Buttons */}
-                        {isMobile && (
-                            <>
-                                <button
-                                    onClick={handlePrevious}
-                                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-yellow-400/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 transition-all duration-300"
-                                    aria-label="Previous creator"
-                                >
-                                    <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
-                                </button>
-                                
-                                <button
-                                    onClick={handleNext}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-yellow-400/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 transition-all duration-300"
-                                    aria-label="Next creator"
-                                >
-                                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
-                                </button>
-                            </>
-                        )}
+                <div className="relative">
+                    {/* Mobile Nav Buttons */}
+                    {isMobile && (
+                        <>
+                            <button onClick={handlePrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-yellow-400/20 rounded-full flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40">
+                                <ChevronLeft className="text-yellow-400" />
+                            </button>
+                            <button onClick={handleNext} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-yellow-400/20 rounded-full flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40">
+                                <ChevronRight className="text-yellow-400" />
+                            </button>
+                        </>
+                    )}
 
-                        {/* Scroll Container */}
-                        <div 
-                            className="overflow-hidden mb-6 md:mb-8"
-                            ref={scrollRef}
-                            onMouseEnter={() => !isMobile && setIsPaused(true)}
-                            onMouseLeave={() => !isMobile && setIsPaused(false)}
-                        >
-                            {isMobile ? (
-                                // Mobile: Single card view with smooth transitions
-                                <div className="flex justify-center px-8">
-                                    <div
-                                        key={currentIndex}
-                                        className="group relative w-80 max-w-[calc(100vw-4rem)] h-[450px] bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-500 animate-fade-in"
-                                    >
-                                        <CreatorCard creator={creators[currentIndex]} />
+                    <div className="overflow-hidden" ref={scrollRef}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                    >
+                        {isMobile ? (
+                            <div className="flex justify-center">
+                                <div className="w-80">
+                                    <CreatorCard creator={creators[currentIndex]} />
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="flex space-x-6 w-max">
+                                {getVisibleCreators().map((creator, idx) => (
+                                    <div key={`${creator.name}-${idx}`} className="w-72 lg:w-80">
+                                        <CreatorCard creator={creator} />
                                     </div>
-                                </div>
-                            ) : (
-                                // Desktop: Infinite scroll
-                                <div
-                                    className="flex space-x-6 transition-transform duration-1000 ease-linear"
-                                    style={{
-                                        width: `${getVisibleCreators().length * 320}px`,
-                                        transform: isPaused ? 'translateX(0)' : `translateX(-${(currentIndex % creators.length) * 320}px)`,
-                                        animation: !isPaused ? 'infinite-scroll 30s linear infinite' : 'none'
-                                    }}
-                                >
-                                    {getVisibleCreators().map((creator, index) => (
-                                        <div
-                                            key={`${creator.name}-${index}`}
-                                            className="group relative flex-shrink-0 w-72 lg:w-80 h-[450px] lg:h-[480px] bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:border-yellow-400/40 transition-all duration-300"
-                                        >
-                                            <CreatorCard creator={creator} />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Mobile Pagination Dots */}
-                        {isMobile && (
-                            <div className="flex justify-center space-x-2">
-                                {creators.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => {
-                                            setCurrentIndex(index);
-                                            setIsPaused(true);
-                                            setTimeout(() => setIsPaused(false), 2000);
-                                        }}
-                                        className={`h-2 rounded-full transition-all duration-300 ${
-                                            index === currentIndex 
-                                                ? 'bg-yellow-400 w-6' 
-                                                : 'bg-white/30 hover:bg-white/50 w-2'
-                                        }`}
-                                        aria-label={`Go to creator ${index + 1}`}
-                                    />
                                 ))}
                             </div>
                         )}
                     </div>
+
+                    {/* Pagination Dots for Mobile */}
+                    {isMobile && (
+                        <div className="flex justify-center mt-4 space-x-2">
+                            {creators.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setCurrentIndex(index);
+                                        setIsPaused(true);
+                                        setTimeout(() => setIsPaused(false), 2000);
+                                    }}
+                                    className={`h-2 rounded-full transition-all duration-300 ${
+                                        index === currentIndex ? 'bg-yellow-400 w-6' : 'bg-white/30 w-2'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
-
-            <style>{`
-                @keyframes infinite-scroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-${creators.length * 320}px); }
-                }
-                
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                
-                .animate-fade-in {
-                    animation: fade-in 0.6s ease-out forwards;
-                }
-            `}</style>
         </div>
     );
 };
 
 const CreatorCard = ({ creator }) => {
     const handleSocialClick = (platform, e) => {
-        e.stopPropagation(); // Prevent card click
+        e.stopPropagation();
         const link = creator.socialLinks[platform];
         if (link) {
             window.open(link, '_blank');
@@ -272,68 +240,56 @@ const CreatorCard = ({ creator }) => {
     const getSecondaryPlatform = () => {
         const primary = getPrimaryPlatform();
         const platforms = ['youtube', 'instagram', 'linkedin', 'twitter', 'website', 'podcast'];
-        return platforms.find(platform => platform !== primary && creator.socialLinks[platform]);
+        return platforms.find(p => p !== primary && creator.socialLinks[p]);
     };
 
     return (
-        <>
-            <div className="flex justify-center mb-4 md:mb-6">
-                <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden border-4 border-yellow-400/30 group-hover:border-yellow-400/60 transition-colors duration-300">
-                    <img 
-                        src={creator.profileImage} 
-                        alt={creator.name}
-                        className="w-full h-full object-cover"
-                    />
+        <div className="group bg-white/10 backdrop-blur-md p-6 rounded-3xl h-[450px] border border-white/20 hover:border-yellow-400/40 transition-all duration-300 relative">
+            <div className="flex justify-center mb-4">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-yellow-400/30 group-hover:border-yellow-400/60 transition">
+                    <img src={creator.profileImage} alt={creator.name} className="w-full h-full object-cover" />
                     {creator.verified && (
-                        <div className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white">
-                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 lg:w-2.5 lg:h-2.5 bg-blue-800 rounded-full"></div>
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white">
+                            <div className="w-2 h-2 bg-blue-800 rounded-full"></div>
                         </div>
                     )}
                 </div>
             </div>
 
-            <h3 className="text-white font-bold text-lg md:text-xl lg:text-2xl text-center mb-2 group-hover:text-yellow-400 transition-colors duration-300">
+            <h3 className="text-white font-bold text-xl text-center group-hover:text-yellow-400 transition">
                 {creator.name}
             </h3>
+            <p className="text-white/70 text-sm text-center mb-6">{creator.subtitle}</p>
 
-            <p className="text-white/70 text-xs md:text-sm text-center mb-4 md:mb-6 leading-relaxed min-h-[2.5rem]">
-                {creator.subtitle}
-            </p>
-
-            <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
-                <div className="flex items-center justify-between bg-white/10 rounded-xl p-2 md:p-3 border border-white/10 group-hover:border-yellow-400/20 transition-colors duration-300">
-                    <span className="text-yellow-400 font-semibold text-xs md:text-sm">{creator.primaryStat}</span>
-                    <creator.primaryIcon className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 flex-shrink-0" />
+            <div className="space-y-2 mb-10">
+                <div className="flex justify-between items-center bg-white/10 p-3 rounded-xl border border-white/10 group-hover:border-yellow-400/20 transition mb-6 mt-10">
+                    <span className="text-yellow-400 font-medium text-sm">{creator.primaryStat}</span>
+                    <creator.primaryIcon className="w-6 h-6 text-yellow-400" />
                 </div>
-                <div className="flex items-center justify-between bg-white/10 rounded-xl p-2 md:p-3 border border-white/10 group-hover:border-yellow-400/20 transition-colors duration-300">
-                    <span className="text-yellow-400 font-semibold text-xs md:text-sm">{creator.secondaryStat}</span>
-                    <creator.secondaryIcon className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 flex-shrink-0" />
+                <div className="flex justify-between items-center bg-white/10 p-3 rounded-xl border border-white/10 group-hover:border-yellow-400/20 transition">
+                    <span className="text-yellow-400 font-medium text-sm">{creator.secondaryStat}</span>
+                    <creator.secondaryIcon className="w-6 h-6 text-yellow-400" />
                 </div>
             </div>
 
-            {/* Clickable Social Icons */}
-            <div className="flex justify-center space-x-4 md:space-x-6">
+            <div className="flex justify-center space-x-4 mt-10">
                 <button
                     onClick={(e) => handleSocialClick(getPrimaryPlatform(), e)}
-                    className="group/icon w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-yellow-400/20 rounded-2xl rotate-45 flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 hover:scale-110 hover:border-yellow-400/60 transition-all duration-300 cursor-pointer"
-                    aria-label={`Visit ${creator.name}'s ${getPrimaryPlatform()}`}
+                    className="w-12 h-12 bg-yellow-400/20 rotate-45 rounded-2xl border border-yellow-400/30 hover:bg-yellow-400/40 flex items-center justify-center hover:scale-110 transition"
                 >
-                    <creator.primaryIcon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400 -rotate-45 group-hover/icon:text-yellow-300 transition-colors duration-300" />
+                    <creator.primaryIcon className="-rotate-45 text-yellow-400" />
                 </button>
-                
+
                 {getSecondaryPlatform() && (
                     <button
                         onClick={(e) => handleSocialClick(getSecondaryPlatform(), e)}
-                        className="group/icon w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-yellow-400/20 rounded-2xl rotate-45 flex items-center justify-center border border-yellow-400/30 hover:bg-yellow-400/40 hover:scale-110 hover:border-yellow-400/60 transition-all duration-300 cursor-pointer"
-                        aria-label={`Visit ${creator.name}'s ${getSecondaryPlatform()}`}
+                        className="w-12 h-12 bg-yellow-400/20 rotate-45 rounded-2xl border border-yellow-400/30 hover:bg-yellow-400/40 flex items-center justify-center hover:scale-110 transition"
                     >
-                        <creator.secondaryIcon className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400 -rotate-45 group-hover/icon:text-yellow-300 transition-colors duration-300" />
+                        <creator.secondaryIcon className="-rotate-45 text-yellow-400" />
                     </button>
                 )}
             </div>
-
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"></div>
-        </>
+        </div>
     );
 };
 
